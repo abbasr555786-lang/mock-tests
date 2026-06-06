@@ -1,0 +1,25 @@
+{
+  "name": "Mockly — Indian Competitive Exam Mock Tests",
+  "short_name": "Mockly",
+  "description": "Computer-Based Test (CBT) style mock tests for SSC, JEE, CAT, GATE and other Indian competitive exams.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef1f5",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><defs><linearGradient id='g' x1='0' y1='0' x2='48' y2='48' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%232547a8'/><stop offset='1' stop-color='%230d9488'/></linearGradient></defs><rect width='48' height='48' rx='11' fill='url(%23g)'/><path d='M10 34 V14 L24 28 L38 14 L34 30 L46 18' fill='none' stroke='%23ffffff' stroke-width='4.6' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><defs><linearGradient id='g' x1='0' y1='0' x2='48' y2='48' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%232547a8'/><stop offset='1' stop-color='%230d9488'/></linearGradient></defs><rect width='48' height='48' rx='11' fill='url(%23g)'/><path d='M10 34 V14 L24 28 L38 14 L34 30 L46 18' fill='none' stroke='%23ffffff' stroke-width='4.6' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

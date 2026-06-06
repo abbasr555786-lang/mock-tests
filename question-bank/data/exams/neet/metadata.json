@@ -1,0 +1,24 @@
+{
+  "code": "NEET",
+  "name": "NEET-UG",
+  "fullForm": "National Eligibility cum Entrance Test (Undergraduate)",
+  "conductingBody": "National Testing Agency (NTA)",
+  "level": "UG",
+  "mode": "Offline",
+  "totalDurationMinutes": 200,
+  "languages": ["English", "Hindi", "Assamese", "Bengali", "Gujarati", "Kannada", "Marathi", "Malayalam", "Odia", "Punjabi", "Tamil", "Telugu", "Urdu"],
+  "sections": [
+    { "code": "PHY", "name": "Physics", "subjects": ["Physics"], "questionCount": 45 },
+    { "code": "CHE", "name": "Chemistry", "subjects": ["Chemistry"], "questionCount": 45 },
+    { "code": "BOT", "name": "Botany", "subjects": ["Botany"], "questionCount": 45 },
+    { "code": "ZOO", "name": "Zoology", "subjects": ["Zoology"], "questionCount": 45 }
+  ],
+  "markingScheme": {
+    "MCQ": { "correct": 4, "incorrect": -1, "unattempted": 0 }
+  },
+  "defaultMarking": { "correct": 4, "incorrect": -1, "unattempted": 0 },
+  "metadata": {
+    "totalQuestions": 180,
+    "subjectShortCodes": { "Physics": "phy", "Chemistry": "che", "Botany": "bot", "Zoology": "zoo" }
+  }
+}

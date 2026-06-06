@@ -1,0 +1,452 @@
+[
+  {
+    "id": "neet-fp1-che-01",
+    "section": "Chemistry",
+    "text": "What mass of CaCO₃ is required to produce 5.6 L of CO₂ at STP on complete decomposition? (CaCO₃ → CaO + CO₂; molar mass CaCO₃ = 100 g mol⁻¹)",
+    "options": ["10 g", "25 g", "50 g", "100 g"],
+    "correct": 1,
+    "topic": "Mole concept & stoichiometry",
+    "difficulty": "easy-medium",
+    "explanation": "5.6 L at STP = 5.6/22.4 = 0.25 mol CO₂. Stoichiometry is 1:1, so 0.25 mol CaCO₃ is needed = 0.25 × 100 = 25 g. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-02",
+    "section": "Chemistry",
+    "text": "An organic compound contains 40% carbon, 6.67% hydrogen and the rest oxygen by mass. Its empirical formula is:",
+    "options": ["CH₂O", "C₂H₄O", "CHO", "C₂H₆O"],
+    "correct": 0,
+    "topic": "Mole concept & stoichiometry",
+    "difficulty": "medium",
+    "explanation": "O = 100 − 40 − 6.67 = 53.33%. Moles: C = 40/12 = 3.33; H = 6.67/1 = 6.67; O = 53.33/16 = 3.33. Divide by 3.33 → C:H:O = 1:2:1. Empirical formula CH₂O. Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-03",
+    "section": "Chemistry",
+    "text": "The total number of unpaired electrons in the ground-state configuration of a Cr atom (Z = 24) is:",
+    "options": ["3", "4", "5", "6"],
+    "correct": 3,
+    "topic": "Atomic structure",
+    "difficulty": "medium",
+    "explanation": "Cr has the anomalous configuration [Ar]3d⁵4s¹ (extra stability of the half-filled 3d and half-filled 4s). All five 3d electrons are unpaired and the single 4s electron is unpaired, giving a total of 5 + 1 = 6 unpaired electrons. Option (4)."
+  },
+  {
+    "id": "neet-fp1-che-04",
+    "section": "Chemistry",
+    "text": "The energy of an electron in the ground state of a hydrogen atom is −13.6 eV. The energy required to excite the electron from n = 1 to n = 2 is:",
+    "options": ["3.4 eV", "10.2 eV", "13.6 eV", "1.51 eV"],
+    "correct": 1,
+    "topic": "Atomic structure",
+    "difficulty": "medium",
+    "explanation": "E₁ = −13.6 eV; E₂ = −13.6/2² = −3.4 eV. ΔE = E₂ − E₁ = −3.4 − (−13.6) = 10.2 eV. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-05",
+    "section": "Chemistry",
+    "text": "For an ideal gas undergoing isothermal reversible expansion, which of the following is true?",
+    "options": ["ΔU = 0 and q = −w", "ΔU > 0 and q = 0", "ΔH > 0 and w = 0", "ΔU = 0 and q = w"],
+    "correct": 0,
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "explanation": "For an ideal gas, U depends only on temperature; isothermal means ΔT = 0 so ΔU = 0 (and ΔH = 0). By first law ΔU = q + w = 0, hence q = −w. During expansion the gas does work (w negative) and absorbs heat (q positive). Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-06",
+    "section": "Chemistry",
+    "text": "Given C(s) + O₂(g) → CO₂(g), ΔH = −393.5 kJ mol⁻¹ and CO(g) + ½O₂(g) → CO₂(g), ΔH = −283.0 kJ mol⁻¹. The enthalpy of formation of CO(g) is:",
+    "options": ["−110.5 kJ mol⁻¹", "−676.5 kJ mol⁻¹", "+110.5 kJ mol⁻¹", "−283.0 kJ mol⁻¹"],
+    "correct": 0,
+    "topic": "Thermodynamics",
+    "difficulty": "medium-hard",
+    "explanation": "C + ½O₂ → CO. By Hess's law subtract the second equation from the first: ΔH = (−393.5) − (−283.0) = −110.5 kJ mol⁻¹. Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-07",
+    "section": "Chemistry",
+    "text": "The pH of a 0.001 M HCl solution at 25 °C is:",
+    "options": ["2", "3", "11", "1"],
+    "correct": 1,
+    "topic": "Ionic equilibrium",
+    "difficulty": "easy",
+    "explanation": "HCl is a strong acid, fully dissociated: [H⁺] = 0.001 = 10⁻³ M. pH = −log(10⁻³) = 3. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-08",
+    "section": "Chemistry",
+    "text": "The solubility product (Ksp) of AgCl is 1.8 × 10⁻¹⁰ at 25 °C. Its molar solubility in pure water is approximately:",
+    "options": ["1.8 × 10⁻¹⁰ M", "1.34 × 10⁻⁵ M", "9.0 × 10⁻⁵ M", "1.34 × 10⁻¹⁰ M"],
+    "correct": 1,
+    "topic": "Ionic equilibrium",
+    "difficulty": "medium",
+    "explanation": "For AgCl ⇌ Ag⁺ + Cl⁻, Ksp = s². s = √(1.8 × 10⁻¹⁰) = 1.34 × 10⁻⁵ M. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-09",
+    "section": "Chemistry",
+    "text": "Standard electrode potentials are E°(Zn²⁺/Zn) = −0.76 V and E°(Cu²⁺/Cu) = +0.34 V. The standard EMF of the Daniell cell (Zn | Zn²⁺ || Cu²⁺ | Cu) is:",
+    "options": ["+0.42 V", "+1.10 V", "−1.10 V", "−0.42 V"],
+    "correct": 1,
+    "topic": "Electrochemistry",
+    "difficulty": "easy-medium",
+    "explanation": "E°cell = E°cathode − E°anode = E°(Cu²⁺/Cu) − E°(Zn²⁺/Zn) = 0.34 − (−0.76) = +1.10 V. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-10",
+    "section": "Chemistry",
+    "text": "A current of 1.93 A is passed through molten AlCl₃ for 1 hour. The mass of aluminium (atomic mass 27, F = 96500 C) deposited at the cathode is approximately:",
+    "options": ["0.32 g", "0.65 g", "0.97 g", "1.94 g"],
+    "correct": 1,
+    "topic": "Electrochemistry",
+    "difficulty": "hard",
+    "explanation": "Charge Q = I × t = 1.93 × 3600 = 6948 C. Al³⁺ + 3e⁻ → Al, so equivalent mass = 27/3 = 9 g per 96500 C. Mass = (9 × 6948)/96500 = 62532/96500 ≈ 0.648 g ≈ 0.65 g. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-11",
+    "section": "Chemistry",
+    "text": "For a first-order reaction, the half-life is 20 minutes. The time required for the reactant concentration to fall to 1/8 of its initial value is:",
+    "options": ["40 min", "60 min", "80 min", "160 min"],
+    "correct": 1,
+    "topic": "Chemical kinetics",
+    "difficulty": "medium",
+    "explanation": "For first order, half-life is constant. 1/8 = (1/2)³, i.e. three half-lives. Time = 3 × 20 = 60 min. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-12",
+    "section": "Chemistry",
+    "text": "The rate constant of a reaction roughly doubles for every 10 °C rise in temperature. This empirical observation is best explained by:",
+    "options": ["A decrease in activation energy with temperature", "An increase in the fraction of molecules with energy ≥ Ea (Arrhenius/Maxwell–Boltzmann)", "A decrease in the number of collisions", "An increase in the threshold energy"],
+    "correct": 1,
+    "topic": "Chemical kinetics",
+    "difficulty": "medium",
+    "explanation": "As temperature rises, the Maxwell–Boltzmann distribution shifts so a much larger fraction of molecules has energy ≥ Ea; via the Arrhenius equation k = A e^(−Ea/RT), k increases sharply (≈ doubles per 10 °C). Ea itself is essentially constant. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-13",
+    "section": "Chemistry",
+    "text": "The molality of a solution prepared by dissolving 9.8 g of H₂SO₄ (molar mass 98 g mol⁻¹) in 500 g of water is:",
+    "options": ["0.1 m", "0.2 m", "0.5 m", "1.0 m"],
+    "correct": 1,
+    "topic": "Solutions",
+    "difficulty": "easy-medium",
+    "explanation": "Moles H₂SO₄ = 9.8/98 = 0.1 mol. Molality = moles solute / kg solvent = 0.1/0.5 = 0.2 m. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-14",
+    "section": "Chemistry",
+    "text": "An aqueous solution of glucose (non-volatile, non-electrolyte) boils at a higher temperature than pure water. The colligative property responsible and its key feature is:",
+    "options": ["Elevation of boiling point, depends on number of solute particles", "Depression of freezing point only", "Osmotic pressure, depends on solute identity", "Lowering of vapour pressure that depends on solute mass"],
+    "correct": 0,
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "explanation": "A non-volatile solute lowers the vapour pressure, raising the boiling point. This boiling-point elevation (ΔTb = i·Kb·m) is a colligative property depending on the number of solute particles, not their identity. Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-15",
+    "section": "Chemistry",
+    "text": "In the reaction MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O, the change in oxidation number of manganese is:",
+    "options": ["+7 to +2, a gain of 5 electrons", "+2 to +7, a loss of 5 electrons", "+6 to +2, a gain of 4 electrons", "+7 to +4, a gain of 3 electrons"],
+    "correct": 0,
+    "topic": "Redox reactions",
+    "difficulty": "medium",
+    "explanation": "In MnO₄⁻, Mn is +7; in Mn²⁺ it is +2. Mn is reduced, gaining 5 electrons (each Fe²⁺→Fe³⁺ supplies 1 e⁻, and 5 Fe²⁺ supply 5 e⁻). Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-16",
+    "section": "Chemistry",
+    "text": "The equilibrium constant Kc for a reaction is 4 × 10⁻². At equilibrium the reaction mixture, compared to standard state, indicates that:",
+    "options": ["Products dominate strongly", "Reactants are favoured (Kc < 1)", "The reaction has gone to completion", "ΔG° is large and negative"],
+    "correct": 1,
+    "topic": "Chemical equilibrium",
+    "difficulty": "easy-medium",
+    "explanation": "Kc = 0.04 < 1, so at equilibrium the reactant concentrations exceed product concentrations; the position of equilibrium lies toward the reactants. A small K corresponds to a positive ΔG°. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-17",
+    "section": "Chemistry",
+    "text": "Which of the following ions has the smallest ionic radius?",
+    "options": ["Na⁺", "Mg²⁺", "Al³⁺", "F⁻"],
+    "correct": 2,
+    "topic": "Periodicity",
+    "difficulty": "medium",
+    "explanation": "Na⁺, Mg²⁺, Al³⁺ and F⁻ are isoelectronic (10 electrons each). For isoelectronic species, ionic radius decreases as nuclear charge increases. Al³⁺ (Z = 13) has the highest nuclear charge, hence the smallest radius. Option (3)."
+  },
+  {
+    "id": "neet-fp1-che-18",
+    "section": "Chemistry",
+    "text": "Among the following, the element with the highest first ionization enthalpy is:",
+    "options": ["Boron", "Carbon", "Nitrogen", "Oxygen"],
+    "correct": 2,
+    "topic": "Periodicity",
+    "difficulty": "medium-hard",
+    "explanation": "Nitrogen (2p³, half-filled stable) has an anomalously high first ionization enthalpy, greater than oxygen (2p⁴), whose paired electron experiences extra repulsion making one electron easier to remove. So order is N > O > C > B. Option (3)."
+  },
+  {
+    "id": "neet-fp1-che-19",
+    "section": "Chemistry",
+    "text": "According to VSEPR theory, the shape of the SF₄ molecule (S has one lone pair) is:",
+    "options": ["Tetrahedral", "Square planar", "See-saw (distorted tetrahedral)", "Trigonal pyramidal"],
+    "correct": 2,
+    "topic": "Chemical bonding",
+    "difficulty": "medium-hard",
+    "explanation": "SF₄ has 4 bond pairs + 1 lone pair = 5 electron domains (sp³d, trigonal bipyramidal arrangement). The lone pair occupies an equatorial position, giving a see-saw shape. Option (3)."
+  },
+  {
+    "id": "neet-fp1-che-20",
+    "section": "Chemistry",
+    "text": "The correct order of bond order for O₂, O₂⁺ and O₂⁻ according to molecular orbital theory is:",
+    "options": ["O₂⁺ > O₂ > O₂⁻", "O₂⁻ > O₂ > O₂⁺", "O₂ > O₂⁺ > O₂⁻", "O₂⁺ > O₂⁻ > O₂"],
+    "correct": 0,
+    "topic": "Chemical bonding",
+    "difficulty": "hard",
+    "explanation": "Bond order = (Nb − Na)/2. O₂ has bond order 2.0. Removing an electron from an antibonding π* orbital (O₂⁺) raises it to 2.5; adding an electron to π* (O₂⁻) lowers it to 1.5. Hence O₂⁺ (2.5) > O₂ (2.0) > O₂⁻ (1.5). Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-21",
+    "section": "Chemistry",
+    "text": "In the coordination compound [Co(NH₃)₆]Cl₃, the coordination number and oxidation state of cobalt are respectively:",
+    "options": ["3 and +3", "6 and +3", "6 and +2", "3 and +6"],
+    "correct": 1,
+    "topic": "Coordination compounds",
+    "difficulty": "medium",
+    "explanation": "Six NH₃ ligands (each neutral, monodentate) give coordination number 6. The complex ion charge is +3 (balanced by 3 Cl⁻); since NH₃ is neutral, Co is +3. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-22",
+    "section": "Chemistry",
+    "text": "Which of the following complexes will exhibit geometrical (cis–trans) isomerism?",
+    "options": ["[Co(NH₃)₆]³⁺", "[Pt(NH₃)₂Cl₂] (square planar)", "[Ni(CN)₄]²⁻", "[Co(en)₃]³⁺"],
+    "correct": 1,
+    "topic": "Coordination compounds",
+    "difficulty": "medium-hard",
+    "explanation": "Square-planar MA₂B₂ complexes such as [Pt(NH₃)₂Cl₂] show cis–trans isomerism. [Co(NH₃)₆]³⁺ has identical ligands (no geometrical isomers), [Ni(CN)₄]²⁻ has four identical ligands, and [Co(en)₃]³⁺ shows optical (not geometrical) isomerism. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-23",
+    "section": "Chemistry",
+    "text": "Among the hydrides of group 15 elements (NH₃, PH₃, AsH₃, SbH₃), the one with the highest boiling point is:",
+    "options": ["PH₃", "AsH₃", "NH₃", "SbH₃"],
+    "correct": 3,
+    "topic": "p-block elements",
+    "difficulty": "medium-hard",
+    "explanation": "NH₃ is anomalously high due to hydrogen bonding, but among PH₃, AsH₃, SbH₃ boiling point rises with molecular size. The overall highest boiling point belongs to SbH₃ (largest, strongest van der Waals forces), which exceeds even NH₃. Order: SbH₃ > NH₃ > AsH₃ > PH₃. Option (4)."
+  },
+  {
+    "id": "neet-fp1-che-24",
+    "section": "Chemistry",
+    "text": "The brown ring test for nitrate ions gives a brown complex whose formula is:",
+    "options": ["[Fe(H₂O)₅NO]²⁺", "[Fe(H₂O)₆]³⁺", "Fe(NO₃)₃", "[Fe(CN)₅NO]²⁻"],
+    "correct": 0,
+    "topic": "p-block elements",
+    "difficulty": "medium-hard",
+    "explanation": "In the brown ring test, NO produced by reduction of nitrate combines with Fe²⁺ to form the brown complex [Fe(H₂O)₅NO]²⁺ (nitrosyl iron), in which iron is in the +1 oxidation state. Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-25",
+    "section": "Chemistry",
+    "text": "The pair of transition metal ions that are both colourless in aqueous solution is:",
+    "options": ["Cu²⁺ and Fe³⁺", "Sc³⁺ and Zn²⁺", "Mn²⁺ and Ni²⁺", "Co²⁺ and Cr³⁺"],
+    "correct": 1,
+    "topic": "d & f block elements",
+    "difficulty": "medium",
+    "explanation": "Colour in transition-metal ions arises from d–d transitions, which require partially filled d orbitals. Sc³⁺ is d⁰ and Zn²⁺ is d¹⁰; both lack possible d–d transitions and are colourless. The other ions have partly filled d orbitals and are coloured. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-26",
+    "section": "Chemistry",
+    "text": "In the metallurgy of iron in a blast furnace, the role of limestone (CaCO₃) is to:",
+    "options": ["Act as a reducing agent for iron oxide", "Form slag by combining with silica impurities", "Lower the melting point of iron only", "Oxidise carbon to carbon dioxide"],
+    "correct": 1,
+    "topic": "Metallurgy",
+    "difficulty": "medium",
+    "explanation": "Limestone decomposes to CaO, which combines with the acidic SiO₂ gangue to form fusible calcium silicate slag (CaSiO₃). This removes the silica impurity. Reduction is done by CO/coke. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-27",
+    "section": "Chemistry",
+    "text": "Which of the following is the correct order of basic strength in aqueous solution for group 1 and 2 hydroxides?",
+    "options": ["NaOH > KOH > CsOH", "Be(OH)₂ > Mg(OH)₂ > Ca(OH)₂", "Mg(OH)₂ > Ca(OH)₂ > Ba(OH)₂", "LiOH < NaOH < KOH < CsOH"],
+    "correct": 3,
+    "topic": "Hydrogen & s-block elements",
+    "difficulty": "medium",
+    "explanation": "Down a group the metal–OH bond becomes more ionic and the hydroxide more basic. For alkali metals: LiOH < NaOH < KOH < RbOH < CsOH. Option (4)."
+  },
+  {
+    "id": "neet-fp1-che-28",
+    "section": "Chemistry",
+    "text": "Hydrogen peroxide (H₂O₂) acts as both an oxidising and a reducing agent. When it reduces acidified KMnO₄, the oxidation state of oxygen in H₂O₂ changes from:",
+    "options": ["−1 to 0", "−2 to 0", "−1 to −2", "0 to −1"],
+    "correct": 0,
+    "topic": "Hydrogen & s-block elements",
+    "difficulty": "medium-hard",
+    "explanation": "In H₂O₂ oxygen is in the −1 state. As a reducing agent toward KMnO₄ it is oxidised to O₂ (oxidation state 0), releasing electrons that reduce Mn. So O goes from −1 to 0. Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-29",
+    "section": "Chemistry",
+    "text": "The most stable carbocation among the following is:",
+    "options": ["CH₃⁺ (methyl)", "CH₃CH₂⁺ (ethyl, 1°)", "(CH₃)₂CH⁺ (isopropyl, 2°)", "(CH₃)₃C⁺ (tert-butyl, 3°)"],
+    "correct": 3,
+    "topic": "GOC & isomerism",
+    "difficulty": "easy-medium",
+    "explanation": "Carbocation stability increases with the number of electron-donating alkyl groups (+I and hyperconjugation): 3° > 2° > 1° > methyl. The tert-butyl cation is the most stable. Option (4)."
+  },
+  {
+    "id": "neet-fp1-che-30",
+    "section": "Chemistry",
+    "text": "The number of structural (chain + position) isomers possible for the molecular formula C₅H₁₂ is:",
+    "options": ["2", "3", "4", "5"],
+    "correct": 1,
+    "topic": "GOC & isomerism",
+    "difficulty": "easy-medium",
+    "explanation": "C₅H₁₂ (pentane) has three structural isomers: n-pentane, 2-methylbutane (isopentane) and 2,2-dimethylpropane (neopentane). Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-31",
+    "section": "Chemistry",
+    "text": "Which of the following compounds will show geometrical (cis–trans) isomerism?",
+    "options": ["2-butene (CH₃CH=CHCH₃)", "Propene (CH₃CH=CH₂)", "1-butene (CH₂=CHCH₂CH₃)", "2-methylpropene"],
+    "correct": 0,
+    "topic": "Hydrocarbons",
+    "difficulty": "medium",
+    "explanation": "Geometrical isomerism requires each doubly-bonded carbon to bear two different groups. In 2-butene each sp² carbon has H and CH₃ (different), giving cis and trans forms. The others have a =CH₂ or two identical groups on one carbon, so no cis/trans. Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-32",
+    "section": "Chemistry",
+    "text": "Markovnikov's rule is best illustrated by the addition of HBr to propene, which gives predominantly:",
+    "options": ["1-bromopropane", "2-bromopropane", "1,2-dibromopropane", "3-bromopropene"],
+    "correct": 1,
+    "topic": "Hydrocarbons",
+    "difficulty": "medium",
+    "explanation": "By Markovnikov's rule, H adds to the carbon bearing more H atoms; Br adds to the more substituted carbon (forming the more stable 2° carbocation). Propene + HBr → 2-bromopropane (CH₃CHBrCH₃). Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-33",
+    "section": "Chemistry",
+    "text": "In the reaction of CH₃Br with aqueous KOH, the mechanism predominantly followed is:",
+    "options": ["SN1 with carbocation intermediate", "SN2 with backside attack and inversion", "E1 elimination", "Free-radical substitution"],
+    "correct": 1,
+    "topic": "Haloalkanes & haloarenes",
+    "difficulty": "medium",
+    "explanation": "Methyl (and primary) halides undergo SN2: the nucleophile OH⁻ attacks the carbon from the side opposite to the leaving group in a single concerted step, giving inversion of configuration. SN1 is favoured for 3° halides. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-34",
+    "section": "Chemistry",
+    "text": "Chlorobenzene is much less reactive than chloromethane toward nucleophilic substitution mainly because:",
+    "options": ["Chlorine in chlorobenzene is more electronegative", "The C–Cl bond has partial double-bond character due to resonance", "Benzene ring is electron deficient", "Chlorobenzene is non-polar"],
+    "correct": 1,
+    "topic": "Haloalkanes & haloarenes",
+    "difficulty": "medium-hard",
+    "explanation": "In chlorobenzene the lone pair on chlorine delocalises into the ring, giving the C–Cl bond partial double-bond character. This shortens and strengthens the bond, making the C–Cl harder to break, so nucleophilic substitution is very difficult. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-35",
+    "section": "Chemistry",
+    "text": "Phenol is more acidic than ethanol primarily because:",
+    "options": ["Phenol has a higher molecular mass", "The phenoxide ion is resonance-stabilised", "Ethanol is insoluble in water", "Phenol contains a benzene ring that is basic"],
+    "correct": 1,
+    "topic": "Alcohols, phenols & ethers",
+    "difficulty": "medium",
+    "explanation": "On losing H⁺, phenol forms the phenoxide ion whose negative charge is delocalised over the aromatic ring by resonance, stabilising it. The ethoxide ion from ethanol has no such stabilisation, so phenol (pKa ≈ 10) is far more acidic than ethanol (pKa ≈ 16). Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-36",
+    "section": "Chemistry",
+    "text": "Williamson's synthesis is the best method for preparing:",
+    "options": ["Symmetrical ethers only", "Both symmetrical and unsymmetrical ethers from alkyl halide and alkoxide", "Aldehydes", "Esters"],
+    "correct": 1,
+    "topic": "Alcohols, phenols & ethers",
+    "difficulty": "medium",
+    "explanation": "Williamson's synthesis reacts a sodium alkoxide (R– O⁻Na⁺) with an alkyl halide (R'–X) via SN2 to give R–O–R'. It works for both symmetrical and unsymmetrical ethers; primary alkyl halides give the best yields. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-37",
+    "section": "Chemistry",
+    "text": "Which of the following will give a positive iodoform test?",
+    "options": ["Ethanol (CH₃CH₂OH)", "Methanol (CH₃OH)", "Propan-1-ol (CH₃CH₂CH₂OH)", "Diethyl ether"],
+    "correct": 0,
+    "topic": "Aldehydes, ketones & carboxylic acids",
+    "difficulty": "medium",
+    "explanation": "The iodoform test is positive for compounds containing a CH₃CO– group or a CH₃CH(OH)– group (which can be oxidised to CH₃CO–). Ethanol has the CH₃CH(OH)– unit and gives a positive test. Methanol, propan-1-ol and ethers lack this group. Option (1)."
+  },
+  {
+    "id": "neet-fp1-che-38",
+    "section": "Chemistry",
+    "text": "The correct order of acidic strength among the following carboxylic acids is:",
+    "options": ["CH₃COOH > ClCH₂COOH > Cl₂CHCOOH", "Cl₃CCOOH > Cl₂CHCOOH > ClCH₂COOH > CH₃COOH", "CH₃COOH > Cl₃CCOOH", "ClCH₂COOH < CH₃COOH"],
+    "correct": 1,
+    "topic": "Aldehydes, ketones & carboxylic acids",
+    "difficulty": "medium-hard",
+    "explanation": "Electron-withdrawing Cl atoms (−I effect) stabilise the carboxylate anion, increasing acidity. More Cl atoms = stronger acid. Hence trichloroacetic > dichloroacetic > monochloroacetic > acetic acid. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-39",
+    "section": "Chemistry",
+    "text": "Aniline (C₆H₅NH₂) is a weaker base than ethylamine because:",
+    "options": ["Aniline has a smaller molecular mass", "The lone pair on N is delocalised into the benzene ring", "Ethylamine is a secondary amine", "Aniline is insoluble in water"],
+    "correct": 1,
+    "topic": "Amines",
+    "difficulty": "medium",
+    "explanation": "In aniline the nitrogen lone pair is delocalised into the aromatic ring by resonance, making it less available for protonation. In ethylamine the lone pair is fully available and the alkyl group is electron-donating (+I), so ethylamine is a stronger base. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-40",
+    "section": "Chemistry",
+    "text": "When aniline is treated with NaNO₂ and dilute HCl at 0–5 °C, the product formed is:",
+    "options": ["Nitrobenzene", "Benzene diazonium chloride", "Phenol", "Acetanilide"],
+    "correct": 1,
+    "topic": "Amines",
+    "difficulty": "medium-hard",
+    "explanation": "Primary aromatic amines undergo diazotisation with nitrous acid (NaNO₂ + HCl) at low temperature (0–5 °C) to give benzene diazonium chloride (C₆H₅N₂⁺Cl⁻), which is stable only when cold. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-41",
+    "section": "Chemistry",
+    "text": "The bond that links two monosaccharide units in a disaccharide such as sucrose is called:",
+    "options": ["Peptide bond", "Glycosidic bond", "Phosphodiester bond", "Hydrogen bond"],
+    "correct": 1,
+    "topic": "Biomolecules",
+    "difficulty": "easy",
+    "explanation": "Monosaccharide units are joined by a glycosidic linkage formed between the anomeric carbon of one sugar and a hydroxyl of another with loss of water. In sucrose it is an α,β-1,2-glycosidic bond. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-42",
+    "section": "Chemistry",
+    "text": "Which of the following statements about proteins is correct?",
+    "options": ["Proteins are polymers of monosaccharides", "The secondary structure (α-helix/β-sheet) is stabilised by hydrogen bonds", "Peptide bonds are formed between two hydroxyl groups", "All proteins are made of D-amino acids"],
+    "correct": 1,
+    "topic": "Biomolecules",
+    "difficulty": "medium",
+    "explanation": "Proteins are polymers of α-amino acids (naturally L-form) linked by peptide bonds (between –COOH and –NH₂). The secondary structure (α-helix and β-pleated sheet) is stabilised by hydrogen bonding between the C=O and N–H groups of the backbone. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-43",
+    "section": "Chemistry",
+    "text": "Which of the following is an example of a condensation (step-growth) polymer?",
+    "options": ["Polythene", "Nylon-6,6", "Polyvinyl chloride (PVC)", "Polypropylene"],
+    "correct": 1,
+    "topic": "Polymers",
+    "difficulty": "medium",
+    "explanation": "Nylon-6,6 is formed by condensation polymerisation between hexamethylenediamine and adipic acid with elimination of water. Polythene, PVC and polypropylene are addition (chain-growth) polymers of alkene monomers. Option (2)."
+  },
+  {
+    "id": "neet-fp1-che-44",
+    "section": "Chemistry",
+    "text": "Aspirin, a well-known drug, acts pharmacologically as an:",
+    "options": ["Antibiotic", "Antacid", "Analgesic and antipyretic", "Antihistamine"],
+    "correct": 2,
+    "topic": "Chemistry in everyday life",
+    "difficulty": "easy",
+    "explanation": "Aspirin (acetylsalicylic acid) relieves pain (analgesic) and reduces fever (antipyretic); it also has anti-inflammatory and anti-blood-clotting effects. It is not an antibiotic, antacid or antihistamine. Option (3)."
+  },
+  {
+    "id": "neet-fp1-che-45",
+    "section": "Chemistry",
+    "text": "Sodium benzoate is commonly added to food and beverages to act as a:",
+    "options": ["Sweetening agent", "Food preservative", "Antioxidant emulsifier", "Artificial colour"],
+    "correct": 1,
+    "topic": "Chemistry in everyday life",
+    "difficulty": "easy-medium",
+    "explanation": "Sodium benzoate is a widely used food preservative; it inhibits the growth of microorganisms (especially in acidic foods), preventing spoilage. Sweeteners (e.g., saccharin), antioxidants (e.g., BHT) and dyes serve other purposes. Option (2)."
+  }
+]

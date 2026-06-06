@@ -1,0 +1,25 @@
+{
+  "code": "JEE",
+  "name": "JEE Main",
+  "fullForm": "Joint Entrance Examination (Main)",
+  "conductingBody": "National Testing Agency (NTA)",
+  "level": "UG",
+  "mode": "Online",
+  "totalDurationMinutes": 180,
+  "languages": ["English", "Hindi", "Assamese", "Bengali", "Gujarati", "Kannada", "Marathi", "Malayalam", "Odia", "Punjabi", "Tamil", "Telugu", "Urdu"],
+  "sections": [
+    { "code": "PHY", "name": "Physics", "subjects": ["Physics"], "questionCount": 25, "durationMinutes": 60 },
+    { "code": "CHE", "name": "Chemistry", "subjects": ["Chemistry"], "questionCount": 25, "durationMinutes": 60 },
+    { "code": "MAT", "name": "Mathematics", "subjects": ["Mathematics"], "questionCount": 25, "durationMinutes": 60 }
+  ],
+  "markingScheme": {
+    "MCQ": { "correct": 4, "incorrect": -1, "unattempted": 0 },
+    "NAT": { "correct": 4, "incorrect": -1, "unattempted": 0 }
+  },
+  "defaultMarking": { "correct": 4, "incorrect": -1, "unattempted": 0 },
+  "metadata": {
+    "totalQuestions": 75,
+    "attemptableQuestions": 75,
+    "subjectShortCodes": { "Physics": "phy", "Chemistry": "che", "Mathematics": "mat" }
+  }
+}

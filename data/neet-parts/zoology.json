@@ -1,0 +1,452 @@
+[
+  {
+    "id": "neet-fp1-zoo-01",
+    "section": "Zoology",
+    "text": "Which one of the following animal groups is characterised by the presence of cnidoblasts (nematocytes) used for anchorage, defence and capture of prey?",
+    "options": ["Porifera", "Cnidaria", "Ctenophora", "Platyhelminthes"],
+    "correct": 1,
+    "topic": "Animal Kingdom",
+    "difficulty": "easy",
+    "explanation": "Cnidoblasts (stinging cells) bearing nematocysts are the defining feature of phylum Cnidaria (Coelenterata), used in defence and prey capture (NCERT Class 11, Animal Kingdom). Ctenophores have colloblasts, not cnidoblasts."
+  },
+  {
+    "id": "neet-fp1-zoo-02",
+    "section": "Zoology",
+    "text": "The presence of a true coelom lined entirely by mesoderm (eucoelomate) and a body divided into segments (metameric segmentation) is first seen in which phylum?",
+    "options": ["Aschelminthes", "Annelida", "Mollusca", "Arthropoda"],
+    "correct": 1,
+    "topic": "Animal Kingdom",
+    "difficulty": "medium",
+    "explanation": "Annelids are the first phylum showing both a true coelom (mesoderm-lined) and true metameric segmentation (NCERT Class 11). Aschelminthes are pseudocoelomate and unsegmented; arthropods and molluscs come later in classification."
+  },
+  {
+    "id": "neet-fp1-zoo-03",
+    "section": "Zoology",
+    "text": "Which of the following is a correct match of an animal with its respiratory/water-transport structure?",
+    "options": ["Echinodermata – nephridia", "Arthropoda – water vascular system", "Echinodermata – water vascular system", "Mollusca – trachea"],
+    "correct": 2,
+    "topic": "Animal Kingdom",
+    "difficulty": "medium",
+    "explanation": "The water vascular system is the unique locomotory/feeding system of phylum Echinodermata (NCERT Class 11). Arthropods use tracheae, molluscs use gills/ctenidia, and nephridia are excretory structures of annelids."
+  },
+  {
+    "id": "neet-fp1-zoo-04",
+    "section": "Zoology",
+    "text": "In the classification of chordates, the notochord is present only in the tail region and only during the larval stage in members of:",
+    "options": ["Cyclostomata", "Urochordata", "Cephalochordata", "Vertebrata"],
+    "correct": 1,
+    "topic": "Animal Kingdom",
+    "difficulty": "medium-hard",
+    "explanation": "In Urochordata (e.g. Ascidia) the notochord is restricted to the tail of the larva and is lost in the adult (NCERT Class 11). In Cephalochordata it extends from head to tail throughout life; in vertebrates it is replaced by the vertebral column."
+  },
+  {
+    "id": "neet-fp1-zoo-05",
+    "section": "Zoology",
+    "text": "Which type of animal tissue has cells embedded in an abundant intercellular matrix and includes blood, bone and cartilage?",
+    "options": ["Epithelial tissue", "Connective tissue", "Muscular tissue", "Neural tissue"],
+    "correct": 1,
+    "topic": "Structural Organisation in Animals",
+    "difficulty": "easy",
+    "explanation": "Connective tissues are characterised by cells loosely spaced in an abundant extracellular matrix; blood, bone and cartilage are all connective tissues (NCERT Class 11, Structural Organisation in Animals)."
+  },
+  {
+    "id": "neet-fp1-zoo-06",
+    "section": "Zoology",
+    "text": "The junction that seals adjacent epithelial cells together to prevent leakage of substances across a tissue is the:",
+    "options": ["Gap junction", "Tight junction", "Adhering junction", "Desmosome"],
+    "correct": 1,
+    "topic": "Structural Organisation in Animals",
+    "difficulty": "medium",
+    "explanation": "Tight junctions stop substances from leaking across a tissue. Adhering junctions cement neighbouring cells together, while gap junctions allow cytoplasmic communication (NCERT Class 11)."
+  },
+  {
+    "id": "neet-fp1-zoo-07",
+    "section": "Zoology",
+    "text": "Which enzyme present in saliva initiates the digestion of starch in the human buccal cavity?",
+    "options": ["Pepsin", "Salivary amylase (ptyalin)", "Trypsin", "Lipase"],
+    "correct": 1,
+    "topic": "Digestion and Absorption",
+    "difficulty": "easy",
+    "explanation": "Salivary amylase (ptyalin) hydrolyses about 30% of starch into maltose in the mouth (NCERT Class 11, Digestion and Absorption). Pepsin and trypsin are proteases; lipase digests fats."
+  },
+  {
+    "id": "neet-fp1-zoo-08",
+    "section": "Zoology",
+    "text": "The proteolytic enzyme of gastric juice, pepsin, is secreted in an inactive form called pepsinogen, which is activated by:",
+    "options": ["Bile salts", "Hydrochloric acid", "Enterokinase", "Bicarbonate ions"],
+    "correct": 1,
+    "topic": "Digestion and Absorption",
+    "difficulty": "medium",
+    "explanation": "HCl secreted by oxyntic (parietal) cells provides the acidic medium that converts pepsinogen to active pepsin (NCERT Class 11). Enterokinase activates trypsinogen, not pepsinogen."
+  },
+  {
+    "id": "neet-fp1-zoo-09",
+    "section": "Zoology",
+    "text": "Maximum absorption of digested food in the human alimentary canal occurs in the:",
+    "options": ["Stomach", "Duodenum", "Small intestine (jejunum-ileum)", "Large intestine"],
+    "correct": 2,
+    "topic": "Digestion and Absorption",
+    "difficulty": "easy-medium",
+    "explanation": "The small intestine, with its villi and microvilli greatly increasing surface area, is the principal site of absorption of digested products (NCERT Class 11). The large intestine mainly absorbs water and some minerals."
+  },
+  {
+    "id": "neet-fp1-zoo-10",
+    "section": "Zoology",
+    "text": "During inspiration in humans, which set of events correctly causes air to move into the lungs?",
+    "options": ["Diaphragm relaxes and dome rises, decreasing thoracic volume", "Contraction of diaphragm and external intercostals increases thoracic volume, lowering intra-pulmonary pressure", "Internal intercostals contract, raising intra-pulmonary pressure", "Abdominal muscles contract to push the diaphragm up"],
+    "correct": 1,
+    "topic": "Breathing and Exchange of Gases",
+    "difficulty": "medium",
+    "explanation": "Contraction of the diaphragm (flattens) and external intercostal muscles (lifts ribs/sternum) increases thoracic volume, dropping intra-pulmonary pressure below atmospheric so air flows in (NCERT Class 11, Breathing and Exchange of Gases)."
+  },
+  {
+    "id": "neet-fp1-zoo-11",
+    "section": "Zoology",
+    "text": "Most of the carbon dioxide produced by body tissues is transported in the blood mainly in the form of:",
+    "options": ["Carboxyhaemoglobin", "Dissolved CO2 in plasma", "Bicarbonate ions (HCO3-)", "Carbonic acid attached to plasma proteins"],
+    "correct": 2,
+    "topic": "Breathing and Exchange of Gases",
+    "difficulty": "medium",
+    "explanation": "About 70% of CO2 is carried as bicarbonate ions, ~20-25% as carbamino-haemoglobin and ~7% dissolved in plasma (NCERT Class 11). Bicarbonate formation is catalysed by carbonic anhydrase in RBCs."
+  },
+  {
+    "id": "neet-fp1-zoo-12",
+    "section": "Zoology",
+    "text": "Which class of immunoglobulin is the most abundant antibody in human blood and is the only one able to cross the placenta?",
+    "options": ["IgA", "IgM", "IgG", "IgE"],
+    "correct": 2,
+    "topic": "Human Health and Disease",
+    "difficulty": "medium",
+    "explanation": "IgG is the most abundant immunoglobulin in plasma and the only antibody class that crosses the placenta to provide passive natural immunity to the foetus (NCERT Class 12, Human Health and Disease). IgE is involved in allergic reactions."
+  },
+  {
+    "id": "neet-fp1-zoo-13",
+    "section": "Zoology",
+    "text": "In the human heart, the natural pacemaker that initiates and maintains the rhythmic contractile activity is the:",
+    "options": ["Atrioventricular node (AVN)", "Sinoatrial node (SAN)", "Bundle of His", "Purkinje fibres"],
+    "correct": 1,
+    "topic": "Body Fluids and Circulation",
+    "difficulty": "easy",
+    "explanation": "The SA node, located in the right atrial wall, generates impulses at the highest rate and is therefore the pacemaker that sets the heart rhythm (NCERT Class 11, Body Fluids and Circulation)."
+  },
+  {
+    "id": "neet-fp1-zoo-14",
+    "section": "Zoology",
+    "text": "Glycogen, the chief storage carbohydrate in animal cells, is a polymer made up of repeating units of:",
+    "options": ["Fructose", "Glucose", "Galactose", "Ribose"],
+    "correct": 1,
+    "topic": "Biomolecules",
+    "difficulty": "easy-medium",
+    "explanation": "Glycogen is a branched homopolysaccharide of glucose units (joined by alpha-1,4 and alpha-1,6 glycosidic bonds); it is the main stored carbohydrate of animals (NCERT Class 11, Biomolecules)."
+  },
+  {
+    "id": "neet-fp1-zoo-15",
+    "section": "Zoology",
+    "text": "Which plasma protein is chiefly responsible for maintaining the osmotic balance (colloid osmotic pressure) of blood?",
+    "options": ["Globulin", "Fibrinogen", "Albumin", "Prothrombin"],
+    "correct": 2,
+    "topic": "Body Fluids and Circulation",
+    "difficulty": "medium",
+    "explanation": "Albumins, the most abundant plasma proteins, are mainly responsible for the osmotic (oncotic) balance of blood (NCERT Class 11). Globulins are involved in defence and fibrinogen in clotting."
+  },
+  {
+    "id": "neet-fp1-zoo-16",
+    "section": "Zoology",
+    "text": "The main nitrogenous excretory product of humans, and the organ where most of it is synthesised, are respectively:",
+    "options": ["Ammonia; kidney", "Uric acid; liver", "Urea; liver", "Urea; kidney"],
+    "correct": 2,
+    "topic": "Excretory Products and their Elimination",
+    "difficulty": "medium",
+    "explanation": "Humans are ureotelic; urea is the chief nitrogenous waste and is produced in the liver by the ornithine (urea) cycle, then excreted by the kidneys (NCERT Class 11, Excretory Products)."
+  },
+  {
+    "id": "neet-fp1-zoo-17",
+    "section": "Zoology",
+    "text": "Conditional (facultative) reabsorption of sodium ions and water in the nephron, regulated by ADH and aldosterone, occurs mainly in the:",
+    "options": ["Proximal convoluted tubule", "Descending limb of Henle's loop", "Distal convoluted tubule and collecting duct", "Glomerulus"],
+    "correct": 2,
+    "topic": "Excretory Products and their Elimination",
+    "difficulty": "medium-hard",
+    "explanation": "The DCT and collecting duct carry out conditional reabsorption of Na+ and water under hormonal control (ADH, aldosterone), maintaining body fluid balance (NCERT Class 11). The PCT reabsorbs the bulk obligatorily."
+  },
+  {
+    "id": "neet-fp1-zoo-18",
+    "section": "Zoology",
+    "text": "The functional contractile unit of a striated muscle fibre, lying between two successive Z-lines, is the:",
+    "options": ["Myofibril", "Sarcomere", "Sarcoplasm", "Sarcolemma"],
+    "correct": 1,
+    "topic": "Locomotion and Movement",
+    "difficulty": "easy-medium",
+    "explanation": "A sarcomere, the region of a myofibril between two adjacent Z-lines, is the functional unit of contraction (NCERT Class 11, Locomotion and Movement)."
+  },
+  {
+    "id": "neet-fp1-zoo-19",
+    "section": "Zoology",
+    "text": "According to the sliding filament theory of muscle contraction, during contraction:",
+    "options": ["Both actin and myosin filaments shorten", "Thin (actin) filaments slide over thick (myosin) filaments, the A-band staying constant while the I-band shortens", "The A-band shortens and the H-zone widens", "Myosin filaments slide over actin and the sarcomere lengthens"],
+    "correct": 1,
+    "topic": "Locomotion and Movement",
+    "difficulty": "medium-hard",
+    "explanation": "In the sliding filament model, thin actin filaments slide inward over the thick myosin filaments; the A-band length is unchanged while the I-band and H-zone shorten and the sarcomere is reduced (NCERT Class 11)."
+  },
+  {
+    "id": "neet-fp1-zoo-20",
+    "section": "Zoology",
+    "text": "How many pairs of ribs in the human rib cage are called 'floating ribs' because they do not articulate with the sternum at all?",
+    "options": ["One pair", "Two pairs", "Three pairs", "Five pairs"],
+    "correct": 1,
+    "topic": "Locomotion and Movement",
+    "difficulty": "medium",
+    "explanation": "Of 12 pairs of ribs, the last 2 pairs (11th and 12th) are floating ribs, not connected ventrally to the sternum (NCERT Class 11). Pairs 8–10 are vertebrochondral (false) ribs."
+  },
+  {
+    "id": "neet-fp1-zoo-21",
+    "section": "Zoology",
+    "text": "At a chemical synapse, the arrival of a nerve impulse at the axon terminal causes the release of a neurotransmitter into the synaptic cleft by:",
+    "options": ["Diffusion of ions through gap junctions", "Exocytosis of synaptic vesicles triggered by Ca2+ influx", "Active transport against a concentration gradient", "Reverse pinocytosis of the post-synaptic membrane"],
+    "correct": 1,
+    "topic": "Neural Control and Coordination",
+    "difficulty": "medium-hard",
+    "explanation": "Depolarisation opens Ca2+ channels; the inflow of Ca2+ causes synaptic vesicles to fuse with the presynaptic membrane and release neurotransmitter by exocytosis (NCERT Class 11, Neural Control and Coordination)."
+  },
+  {
+    "id": "neet-fp1-zoo-22",
+    "section": "Zoology",
+    "text": "In animal husbandry, the practice of mating animals of the same breed but having no common ancestors for 4–6 generations, used to overcome the harmful effects of prolonged inbreeding, is called:",
+    "options": ["Inbreeding", "Out-crossing", "Cross-breeding", "Interspecific hybridisation"],
+    "correct": 1,
+    "topic": "Animal Husbandry",
+    "difficulty": "medium-hard",
+    "explanation": "Out-crossing is the mating of animals within the same breed but having no common ancestors on either side for 4–6 generations; it is the best method to overcome inbreeding depression (NCERT Class 12, Strategies for Enhancement in Food Production)."
+  },
+  {
+    "id": "neet-fp1-zoo-23",
+    "section": "Zoology",
+    "text": "Which part of the human brain controls respiration, cardiovascular reflexes and gastric secretions, and connects the brain to the spinal cord?",
+    "options": ["Cerebellum", "Hypothalamus", "Medulla oblongata", "Corpus callosum"],
+    "correct": 2,
+    "topic": "Neural Control and Coordination",
+    "difficulty": "easy-medium",
+    "explanation": "The medulla oblongata of the hindbrain contains centres controlling respiration, cardiovascular reflexes and gastric secretion, and joins the brain with the spinal cord (NCERT Class 11)."
+  },
+  {
+    "id": "neet-fp1-zoo-24",
+    "section": "Zoology",
+    "text": "Which hormone secreted by the posterior pituitary stimulates reabsorption of water in the kidney tubules and is also called vasopressin?",
+    "options": ["Oxytocin", "Antidiuretic hormone (ADH)", "Prolactin", "Aldosterone"],
+    "correct": 1,
+    "topic": "Chemical Coordination and Integration",
+    "difficulty": "easy-medium",
+    "explanation": "ADH (vasopressin), released from the posterior pituitary (neurohypophysis), promotes water reabsorption in the distal tubule/collecting duct, reducing urine volume (NCERT Class 11, Chemical Coordination)."
+  },
+  {
+    "id": "neet-fp1-zoo-25",
+    "section": "Zoology",
+    "text": "Hyposecretion of thyroxine in adults, often due to dietary iodine deficiency leading to enlargement of the thyroid gland, causes:",
+    "options": ["Cretinism", "Simple goitre", "Grave's disease", "Diabetes insipidus"],
+    "correct": 1,
+    "topic": "Chemical Coordination and Integration",
+    "difficulty": "medium",
+    "explanation": "Iodine deficiency lowers thyroxine output; the gland enlarges, producing simple (endemic) goitre (NCERT Class 11). Cretinism is hypothyroidism in children; Grave's disease is hyperthyroidism."
+  },
+  {
+    "id": "neet-fp1-zoo-26",
+    "section": "Zoology",
+    "text": "In recombinant DNA technology, which enzyme is used to join the foreign DNA fragment to the vector DNA by forming phosphodiester bonds?",
+    "options": ["Restriction endonuclease", "DNA ligase", "Reverse transcriptase", "Exonuclease"],
+    "correct": 1,
+    "topic": "Biotechnology and its Applications",
+    "difficulty": "medium",
+    "explanation": "DNA ligase seals the foreign DNA insert into the vector by forming phosphodiester bonds between their cut ends, producing recombinant DNA (NCERT Class 12, Biotechnology Principles and Processes). Restriction enzymes only cut DNA."
+  },
+  {
+    "id": "neet-fp1-zoo-27",
+    "section": "Zoology",
+    "text": "In the human testis, the cells that lie outside the seminiferous tubules and secrete the male sex hormone testosterone are the:",
+    "options": ["Sertoli cells", "Spermatogonia", "Leydig (interstitial) cells", "Primary spermatocytes"],
+    "correct": 2,
+    "topic": "Human Reproduction",
+    "difficulty": "medium",
+    "explanation": "Leydig (interstitial) cells in the intertubular spaces synthesise and secrete androgens, mainly testosterone (NCERT Class 12, Human Reproduction). Sertoli cells nourish developing germ cells inside the tubules."
+  },
+  {
+    "id": "neet-fp1-zoo-28",
+    "section": "Zoology",
+    "text": "After ovulation, the ruptured Graafian follicle is transformed into an endocrine structure that secretes progesterone; this structure is the:",
+    "options": ["Corpus albicans", "Corpus luteum", "Corpus callosum", "Antrum"],
+    "correct": 1,
+    "topic": "Human Reproduction",
+    "difficulty": "medium",
+    "explanation": "The remnant of the ruptured Graafian follicle forms the corpus luteum, which secretes large amounts of progesterone essential for maintaining the endometrium for implantation (NCERT Class 12, Human Reproduction)."
+  },
+  {
+    "id": "neet-fp1-zoo-29",
+    "section": "Zoology",
+    "text": "In humans, fertilisation of the ovum by the sperm normally occurs in the:",
+    "options": ["Uterus", "Cervix", "Ampullary region of the fallopian tube", "Ovary"],
+    "correct": 2,
+    "topic": "Human Reproduction",
+    "difficulty": "easy-medium",
+    "explanation": "Fertilisation typically takes place at the ampullary-isthmic junction (ampulla) of the fallopian tube, where sperm meets the ovum (NCERT Class 12, Human Reproduction)."
+  },
+  {
+    "id": "neet-fp1-zoo-30",
+    "section": "Zoology",
+    "text": "The stage of the human embryo that gets implanted in the uterine wall is the:",
+    "options": ["Morula", "Blastocyst", "Gastrula", "Zygote"],
+    "correct": 1,
+    "topic": "Human Reproduction",
+    "difficulty": "medium",
+    "explanation": "The blastocyst, with an inner cell mass and an outer trophoblast, attaches to and implants in the endometrium (NCERT Class 12). The morula is the pre-implantation solid ball of cells."
+  },
+  {
+    "id": "neet-fp1-zoo-31",
+    "section": "Zoology",
+    "text": "Which contraceptive method works mainly by preventing the implantation of the embryo and is an intra-uterine device (IUD)?",
+    "options": ["Combined oral pill", "Copper-T (CuT)", "Diaphragm", "Vasectomy"],
+    "correct": 1,
+    "topic": "Reproductive Health",
+    "difficulty": "medium",
+    "explanation": "Copper-releasing IUDs such as Copper-T release Cu ions that suppress sperm motility and fertilising capacity and make the endometrium unsuitable for implantation (NCERT Class 12, Reproductive Health)."
+  },
+  {
+    "id": "neet-fp1-zoo-32",
+    "section": "Zoology",
+    "text": "The assisted reproductive technique in which an ovum collected from a donor is transferred into the fallopian tube of another woman who cannot produce ova but can provide a suitable environment for fertilisation and development is called:",
+    "options": ["ZIFT", "GIFT", "ICSI", "IUT"],
+    "correct": 1,
+    "topic": "Reproductive Health",
+    "difficulty": "hard",
+    "explanation": "GIFT (Gamete Intra Fallopian Transfer) transfers an ovum (gamete) collected from a donor into the fallopian tube of a female who cannot produce ova but can support fertilisation and development (NCERT Class 12, Reproductive Health). ZIFT transfers a zygote/early embryo."
+  },
+  {
+    "id": "neet-fp1-zoo-33",
+    "section": "Zoology",
+    "text": "In Mendel's dihybrid cross between round-yellow (RRYY) and wrinkled-green (rryy) pea plants, the phenotypic ratio obtained in the F2 generation is:",
+    "options": ["3 : 1", "1 : 2 : 1", "9 : 3 : 3 : 1", "1 : 1 : 1 : 1"],
+    "correct": 2,
+    "topic": "Principles of Inheritance and Variation",
+    "difficulty": "medium",
+    "explanation": "Independent assortment of two traits produces an F2 phenotypic ratio of 9 : 3 : 3 : 1 (round-yellow : round-green : wrinkled-yellow : wrinkled-green) (NCERT Class 12, Principles of Inheritance)."
+  },
+  {
+    "id": "neet-fp1-zoo-34",
+    "section": "Zoology",
+    "text": "Haemophilia and red-green colour blindness in humans are examples of:",
+    "options": ["Autosomal dominant disorders", "X-linked recessive disorders", "Y-linked disorders", "Chromosomal aneuploidies"],
+    "correct": 1,
+    "topic": "Principles of Inheritance and Variation",
+    "difficulty": "medium",
+    "explanation": "Both haemophilia and colour blindness are sex-linked (X-linked) recessive disorders, expressed more often in males who are hemizygous for the X chromosome (NCERT Class 12, Principles of Inheritance)."
+  },
+  {
+    "id": "neet-fp1-zoo-35",
+    "section": "Zoology",
+    "text": "Down's syndrome in humans is caused by:",
+    "options": ["An additional X chromosome (XXY)", "Trisomy of chromosome 21", "Absence of one X chromosome (XO)", "Trisomy of chromosome 18"],
+    "correct": 1,
+    "topic": "Principles of Inheritance and Variation",
+    "difficulty": "medium",
+    "explanation": "Down's syndrome results from the presence of an additional copy of chromosome 21 (trisomy 21), giving a total chromosome number of 47 (NCERT Class 12). XXY is Klinefelter's and XO is Turner's syndrome."
+  },
+  {
+    "id": "neet-fp1-zoo-36",
+    "section": "Zoology",
+    "text": "During DNA replication, the enzyme that joins the Okazaki fragments of the discontinuously synthesised lagging strand is:",
+    "options": ["DNA polymerase III", "DNA helicase", "DNA ligase", "Primase"],
+    "correct": 2,
+    "topic": "Molecular Basis of Inheritance",
+    "difficulty": "medium-hard",
+    "explanation": "DNA ligase seals the nicks between adjacent Okazaki fragments on the lagging strand, forming a continuous strand (NCERT Class 12, Molecular Basis of Inheritance). Helicase unwinds and primase lays down RNA primers."
+  },
+  {
+    "id": "neet-fp1-zoo-37",
+    "section": "Zoology",
+    "text": "In Hardy-Weinberg equilibrium, allele frequencies in a population remain constant from generation to generation in the absence of all of the following EXCEPT:",
+    "options": ["Gene migration", "Genetic drift", "Random mating", "Natural selection"],
+    "correct": 2,
+    "topic": "Evolution",
+    "difficulty": "hard",
+    "explanation": "Hardy-Weinberg equilibrium requires random mating; gene migration, genetic drift, mutation and natural selection are the disturbing factors that change allele frequencies (NCERT Class 12, Evolution). Hence random mating is the condition that must be present, not absent."
+  },
+  {
+    "id": "neet-fp1-zoo-38",
+    "section": "Zoology",
+    "text": "The phenomenon by which a single ancestral species diversifies into several different forms adapted to distinct habitats, as seen in Darwin's finches, is called:",
+    "options": ["Convergent evolution", "Adaptive radiation", "Industrial melanism", "Genetic recombination"],
+    "correct": 1,
+    "topic": "Evolution",
+    "difficulty": "medium",
+    "explanation": "Adaptive radiation is the evolution of various species from a common ancestor in a single geographical area; Darwin's finches of the Galapagos Islands are the classic example (NCERT Class 12, Evolution)."
+  },
+  {
+    "id": "neet-fp1-zoo-39",
+    "section": "Zoology",
+    "text": "The cells of the immune system that mature in the thymus and are responsible for cell-mediated immunity are:",
+    "options": ["B-lymphocytes", "T-lymphocytes", "Mast cells", "Basophils"],
+    "correct": 1,
+    "topic": "Human Health and Disease",
+    "difficulty": "medium",
+    "explanation": "T-lymphocytes mature in the thymus and mediate cell-mediated immune responses, while B-lymphocytes produce antibodies for humoral immunity (NCERT Class 12, Human Health and Disease)."
+  },
+  {
+    "id": "neet-fp1-zoo-40",
+    "section": "Zoology",
+    "text": "The type of immunity that a newborn baby gets through the transfer of antibodies (IgG) across the placenta and antibodies (IgA) in colostrum is:",
+    "options": ["Active natural immunity", "Active artificial immunity", "Passive natural immunity", "Passive artificial immunity"],
+    "correct": 2,
+    "topic": "Human Health and Disease",
+    "difficulty": "medium-hard",
+    "explanation": "Receiving ready-made antibodies from the mother (placental IgG, colostral IgA) is naturally acquired passive immunity, since the infant does not produce these antibodies itself (NCERT Class 12, Human Health and Disease)."
+  },
+  {
+    "id": "neet-fp1-zoo-41",
+    "section": "Zoology",
+    "text": "AIDS is caused by HIV, which is a retrovirus that primarily attacks and destroys:",
+    "options": ["B-lymphocytes", "Helper T-lymphocytes", "Red blood cells", "Platelets"],
+    "correct": 1,
+    "topic": "Human Health and Disease",
+    "difficulty": "medium",
+    "explanation": "HIV preferentially infects helper T-lymphocytes (TH cells), progressively decreasing their number and crippling immunity (NCERT Class 12, Human Health and Disease)."
+  },
+  {
+    "id": "neet-fp1-zoo-42",
+    "section": "Zoology",
+    "text": "Which of the following drugs is a natural opioid obtained from the latex of the poppy plant Papaver somniferum?",
+    "options": ["Cocaine", "Morphine", "Cannabinoid", "Amphetamine"],
+    "correct": 1,
+    "topic": "Human Health and Disease",
+    "difficulty": "easy-medium",
+    "explanation": "Morphine, an opioid sedative and analgesic, is extracted from the latex of the opium poppy Papaver somniferum (NCERT Class 12, Human Health and Disease). Cocaine comes from Erythroxylum coca."
+  },
+  {
+    "id": "neet-fp1-zoo-43",
+    "section": "Zoology",
+    "text": "In a polypeptide chain, two adjacent amino acids are linked together by a:",
+    "options": ["Glycosidic bond", "Peptide bond", "Phosphodiester bond", "Hydrogen bond"],
+    "correct": 1,
+    "topic": "Biomolecules",
+    "difficulty": "easy",
+    "explanation": "Amino acids are joined by peptide bonds, formed between the carboxyl (-COOH) group of one amino acid and the amino (-NH2) group of the next with the loss of water (NCERT Class 11, Biomolecules)."
+  },
+  {
+    "id": "neet-fp1-zoo-44",
+    "section": "Zoology",
+    "text": "The lowering of activation energy of a biochemical reaction by an enzyme is best explained by which feature of enzyme action?",
+    "options": ["Permanent consumption of the enzyme in the reaction", "Formation of a transient enzyme-substrate complex at the active site", "Increasing the free energy of the substrate", "Shifting the equilibrium towards products"],
+    "correct": 1,
+    "topic": "Biomolecules",
+    "difficulty": "medium-hard",
+    "explanation": "Enzymes bind substrate at their active site to form a transient enzyme-substrate complex, providing an alternative pathway with lower activation energy; the enzyme is regenerated and does not alter the equilibrium (NCERT Class 11, Biomolecules)."
+  },
+  {
+    "id": "neet-fp1-zoo-45",
+    "section": "Zoology",
+    "text": "The bioreactor design most commonly used for large-scale production where stirring with oxygen availability is needed, and which uses an agitator system, is the:",
+    "options": ["Sparged stirred-tank bioreactor", "Simple stirred-tank bioreactor", "Sparged air-lift bioreactor without agitator", "Continuous open pond"],
+    "correct": 0,
+    "topic": "Biotechnology and its Applications",
+    "difficulty": "medium-hard",
+    "explanation": "In a sparged stirred-tank bioreactor an agitator (stirrer) mixes the contents while air is bubbled in (sparging) to supply oxygen, providing optimal conditions for product formation (NCERT Class 12, Biotechnology Principles)."
+  }
+]

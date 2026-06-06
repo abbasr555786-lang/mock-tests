@@ -1,0 +1,452 @@
+[
+  {
+    "id": "neet-fp1-phy-01",
+    "section": "Physics",
+    "text": "A projectile is launched with speed 20 m/s at 30° above the horizontal. Taking g = 10 m/s², its time of flight is:",
+    "options": ["1 s", "2 s", "3 s", "4 s"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "easy-medium",
+    "explanation": "Time of flight T = 2u·sinθ/g = 2(20)(sin30°)/10 = 2(20)(0.5)/10 = 20/10 = 2 s. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-02",
+    "section": "Physics",
+    "text": "A car moving at 36 km/h is brought to rest over a distance of 10 m. The magnitude of its uniform retardation is:",
+    "options": ["2.5 m/s²", "5 m/s²", "7.5 m/s²", "10 m/s²"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "easy-medium",
+    "explanation": "u = 36 km/h = 36×(5/18) = 10 m/s. Using v² = u² − 2as with v = 0: 0 = 10² − 2a(10) → 100 = 20a → a = 5 m/s². Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-03",
+    "section": "Physics",
+    "text": "A block of mass 2 kg rests on a horizontal surface with coefficient of static friction 0.4. The minimum horizontal force (g = 10 m/s²) needed to just start it moving is:",
+    "options": ["4 N", "8 N", "12 N", "20 N"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "explanation": "Limiting static friction = μ·N = μ·mg = 0.4 × 2 × 10 = 8 N. The applied force must just exceed this, so the minimum required is 8 N. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-04",
+    "section": "Physics",
+    "text": "A force F = (3î + 4ĵ) N acts on a body that undergoes a displacement s = (4î + 3ĵ) m. The work done by the force is:",
+    "options": ["12 J", "24 J", "25 J", "7 J"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "explanation": "Work W = F·s = (3)(4) + (4)(3) = 12 + 12 = 24 J. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-05",
+    "section": "Physics",
+    "text": "A pump lifts 600 kg of water through a height of 20 m in 40 s. Taking g = 10 m/s², the power delivered by the pump is:",
+    "options": ["1.5 kW", "3 kW", "6 kW", "12 kW"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "explanation": "Work = mgh = 600 × 10 × 20 = 120000 J. Power = W/t = 120000/40 = 3000 W = 3 kW. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-06",
+    "section": "Physics",
+    "text": "Two bodies of masses 3 kg and 6 kg moving toward each other at 4 m/s and 2 m/s respectively collide and stick together. Their common velocity after collision is:",
+    "options": ["0 m/s", "1 m/s in the direction of the 3 kg body", "2 m/s in the direction of the 6 kg body", "0.67 m/s in the direction of the 3 kg body"],
+    "correct": 0,
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "explanation": "Take the 3 kg body's direction as positive: p = 3(+4) + 6(−2) = 12 − 12 = 0. Total momentum is conserved, so (3+6)v = 0 → v = 0 m/s. Option (1)."
+  },
+  {
+    "id": "neet-fp1-phy-07",
+    "section": "Physics",
+    "text": "A solid sphere and a solid cylinder of equal mass and radius roll without slipping down the same incline from rest. Which reaches the bottom first?",
+    "options": ["The cylinder", "The sphere", "Both reach together", "Depends on the mass"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "medium-hard",
+    "explanation": "Acceleration down an incline for a rolling body is a = g·sinθ/(1 + I/mR²). For a sphere I/mR² = 2/5 (denominator 1.4); for a cylinder I/mR² = 1/2 (denominator 1.5). Smaller denominator → larger acceleration, so the sphere is faster and reaches first. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-08",
+    "section": "Physics",
+    "text": "The moment of inertia of a uniform disc of mass M and radius R about an axis through its centre and perpendicular to its plane is:",
+    "options": ["MR²", "½MR²", "¼MR²", "(2/5)MR²"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "explanation": "For a uniform circular disc about the central perpendicular axis, I = ½MR². (MR² is for a ring, 2/5 MR² for a solid sphere.) Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-09",
+    "section": "Physics",
+    "text": "The acceleration due to gravity on the surface of a planet whose mass is 2 times and radius is 2 times that of Earth (g = 9.8 m/s²) is:",
+    "options": ["4.9 m/s²", "9.8 m/s²", "19.6 m/s²", "2.45 m/s²"],
+    "correct": 0,
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "explanation": "g = GM/R². g_planet/g_Earth = (M_p/M_E)/(R_p/R_E)² = 2/2² = 2/4 = 0.5. So g_planet = 0.5 × 9.8 = 4.9 m/s². Option (1)."
+  },
+  {
+    "id": "neet-fp1-phy-10",
+    "section": "Physics",
+    "text": "The escape velocity from the surface of Earth is 11.2 km/s. The escape velocity from a planet having the same density but twice the radius of Earth is:",
+    "options": ["11.2 km/s", "22.4 km/s", "5.6 km/s", "16.8 km/s"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "hard",
+    "explanation": "v_e = √(2GM/R) = √(2G·(4/3)πR³ρ/R) = R·√(8πGρ/3), so v_e ∝ R at constant density ρ. Doubling R doubles v_e: 2 × 11.2 = 22.4 km/s. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-11",
+    "section": "Physics",
+    "text": "A satellite revolves in a circular orbit of radius r around Earth. If the orbital radius is increased to 4r, its orbital speed becomes:",
+    "options": ["Twice the original", "Half the original", "One-fourth the original", "Unchanged"],
+    "correct": 1,
+    "topic": "Mechanics",
+    "difficulty": "medium-hard",
+    "explanation": "Orbital speed v = √(GM/r), so v ∝ 1/√r. When r → 4r, v → √(1/4) = 1/2 of the original. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-12",
+    "section": "Physics",
+    "text": "A particle moves in a circle of radius 2 m with a constant speed of 4 m/s. Its centripetal acceleration is:",
+    "options": ["2 m/s²", "4 m/s²", "8 m/s²", "16 m/s²"],
+    "correct": 2,
+    "topic": "Mechanics",
+    "difficulty": "easy-medium",
+    "explanation": "Centripetal acceleration a = v²/r = 4²/2 = 16/2 = 8 m/s². Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-13",
+    "section": "Physics",
+    "text": "A steel wire of length 2 m and cross-sectional area 1 mm² is stretched by a force of 100 N. If Young's modulus of steel is 2 × 10¹¹ N/m², the elongation produced is:",
+    "options": ["0.5 mm", "1.0 mm", "1.5 mm", "2.0 mm"],
+    "correct": 1,
+    "topic": "Properties of matter",
+    "difficulty": "medium",
+    "explanation": "ΔL = FL/(AY) = (100 × 2)/(1×10⁻⁶ × 2×10¹¹) = 200/(2×10⁵) = 1×10⁻³ m = 1.0 mm. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-14",
+    "section": "Physics",
+    "text": "Water rises to a height of 10 cm in a capillary tube. In a tube of half the radius, the water will rise to a height of:",
+    "options": ["5 cm", "10 cm", "20 cm", "40 cm"],
+    "correct": 2,
+    "topic": "Properties of matter",
+    "difficulty": "medium",
+    "explanation": "Capillary rise h = 2T·cosθ/(rρg), so h ∝ 1/r. Halving the radius doubles the height: 2 × 10 = 20 cm. Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-15",
+    "section": "Physics",
+    "text": "The de Broglie wavelength associated with a particle is inversely proportional to its momentum. If the momentum of an electron is doubled, its de Broglie wavelength becomes:",
+    "options": ["Doubled", "Halved", "Unchanged", "Four times"],
+    "correct": 1,
+    "topic": "Modern physics",
+    "difficulty": "easy-medium",
+    "explanation": "de Broglie wavelength λ = h/p, so λ ∝ 1/p. Doubling the momentum halves the wavelength. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-16",
+    "section": "Physics",
+    "text": "Water flows through a horizontal pipe whose cross-sectional area reduces from 10 cm² to 5 cm². If the speed in the wider section is 2 m/s, the speed in the narrower section is:",
+    "options": ["1 m/s", "2 m/s", "4 m/s", "8 m/s"],
+    "correct": 2,
+    "topic": "Properties of matter",
+    "difficulty": "easy-medium",
+    "explanation": "By the continuity equation A₁v₁ = A₂v₂: v₂ = A₁v₁/A₂ = (10 × 2)/5 = 20/5 = 4 m/s. Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-17",
+    "section": "Physics",
+    "text": "A metal rod of length 1 m at 0 °C has a coefficient of linear expansion 2 × 10⁻⁵ /°C. Its increase in length when heated to 100 °C is:",
+    "options": ["1 mm", "2 mm", "0.5 mm", "4 mm"],
+    "correct": 1,
+    "topic": "Thermal properties",
+    "difficulty": "easy-medium",
+    "explanation": "ΔL = LαΔT = 1 × 2×10⁻⁵ × 100 = 2×10⁻³ m = 2 mm. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-18",
+    "section": "Physics",
+    "text": "How much heat is required to convert 10 g of ice at 0 °C completely into water at 0 °C? (Latent heat of fusion of ice = 80 cal/g)",
+    "options": ["80 cal", "800 cal", "8000 cal", "8 cal"],
+    "correct": 1,
+    "topic": "Thermal properties",
+    "difficulty": "easy",
+    "explanation": "Q = mL = 10 g × 80 cal/g = 800 cal (temperature stays at 0 °C during the phase change). Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-19",
+    "section": "Physics",
+    "text": "An ideal monatomic gas is heated at constant volume so that its absolute temperature doubles. The internal energy of the gas:",
+    "options": ["Remains the same", "Doubles", "Halves", "Becomes four times"],
+    "correct": 1,
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "explanation": "Internal energy of an ideal gas U = (f/2)nRT ∝ T. If absolute temperature doubles, U doubles. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-20",
+    "section": "Physics",
+    "text": "In an isothermal process performed on an ideal gas, the change in internal energy of the gas is:",
+    "options": ["Equal to the heat supplied", "Equal to the work done", "Zero", "Negative"],
+    "correct": 2,
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "explanation": "Internal energy of an ideal gas depends only on temperature. In an isothermal process T is constant, so ΔU = 0 (all heat supplied is converted into work, Q = W). Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-21",
+    "section": "Physics",
+    "text": "The ratio of specific heats (γ = Cp/Cv) for an ideal diatomic gas (neglecting vibration) is:",
+    "options": ["5/3", "7/5", "4/3", "3/2"],
+    "correct": 1,
+    "topic": "Kinetic theory",
+    "difficulty": "medium",
+    "explanation": "A diatomic gas has f = 5 degrees of freedom. Cv = (5/2)R, Cp = Cv + R = (7/2)R, so γ = Cp/Cv = (7/2)/(5/2) = 7/5. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-22",
+    "section": "Physics",
+    "text": "The rms speed of gas molecules is v at temperature T. To double the rms speed, the absolute temperature must be raised to:",
+    "options": ["2T", "4T", "√2 T", "T/2"],
+    "correct": 1,
+    "topic": "Kinetic theory",
+    "difficulty": "medium-hard",
+    "explanation": "v_rms = √(3RT/M), so v_rms ∝ √T. To double v_rms, T must increase by a factor of 2² = 4, i.e. to 4T. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-23",
+    "section": "Physics",
+    "text": "A simple pendulum has a time period of 2 s. If its length is increased to 4 times the original, its new time period is:",
+    "options": ["2 s", "4 s", "8 s", "1 s"],
+    "correct": 1,
+    "topic": "Oscillations",
+    "difficulty": "easy-medium",
+    "explanation": "T = 2π√(L/g), so T ∝ √L. Increasing L by a factor of 4 multiplies T by √4 = 2: new T = 2 × 2 = 4 s. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-24",
+    "section": "Physics",
+    "text": "A particle executes SHM with amplitude 5 cm and angular frequency 2 rad/s. Its maximum speed is:",
+    "options": ["0.05 m/s", "0.1 m/s", "0.2 m/s", "0.4 m/s"],
+    "correct": 1,
+    "topic": "Oscillations",
+    "difficulty": "medium",
+    "explanation": "Maximum speed v_max = Aω = 0.05 m × 2 rad/s = 0.1 m/s. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-25",
+    "section": "Physics",
+    "text": "A stretched string of length 1 m fixed at both ends vibrates in its fundamental mode. If the wave speed on the string is 200 m/s, the fundamental frequency is:",
+    "options": ["50 Hz", "100 Hz", "200 Hz", "400 Hz"],
+    "correct": 1,
+    "topic": "Waves",
+    "difficulty": "medium",
+    "explanation": "Fundamental wavelength λ = 2L = 2 m. Frequency f = v/λ = 200/2 = 100 Hz. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-26",
+    "section": "Physics",
+    "text": "A source of sound emitting at 500 Hz approaches a stationary observer at 34 m/s. Taking the speed of sound as 340 m/s, the apparent frequency heard is:",
+    "options": ["450 Hz", "500 Hz", "556 Hz", "611 Hz"],
+    "correct": 2,
+    "topic": "Waves",
+    "difficulty": "hard",
+    "explanation": "For a source approaching a stationary observer, f' = f·v/(v − v_s) = 500 × 340/(340 − 34) = 500 × 340/306 = 500 × 1.111 = 555.6 ≈ 556 Hz. Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-27",
+    "section": "Physics",
+    "text": "Two point charges of +2 μC and −2 μC are separated by 6 cm in vacuum. The magnitude of the force between them is (k = 9 × 10⁹ N·m²/C²):",
+    "options": ["5 N", "10 N", "15 N", "20 N"],
+    "correct": 1,
+    "topic": "Electrostatics",
+    "difficulty": "medium",
+    "explanation": "F = kq₁q₂/r² = 9×10⁹ × (2×10⁻⁶)(2×10⁻⁶)/(0.06)² = 9×10⁹ × 4×10⁻¹²/0.0036 = 0.036/0.0036 = 10 N. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-28",
+    "section": "Physics",
+    "text": "The electric potential at a distance of 9 cm from a point charge of 10 nC is (k = 9 × 10⁹ N·m²/C²):",
+    "options": ["100 V", "500 V", "1000 V", "9000 V"],
+    "correct": 2,
+    "topic": "Electrostatics",
+    "difficulty": "medium",
+    "explanation": "V = kq/r = 9×10⁹ × 10×10⁻⁹/0.09 = 90/0.09 = 1000 V. Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-29",
+    "section": "Physics",
+    "text": "A parallel-plate capacitor has a capacitance of 4 μF in air. When a dielectric of dielectric constant 5 completely fills the space between the plates, the new capacitance is:",
+    "options": ["0.8 μF", "9 μF", "20 μF", "4 μF"],
+    "correct": 2,
+    "topic": "Electrostatics",
+    "difficulty": "easy-medium",
+    "explanation": "Inserting a dielectric multiplies capacitance by K: C' = K·C = 5 × 4 = 20 μF. Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-30",
+    "section": "Physics",
+    "text": "An electric dipole of dipole moment 4 × 10⁻⁹ C·m is placed in a uniform electric field of 5 × 10⁴ N/C, making an angle of 30° with the field. The torque acting on the dipole is:",
+    "options": ["1 × 10⁻⁴ N·m", "2 × 10⁻⁴ N·m", "1.73 × 10⁻⁴ N·m", "4 × 10⁻⁴ N·m"],
+    "correct": 0,
+    "topic": "Electrostatics",
+    "difficulty": "medium-hard",
+    "explanation": "Torque τ = pE·sinθ = (4×10⁻⁹)(5×10⁴)(sin30°) = (4×10⁻⁹)(5×10⁴)(0.5) = (2×10⁻⁴)(0.5) = 1×10⁻⁴ N·m. Option (1)."
+  },
+  {
+    "id": "neet-fp1-phy-31",
+    "section": "Physics",
+    "text": "A wire carries a current of 2 A when connected to a 6 V battery. The amount of charge passing through it in 5 minutes is:",
+    "options": ["10 C", "120 C", "600 C", "1200 C"],
+    "correct": 2,
+    "topic": "Current electricity",
+    "difficulty": "easy-medium",
+    "explanation": "Charge Q = I·t = 2 A × (5 × 60) s = 2 × 300 = 600 C. Option (3)."
+  },
+  {
+    "id": "neet-fp1-phy-32",
+    "section": "Physics",
+    "text": "A cell of emf 2 V and internal resistance 0.5 Ω is connected across an external resistance of 3.5 Ω. The current drawn from the cell is:",
+    "options": ["0.4 A", "0.5 A", "0.57 A", "4 A"],
+    "correct": 1,
+    "topic": "Current electricity",
+    "difficulty": "medium",
+    "explanation": "I = emf/(R + r) = 2/(3.5 + 0.5) = 2/4 = 0.5 A. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-33",
+    "section": "Physics",
+    "text": "An electric heater rated 220 V, 1000 W is operated at 220 V. The energy it consumes in 2 hours is:",
+    "options": ["1 kWh", "2 kWh", "0.5 kWh", "4 kWh"],
+    "correct": 1,
+    "topic": "Current electricity",
+    "difficulty": "medium",
+    "explanation": "Energy = Power × time = 1000 W × 2 h = 2000 Wh = 2 kWh (it operates at its rated voltage, so it draws rated power). Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-34",
+    "section": "Physics",
+    "text": "A straight wire of length 0.5 m carrying a current of 4 A is placed perpendicular to a uniform magnetic field of 0.2 T. The force on the wire is:",
+    "options": ["0.2 N", "0.4 N", "0.8 N", "1.6 N"],
+    "correct": 1,
+    "topic": "Magnetism",
+    "difficulty": "easy-medium",
+    "explanation": "F = BIL·sinθ = 0.2 × 4 × 0.5 × sin90° = 0.2 × 4 × 0.5 × 1 = 0.4 N. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-35",
+    "section": "Physics",
+    "text": "The magnetic field at the centre of a circular coil of 100 turns and radius 10 cm carrying a current of 2 A is (μ₀ = 4π × 10⁻⁷ T·m/A):",
+    "options": ["4π × 10⁻⁴ T", "2π × 10⁻⁴ T", "4π × 10⁻⁵ T", "8π × 10⁻⁴ T"],
+    "correct": 0,
+    "topic": "Magnetism",
+    "difficulty": "hard",
+    "explanation": "B = μ₀NI/(2R) = (4π×10⁻⁷ × 100 × 2)/(2 × 0.1) = (4π×10⁻⁷ × 200)/0.2 = (8π×10⁻⁵)/0.2 = 4π×10⁻⁴ T. Option (1)."
+  },
+  {
+    "id": "neet-fp1-phy-36",
+    "section": "Physics",
+    "text": "The magnetic flux through a coil changes from 2 Wb to 6 Wb in 0.2 s. The magnitude of the average induced emf is:",
+    "options": ["10 V", "20 V", "30 V", "40 V"],
+    "correct": 1,
+    "topic": "Electromagnetic induction",
+    "difficulty": "easy-medium",
+    "explanation": "|emf| = |ΔΦ/Δt| = (6 − 2)/0.2 = 4/0.2 = 20 V. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-37",
+    "section": "Physics",
+    "text": "In a p-n junction diode, when it is forward biased, the width of the depletion region:",
+    "options": ["Increases", "Decreases", "Remains unchanged", "Becomes infinite"],
+    "correct": 1,
+    "topic": "Semiconductor electronics",
+    "difficulty": "medium",
+    "explanation": "In forward bias, the external field opposes the junction's built-in potential, lowering the barrier so majority carriers cross the junction. This narrows the depletion region. (In reverse bias it widens.) Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-38",
+    "section": "Physics",
+    "text": "In a series LCR AC circuit at resonance, the impedance of the circuit is:",
+    "options": ["Maximum and equal to √(R² + (XL − XC)²)", "Minimum and equal to R", "Zero", "Equal to XL + XC"],
+    "correct": 1,
+    "topic": "Alternating current",
+    "difficulty": "medium-hard",
+    "explanation": "At resonance XL = XC, so the reactive part cancels and impedance Z = √(R² + (XL − XC)²) = R, which is its minimum value (current is maximum). Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-39",
+    "section": "Physics",
+    "text": "The peak value of an alternating voltage is 311 V. Its rms value is approximately:",
+    "options": ["220 V", "311 V", "440 V", "156 V"],
+    "correct": 0,
+    "topic": "Alternating current",
+    "difficulty": "easy-medium",
+    "explanation": "V_rms = V₀/√2 = 311/1.414 ≈ 220 V (this is the standard Indian mains voltage). Option (1)."
+  },
+  {
+    "id": "neet-fp1-phy-40",
+    "section": "Physics",
+    "text": "A converging lens has a focal length of 20 cm. An object is placed 30 cm from the lens. Using the convention where distances measured along the direction of incident light are positive, the image distance is:",
+    "options": ["12 cm", "60 cm", "15 cm", "30 cm"],
+    "correct": 1,
+    "topic": "Ray optics",
+    "difficulty": "medium",
+    "explanation": "Using 1/v − 1/u = 1/f with u = −30 cm, f = +20 cm: 1/v = 1/f + 1/u = 1/20 − 1/30 = (3 − 2)/60 = 1/60 → v = 60 cm (real image on the other side). Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-41",
+    "section": "Physics",
+    "text": "A concave mirror has a radius of curvature of 40 cm. Its focal length is:",
+    "options": ["10 cm", "20 cm", "40 cm", "80 cm"],
+    "correct": 1,
+    "topic": "Ray optics",
+    "difficulty": "easy",
+    "explanation": "For a spherical mirror, focal length f = R/2 = 40/2 = 20 cm. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-42",
+    "section": "Physics",
+    "text": "In Young's double-slit experiment, the slit separation is 1 mm and the screen is 1 m away. Light of wavelength 600 nm is used. The fringe width is:",
+    "options": ["0.3 mm", "0.6 mm", "0.9 mm", "1.2 mm"],
+    "correct": 1,
+    "topic": "Wave optics",
+    "difficulty": "medium-hard",
+    "explanation": "Fringe width β = λD/d = (600×10⁻⁹ × 1)/(1×10⁻³) = 600×10⁻⁶ = 0.6×10⁻³ m = 0.6 mm. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-43",
+    "section": "Physics",
+    "text": "Unpolarised light of intensity I₀ passes through a single ideal polaroid. The intensity of the transmitted light is:",
+    "options": ["I₀", "I₀/2", "I₀/4", "Zero"],
+    "correct": 1,
+    "topic": "Wave optics",
+    "difficulty": "medium",
+    "explanation": "When unpolarised light passes through one polaroid, the average of cos²θ over all angles is ½, so the transmitted intensity is I₀/2. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-44",
+    "section": "Physics",
+    "text": "The work function of a metal is 2 eV. The threshold wavelength of light that can eject electrons from it is approximately (hc = 1240 eV·nm):",
+    "options": ["310 nm", "620 nm", "1240 nm", "413 nm"],
+    "correct": 1,
+    "topic": "Modern physics",
+    "difficulty": "medium",
+    "explanation": "Threshold wavelength λ₀ = hc/φ = 1240 eV·nm / 2 eV = 620 nm. Option (2)."
+  },
+  {
+    "id": "neet-fp1-phy-45",
+    "section": "Physics",
+    "text": "In the ground state of the hydrogen atom (Bohr model), the energy of the electron is −13.6 eV. The energy of the electron in the second excited state (n = 3) is:",
+    "options": ["−13.6 eV", "−3.4 eV", "−1.51 eV", "−0.85 eV"],
+    "correct": 2,
+    "topic": "Modern physics",
+    "difficulty": "medium-hard",
+    "explanation": "Eₙ = −13.6/n² eV. The second excited state corresponds to n = 3: E₃ = −13.6/9 = −1.51 eV. Option (3)."
+  }
+]

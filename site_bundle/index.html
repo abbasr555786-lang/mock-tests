@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <title>Mockly — Practice Mock Tests</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
+  <link rel="apple-touch-icon" href="assets/logo-mark.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- Templates -->
+  <template id="view-home">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="brand">Mockly</div>
+        <nav class="topbar__nav">
+          <a class="topbar__link" href="#/">Mock Tests</a>
+          <a class="topbar__link" href="#/my-tests">My Tests</a>
+          <a class="topbar__link admin-only" href="#/admin" hidden>Admin</a>
+          <a class="topbar__link user-only" href="#/profile" id="nav-profile" hidden>Profile</a>
+          <a class="topbar__link user-only" href="#" id="nav-logout" hidden>Logout</a>
+          <a class="topbar__link guest-only" href="#/login" hidden>Login</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <div class="greeting-card" id="greeting-card" hidden>
+        <div class="greeting-card__hello"></div>
+        <div class="greeting-card__exams"></div>
+      </div>
+
+      <div class="hero-search">
+        <span class="hero-search__icon" aria-hidden="true">&#9906;</span>
+        <input id="exam-search" type="search" autocomplete="off" placeholder="Search exams — SSC CGL, NEET UG, JEE…" aria-label="Search exams" />
+      </div>
+
+      <section id="featured-section">
+        <h2 class="section-heading">Featured exams</h2>
+        <div id="featured-list" class="featured-grid"></div>
+      </section>
+
+      <section id="pinned-section" hidden>
+        <h2 class="section-heading">Your target exams</h2>
+        <div id="pinned-list" class="catalogue-grid"></div>
+      </section>
+
+      <h2 class="section-heading">Explore all exams</h2>
+      <div class="catalogue-controls">
+        <div class="cat-chips" id="cat-chips" role="tablist" aria-label="Exam categories"></div>
+      </div>
+      <div id="catalogue-list"></div>
+    </main>
+  </template>
+
+  <template id="view-mytests">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="brand">Mockly</div>
+        <nav class="topbar__nav">
+          <a class="topbar__link" href="#/">Mock Tests</a>
+          <a class="topbar__link" href="#/my-tests">My Tests</a>
+          <a class="topbar__link user-only" href="#/profile" hidden>Profile</a>
+          <a class="topbar__link guest-only" href="#/login" hidden>Login</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <h1 class="page-title">My Tests</h1>
+      <p class="page-sub">Your attempts on this device — resume what you started, and review what you’ve finished.</p>
+
+      <section id="mt-inprogress" hidden>
+        <h2 class="section-heading">In progress</h2>
+        <div id="mt-inprogress-list" class="mt-list"></div>
+      </section>
+
+      <h2 class="section-heading">Completed attempts</h2>
+      <div id="mt-completed-list" class="mt-list"></div>
+    </main>
+  </template>
+
+  <template id="view-exam-dashboard">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="back-btn" id="exam-back" href="#/" aria-label="Back">
+          <span class="back-btn__arrow" aria-hidden="true">&larr;</span>
+          <span class="back-btn__label" id="exam-back-label">All Exams</span>
+        </a>
+        <div class="brand">Mockly</div>
+        <a class="home-btn" href="#/" aria-label="Go to home screen">
+          <span class="home-btn__icon" aria-hidden="true">&#8962;</span>
+          <span class="home-btn__label">Home</span>
+        </a>
+      </div>
+    </header>
+    <main class="container">
+      <div class="exam-hero">
+        <h1 class="exam-hero__name" id="exam-hero-name"></h1>
+        <p class="exam-hero__tag" id="exam-hero-tag"></p>
+      </div>
+
+      <div class="quadrant-grid" id="quadrant-grid"></div>
+
+      <section id="paper-list-section" hidden>
+        <div class="paper-list-head">
+          <h2 class="section-heading" id="paper-list-title"></h2>
+          <span class="paper-list-meta" id="paper-list-meta"></span>
+        </div>
+        <div id="paper-list" class="paper-list"></div>
+      </section>
+    </main>
+
+    <!-- Slide-in exam info drawer (Syllabus / Pattern / Eligibility) -->
+    <button class="info-tab-btn" id="info-tab-btn" hidden aria-label="Open exam information">
+      <span class="info-tab-btn__text">Exam Info</span>
+    </button>
+    <div class="info-drawer" id="info-drawer" hidden>
+      <div class="info-drawer__backdrop" id="info-drawer-backdrop"></div>
+      <aside class="info-drawer__panel" role="dialog" aria-label="Exam information">
+        <div class="info-drawer__head">
+          <span class="info-drawer__title" id="info-drawer-title">Exam Information</span>
+          <button class="info-drawer__close" id="info-drawer-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="exam-info__tabs" id="exam-info-tabs" role="tablist"></div>
+        <div class="exam-info__panels" id="exam-info-panels"></div>
+      </aside>
+    </div>
+  </template>
+
+  <template id="view-login">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="brand">Mockly</div>
+      </div>
+    </header>
+    <main class="auth-wrap">
+      <div class="auth-card">
+        <div class="auth-hero">
+          <div class="auth-hero__brand">Mockly</div>
+          <div class="auth-hero__tag">Mock it. Ace it.</div>
+        </div>
+
+        <ol class="stepper" aria-label="Onboarding steps">
+          <li class="stepper__item is-active" data-step="1"><span class="stepper__dot">1</span><span class="stepper__label">Verify</span></li>
+          <li class="stepper__line"></li>
+          <li class="stepper__item" data-step="2"><span class="stepper__dot">2</span><span class="stepper__label">Your details</span></li>
+        </ol>
+
+        <section id="login-step-phone">
+          <h2 class="auth-title">Sign in with your mobile</h2>
+          <p class="auth-sub">We&rsquo;ll send a one-time password to verify it&rsquo;s you.</p>
+
+          <label class="auth-field">
+            <span class="auth-label">Mobile number</span>
+            <div class="auth-phone">
+              <span class="auth-phone__prefix">+91</span>
+              <input id="phone-input" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national" placeholder="10-digit mobile number" />
+            </div>
+            <span class="auth-error" id="phone-error" hidden></span>
+          </label>
+
+          <button class="btn btn--primary auth-cta" id="send-otp-btn">Send OTP</button>
+        </section>
+
+        <section id="login-step-otp" hidden>
+          <h2 class="auth-title">Enter the OTP</h2>
+          <p class="auth-sub">Sent to <strong id="otp-phone-echo"></strong>. <a href="#" id="change-phone-link">Change</a></p>
+
+          <div class="otp-row" id="otp-row">
+            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="0" aria-label="OTP digit 1" />
+            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="1" aria-label="OTP digit 2" />
+            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="2" aria-label="OTP digit 3" />
+            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="3" aria-label="OTP digit 4" />
+            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="4" aria-label="OTP digit 5" />
+            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="5" aria-label="OTP digit 6" />
+          </div>
+          <span class="auth-error" id="otp-error" hidden></span>
+
+          <div class="auth-helper">For this demo, use OTP <strong>123456</strong>. <a href="#" id="resend-otp-link">Resend</a></div>
+
+          <button class="btn btn--primary auth-cta" id="verify-otp-btn">Verify &amp; Continue</button>
+        </section>
+
+        <div class="auth-foot">
+          <a href="#" id="skip-login-link">Skip for now &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </template>
+
+  <template id="view-profile">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="brand">Mockly</div>
+        <nav class="topbar__nav">
+          <a class="topbar__link" href="#/">Mock Tests</a>
+        </nav>
+      </div>
+    </header>
+    <main class="auth-wrap">
+      <div class="auth-card auth-card--wide">
+        <ol class="stepper" aria-label="Onboarding steps">
+          <li class="stepper__item is-done" data-step="1"><span class="stepper__dot">&#10003;</span><span class="stepper__label">Verify</span></li>
+          <li class="stepper__line is-done"></li>
+          <li class="stepper__item is-active" data-step="2"><span class="stepper__dot">2</span><span class="stepper__label">Your details</span></li>
+        </ol>
+
+        <h2 class="auth-title">Tell us about yourself</h2>
+        <p class="auth-sub">We&rsquo;ll personalize mock tests and recommendations based on your goals.</p>
+
+        <div class="profile-grid">
+          <label class="auth-field">
+            <span class="auth-label">Full name</span>
+            <input id="pf-name" type="text" autocomplete="name" placeholder="e.g., Aarav Sharma" />
+          </label>
+
+          <label class="auth-field">
+            <span class="auth-label">City</span>
+            <input id="pf-city" type="text" autocomplete="address-level2" placeholder="e.g., Jaipur" />
+          </label>
+
+          <label class="auth-field">
+            <span class="auth-label">State</span>
+            <select id="pf-state">
+              <option value="">Select state</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="auth-field">
+          <span class="auth-label">Current background</span>
+          <div class="chip-row" id="pf-education"></div>
+        </div>
+
+        <div class="auth-field">
+          <span class="auth-label">Target exams <small class="auth-muted">(pick one or more)</small></span>
+          <div class="chip-grid" id="pf-exams"></div>
+          <span class="auth-error" id="exams-error" hidden></span>
+        </div>
+
+        <span class="auth-error" id="profile-error" hidden></span>
+
+        <div class="auth-actions">
+          <a class="btn btn--ghost" href="#" id="profile-skip-btn">Skip for now</a>
+          <button class="btn btn--primary" id="profile-save-btn">Save &amp; Continue</button>
+        </div>
+      </div>
+    </main>
+  </template>
+
+  <template id="view-instructions">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="back-btn" href="#/" id="instr-back" aria-label="Back">
+          <span class="back-btn__arrow" aria-hidden="true">&larr;</span>
+          <span class="back-btn__label">Back</span>
+        </a>
+        <div class="brand">Mockly</div>
+        <a class="home-btn" href="#/" aria-label="Go to home screen">
+          <span class="home-btn__icon" aria-hidden="true">&#8962;</span>
+          <span class="home-btn__label">Home</span>
+        </a>
+      </div>
+    </header>
+    <main class="container">
+      <h1 class="page-title" id="instr-title"></h1>
+      <div class="instructions-card">
+        <h2>General Instructions</h2>
+        <ol id="instr-list"></ol>
+        <h2>Marking Scheme</h2>
+        <ul id="instr-marking"></ul>
+        <h2>Question Palette Legend</h2>
+        <ul class="legend">
+          <li><span class="palette-chip s-not-visited">12</span> Not Visited</li>
+          <li><span class="palette-chip s-not-answered">12</span> Not Answered</li>
+          <li><span class="palette-chip s-answered">12</span> Answered</li>
+          <li><span class="palette-chip s-marked">12</span> Marked for Review</li>
+          <li><span class="palette-chip s-answered-marked">12</span> Answered &amp; Marked (considered for evaluation)</li>
+        </ul>
+
+        <label class="declaration">
+          <input type="checkbox" id="declare-cb" />
+          <span>I have read and understood all the instructions. I declare that I will not resort to any unfair means during this test.</span>
+        </label>
+        <div class="actions-row">
+          <a class="btn btn--ghost" href="#/">Cancel</a>
+          <button class="btn btn--primary" id="start-btn" disabled>I am ready to begin</button>
+        </div>
+      </div>
+    </main>
+  </template>
+
+  <template id="view-test">
+    <header class="exam-topbar">
+      <button class="home-btn home-btn--exam" id="test-home-btn" aria-label="Exit to home screen">
+        <span class="home-btn__icon" aria-hidden="true">&#8962;</span>
+        <span class="home-btn__label">Home</span>
+      </button>
+      <div class="exam-topbar__title">
+        <div class="exam-topbar__name" id="exam-name"></div>
+        <div class="exam-topbar__sub" id="exam-sub"></div>
+      </div>
+      <div class="exam-topbar__timer">
+        <span class="timer-label">Time Left</span>
+        <span class="timer-value" id="timer">--:--</span>
+      </div>
+    </header>
+
+    <div class="candidate-strip">
+      <div class="cand"><strong>Candidate:</strong> <span id="cand-name">Test User</span></div>
+      <div class="cand"><strong>Roll No:</strong> <span id="cand-roll">100001</span></div>
+      <div class="cand"><strong>Exam:</strong> <span id="cand-exam"></span></div>
+      <button class="strip-btn" id="test-calc-btn" aria-label="Toggle calculator" hidden>&#128425; Calculator</button>
+      <button class="restart-btn" id="test-restart-btn" aria-label="Restart this test from the beginning" hidden>&#8635; Restart</button>
+      <button class="palette-toggle" id="palette-toggle" aria-label="Toggle palette">Palette</button>
+    </div>
+
+    <div class="section-tabs" id="section-tabs" role="tablist"></div>
+
+    <div class="exam-body">
+      <section class="question-area">
+        <div class="question-meta">
+          <div>Question No. <strong id="q-no">1</strong></div>
+          <div class="marks">+<span id="q-pos"></span> / <span id="q-neg"></span></div>
+        </div>
+        <div class="question-text" id="q-text"></div>
+        <ol class="options" id="q-options"></ol>
+
+        <div class="action-bar">
+          <button class="btn btn--success" id="btn-save-next">Save &amp; Next</button>
+          <button class="btn btn--warn" id="btn-mark">Mark for Review &amp; Next</button>
+          <button class="btn btn--ghost" id="btn-clear">Clear Response</button>
+          <div class="spacer"></div>
+          <button class="btn btn--ghost" id="btn-prev">&laquo; Previous</button>
+          <button class="btn btn--ghost" id="btn-next">Next &raquo;</button>
+          <button class="btn btn--primary" id="btn-submit">Submit</button>
+        </div>
+      </section>
+
+      <aside class="palette" id="palette">
+        <div class="palette__head">Question Palette</div>
+        <div class="palette__legend">
+          <span><i class="palette-chip s-not-visited"></i>Not Visited</span>
+          <span><i class="palette-chip s-not-answered"></i>Not Answered</span>
+          <span><i class="palette-chip s-answered"></i>Answered</span>
+          <span><i class="palette-chip s-marked"></i>Marked</span>
+          <span><i class="palette-chip s-answered-marked"></i>Ans+Marked</span>
+        </div>
+        <div class="palette__section-title" id="palette-section-title"></div>
+        <div class="palette__grid" id="palette-grid"></div>
+      </aside>
+    </div>
+
+    <!-- Submit modal -->
+    <div class="modal" id="submit-modal" hidden>
+      <div class="modal__panel">
+        <h2>Submit Test?</h2>
+        <p>Are you sure you want to submit the test? You will not be able to change your answers after submitting.</p>
+        <table class="submit-summary" id="submit-summary"></table>
+        <div class="actions-row">
+          <button class="btn btn--ghost" id="cancel-submit">Cancel</button>
+          <button class="btn btn--primary" id="confirm-submit">Yes, Submit</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="view-result">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="back-btn" href="#/" aria-label="Back to tests">
+          <span class="back-btn__arrow" aria-hidden="true">&larr;</span>
+          <span class="back-btn__label">Back to Tests</span>
+        </a>
+        <div class="brand">Mockly</div>
+      </div>
+    </header>
+    <main class="container">
+      <h1 class="page-title">Test Result</h1>
+      <div class="result-card" id="result-card"></div>
+      <h2 class="page-title">Section-wise Summary</h2>
+      <div class="result-sections" id="result-sections"></div>
+      <section class="reviews" id="result-reviews-section">
+        <div class="reviews__head">
+          <h2 class="page-title" style="margin:0;">Ratings &amp; Reviews</h2>
+          <button class="btn btn--ghost" id="open-rating-btn" type="button">Rate this mock</button>
+        </div>
+        <div class="reviews__body" id="result-reviews"></div>
+      </section>
+
+      <h2 class="page-title">Answer Review</h2>
+      <div class="result-review" id="result-review"></div>
+      <div class="actions-row" style="margin-top:24px;">
+        <a class="btn btn--primary" href="#/">Take Another Test</a>
+      </div>
+    </main>
+
+    <!-- Optional rating popup (Play Store style) -->
+    <div class="modal rating-modal" id="rating-modal" hidden>
+      <div class="modal__panel rating-modal__panel">
+        <button class="rating-modal__close" id="rating-close" type="button" aria-label="Close">&times;</button>
+        <h2 class="rating-modal__title" id="rating-modal-title">How was this mock?</h2>
+        <p class="rating-modal__sub">Your feedback helps other aspirants. This is optional.</p>
+
+        <div class="star-input" id="star-input" role="radiogroup" aria-label="Star rating">
+          <button class="star-input__star" type="button" data-star="1" aria-label="1 star">&#9733;</button>
+          <button class="star-input__star" type="button" data-star="2" aria-label="2 stars">&#9733;</button>
+          <button class="star-input__star" type="button" data-star="3" aria-label="3 stars">&#9733;</button>
+          <button class="star-input__star" type="button" data-star="4" aria-label="4 stars">&#9733;</button>
+          <button class="star-input__star" type="button" data-star="5" aria-label="5 stars">&#9733;</button>
+        </div>
+        <div class="star-input__hint" id="star-hint">Tap a star to rate</div>
+
+        <label class="rating-field">
+          <span class="rating-field__label">Your name <small>(optional)</small></span>
+          <input id="rating-name" type="text" maxlength="60" placeholder="e.g., Aarav S." />
+        </label>
+        <label class="rating-field">
+          <span class="rating-field__label">Add a comment <small>(optional)</small></span>
+          <textarea id="rating-comment" rows="3" maxlength="1000" placeholder="What did you like? What could be better?"></textarea>
+        </label>
+
+        <span class="auth-error" id="rating-error" hidden></span>
+
+        <div class="actions-row">
+          <button class="btn btn--ghost" id="rating-skip" type="button">Maybe later</button>
+          <button class="btn btn--primary" id="rating-submit" type="button">Submit rating</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="js/data.js"></script>
+  <script src="js/data-mocks.js"></script>
+  <!-- SSC CGL question pool (window.SSC_CGL_POOL) for repo.buildMock() — the GET /mock endpoint -->
+  <script src="js/data-ssc-cgl-pyq.js"></script>
+  <!-- NEET UG question pool (window.NEET_UG_POOL) + full-length 180-Q paper -->
+  <script src="js/data-neet-ug.js"></script>
+  <!-- NEET exam-level (hard tier) sectionals — must load before repo.js seeds window.EXAMS -->
+  <script src="js/data-neet-hard.js"></script>
+  <!-- Short Mocks (20Q & 25Q per exam) — must load before repo.js seeds window.EXAMS -->
+  <script src="js/data-short-ssc-cgl.js"></script>
+  <script src="js/data-short-ssc-chsl.js"></script>
+  <script src="js/data-short-jee-main.js"></script>
+  <script src="js/data-short-jee-advanced.js"></script>
+  <script src="js/data-short-neet-ug.js"></script>
+  <script src="js/data-short-cat.js"></script>
+  <script src="js/data-short-gate.js"></script>
+  <script src="js/data-short-upsc-cse.js"></script>
+  <script src="js/data-short-ibps-po.js"></script>
+  <script src="js/data-short-sbi-po.js"></script>
+  <script src="js/data-short-rrb-ntpc.js"></script>
+  <script src="js/data-short-cuet-ug.js"></script>
+  <!-- JMI 2026 MBA full-length mock (paper M-55 Set C) — must load before repo.js seeds window.EXAMS -->
+  <script src="js/data-jmi-mba.js"></script>
+  <script src="js/repo.js"></script>
+  <script src="js/csv.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

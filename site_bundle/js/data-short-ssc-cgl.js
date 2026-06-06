@@ -1,0 +1,92 @@
+(function () {
+  const mocks = [
+    {
+      id: 'ssc-cgl-short-20',
+      name: 'SSC CGL — Short Mock (20 Questions)',
+      template: 'ssc',
+      examCatalogueId: 'ssc-cgl',
+      kind: 'mock', scope: 'short', sectionTag: null,
+      durationMin: 15,
+      marking: { correct: 2, wrong: -0.5, unattempted: 0 },
+      allowSectionSwitch: true, timerMode: 'full', calculator: false,
+      questionTypes: ['mcq'], languages: ['en'],
+      sections: [
+        { id: 'gi', name: 'General Intelligence & Reasoning', questions: [
+          { id: 'ssc-cgl-s20-1', text: 'Select the option that is related to the third term in the same way as the second term is related to the first term. Doctor : Hospital :: Teacher : ?', options: ['Library', 'School', 'Patient', 'Book'], correct: 1, topic: 'Analogy', difficulty: 'easy', explanation: 'A doctor works in a hospital; likewise a teacher works in a school. So the answer is School.' },
+          { id: 'ssc-cgl-s20-2', text: 'Find the next number in the series: 3, 6, 12, 24, ?', options: ['36', '42', '48', '54'], correct: 2, topic: 'Number Series', difficulty: 'easy-medium', explanation: 'Each term is doubled: 3×2=6, 6×2=12, 12×2=24, 24×2=48. So the next term is 48.' },
+          { id: 'ssc-cgl-s20-3', text: 'If in a certain code CAT is written as 3120, then how is DOG written? (A=1, B=2, ...)', options: ['4157', '41507', '4 15 7', '41 5 7'], correct: 1, topic: 'Coding-Decoding', difficulty: 'medium', explanation: 'C=3, A=1, T=20 gives 3-1-20 → 3120. Similarly D=4, O=15, G=7 → 4-15-7 → 41507.' },
+          { id: 'ssc-cgl-s20-4', text: 'Pointing to a man, a woman said, "He is the son of my grandfather\'s only son." How is the man related to the woman?', options: ['Father', 'Uncle', 'Brother', 'Cousin'], correct: 2, topic: 'Blood Relations', difficulty: 'medium-hard', explanation: 'Grandfather\'s only son is the woman\'s father. The son of her father is her brother. So the man is her brother.' },
+          { id: 'ssc-cgl-s20-5', text: 'Select the odd one out: 121, 144, 169, 180', options: ['121', '144', '169', '180'], correct: 3, topic: 'Classification', difficulty: 'hard', explanation: '121=11², 144=12², 169=13² are perfect squares, but 180 is not a perfect square. So 180 is the odd one out.' },
+        ]},
+        { id: 'ga', name: 'General Awareness', questions: [
+          { id: 'ssc-cgl-s20-6', text: 'Who was the first Governor-General of independent India?', options: ['C. Rajagopalachari', 'Lord Mountbatten', 'Rajendra Prasad', 'Jawaharlal Nehru'], correct: 1, topic: 'History', difficulty: 'easy', explanation: 'Lord Mountbatten served as the first Governor-General of independent India (1947–48). C. Rajagopalachari was the first Indian to hold the post.' },
+          { id: 'ssc-cgl-s20-7', text: 'Which Article of the Indian Constitution deals with the abolition of untouchability?', options: ['Article 14', 'Article 17', 'Article 19', 'Article 21'], correct: 1, topic: 'Polity', difficulty: 'medium', explanation: 'Article 17 of the Constitution abolishes untouchability and forbids its practice in any form.' },
+          { id: 'ssc-cgl-s20-8', text: 'The Tropic of Cancer does NOT pass through which of the following Indian states?', options: ['Gujarat', 'Madhya Pradesh', 'Rajasthan', 'Kerala'], correct: 3, topic: 'Geography', difficulty: 'medium-hard', explanation: 'The Tropic of Cancer passes through Gujarat, Rajasthan and Madhya Pradesh among others, but not through Kerala, which lies south of it.' },
+          { id: 'ssc-cgl-s20-9', text: 'Which gas is most abundant in the Earth\'s atmosphere?', options: ['Oxygen', 'Carbon dioxide', 'Nitrogen', 'Hydrogen'], correct: 2, topic: 'Science', difficulty: 'easy-medium', explanation: 'Nitrogen makes up about 78% of the atmosphere by volume, making it the most abundant atmospheric gas.' },
+          { id: 'ssc-cgl-s20-10', text: 'The Statue of Unity, the world\'s tallest statue, is dedicated to which leader?', options: ['Mahatma Gandhi', 'Sardar Vallabhbhai Patel', 'B. R. Ambedkar', 'Jawaharlal Nehru'], correct: 1, topic: 'Static GK', difficulty: 'easy', explanation: 'The Statue of Unity in Gujarat, the world\'s tallest statue (182 m), is dedicated to Sardar Vallabhbhai Patel.' },
+        ]},
+        { id: 'qa', name: 'Quantitative Aptitude', questions: [
+          { id: 'ssc-cgl-s20-11', text: 'A shopkeeper marks an article 40% above cost price and allows a discount of 25%. His profit percent is:', options: ['5%', '10%', '15%', '20%'], correct: 0, topic: 'Profit and Loss', difficulty: 'medium', explanation: 'Let CP = 100. Marked price = 140. After 25% discount, SP = 140 × 0.75 = 105. Profit = 105 − 100 = 5, so profit% = 5%.' },
+          { id: 'ssc-cgl-s20-12', text: 'The average of five consecutive even numbers is 36. What is the largest of these numbers?', options: ['38', '40', '42', '44'], correct: 1, topic: 'Average', difficulty: 'easy-medium', explanation: 'Five consecutive even numbers symmetric about the average 36 are 32, 34, 36, 38, 40. The largest is 40.' },
+          { id: 'ssc-cgl-s20-13', text: 'If the ratio of two numbers is 3 : 5 and their sum is 64, the smaller number is:', options: ['24', '28', '32', '40'], correct: 0, topic: 'Ratio and Proportion', difficulty: 'easy', explanation: 'Total parts = 3 + 5 = 8. One part = 64 ÷ 8 = 8. Smaller number = 3 × 8 = 24.' },
+          { id: 'ssc-cgl-s20-14', text: 'A sum of ₹5000 amounts to ₹5800 in 2 years at simple interest. The rate of interest per annum is:', options: ['6%', '7%', '8%', '9%'], correct: 2, topic: 'Simple Interest', difficulty: 'medium', explanation: 'SI = 5800 − 5000 = 800. Rate = (SI × 100)/(P × T) = (800 × 100)/(5000 × 2) = 80000/10000 = 8%.' },
+          { id: 'ssc-cgl-s20-15', text: 'The area of a circle is 154 cm². Its radius is: (take π = 22/7)', options: ['6 cm', '7 cm', '8 cm', '14 cm'], correct: 1, topic: 'Mensuration', difficulty: 'medium-hard', explanation: 'πr² = 154 → (22/7)r² = 154 → r² = 154 × 7/22 = 49 → r = 7 cm.' },
+        ]},
+        { id: 'en', name: 'English Comprehension', questions: [
+          { id: 'ssc-cgl-s20-16', text: 'Select the synonym of the word: ABUNDANT', options: ['Scarce', 'Plentiful', 'Empty', 'Rare'], correct: 1, topic: 'Synonym', difficulty: 'easy', explanation: '"Abundant" means existing in large quantities; its synonym is "Plentiful". Scarce and rare are antonyms.' },
+          { id: 'ssc-cgl-s20-17', text: 'Choose the word that means the opposite of: GENEROUS', options: ['Kind', 'Liberal', 'Stingy', 'Noble'], correct: 2, topic: 'Antonym', difficulty: 'easy-medium', explanation: '"Generous" means giving freely; its opposite is "Stingy", meaning unwilling to spend or give.' },
+          { id: 'ssc-cgl-s20-18', text: 'Select the meaning of the idiom: "To bite the bullet"', options: ['To eat quickly', 'To endure a painful situation bravely', 'To fire a gun', 'To make a mistake'], correct: 1, topic: 'Idiom', difficulty: 'medium', explanation: '"To bite the bullet" means to face a difficult or painful situation with courage and endurance.' },
+          { id: 'ssc-cgl-s20-19', text: 'Identify the part of the sentence with the error: "Each of the boys (A)/ have submitted (B)/ their assignment (C)/ on time. (D)"', options: ['A', 'B', 'C', 'D'], correct: 1, topic: 'Error Spotting', difficulty: 'medium-hard', explanation: '"Each of the boys" is singular, so the verb must be singular: "has submitted", not "have submitted". The error is in part B.' },
+          { id: 'ssc-cgl-s20-20', text: 'Fill in the blank with the correct option: "Hardly had he left the house ____ it started to rain."', options: ['than', 'when', 'then', 'that'], correct: 1, topic: 'Fill in the Blank', difficulty: 'hard', explanation: 'The correlative "Hardly … when" is the correct pairing. "Hardly had he left the house when it started to rain."' },
+        ]},
+      ],
+    },
+    {
+      id: 'ssc-cgl-short-25',
+      name: 'SSC CGL — Short Mock (25 Questions)',
+      template: 'ssc',
+      examCatalogueId: 'ssc-cgl',
+      kind: 'mock', scope: 'short', sectionTag: null,
+      durationMin: 20,
+      marking: { correct: 2, wrong: -0.5, unattempted: 0 },
+      allowSectionSwitch: true, timerMode: 'full', calculator: false,
+      questionTypes: ['mcq'], languages: ['en'],
+      sections: [
+        { id: 'gi', name: 'General Intelligence & Reasoning', questions: [
+          { id: 'ssc-cgl-s25-1', text: 'Select the option related to the third term in the same way as the second is to the first. Pen : Write :: Knife : ?', options: ['Sharp', 'Cut', 'Metal', 'Kitchen'], correct: 1, topic: 'Analogy', difficulty: 'easy', explanation: 'A pen is used to write; a knife is used to cut. So the answer is Cut.' },
+          { id: 'ssc-cgl-s25-2', text: 'Find the missing term: 2, 5, 10, 17, 26, ?', options: ['35', '37', '36', '39'], correct: 1, topic: 'Number Series', difficulty: 'medium', explanation: 'Differences are 3, 5, 7, 9, then 11. So 26 + 11 = 37. (Also each term is n²+1: 6²+1 = 37.)' },
+          { id: 'ssc-cgl-s25-3', text: 'In a certain code, FACE is written as GBDF. How is BOOK written in that code?', options: ['CPPL', 'CPLP', 'CPPM', 'DPPL'], correct: 0, topic: 'Coding-Decoding', difficulty: 'medium-hard', explanation: 'Each letter is shifted forward by 1: F→G, A→B, C→D, E→F. Applying to BOOK: B→C, O→P, O→P, K→L gives CPPL.' },
+          { id: 'ssc-cgl-s25-4', text: 'A man walks 4 km towards North, turns right and walks 3 km. How far is he from the starting point?', options: ['5 km', '6 km', '7 km', '1 km'], correct: 0, topic: 'Direction Sense', difficulty: 'medium', explanation: 'He forms a right angle: 4 km north and 3 km east. Distance = √(4² + 3²) = √(16 + 9) = √25 = 5 km.' },
+          { id: 'ssc-cgl-s25-5', text: 'Select the odd one out: Lion, Tiger, Leopard, Elephant', options: ['Lion', 'Tiger', 'Leopard', 'Elephant'], correct: 3, topic: 'Classification', difficulty: 'easy-medium', explanation: 'Lion, Tiger and Leopard are carnivorous big cats, while the Elephant is a herbivore. So Elephant is the odd one out.' },
+          { id: 'ssc-cgl-s25-6', text: 'Statements: All roses are flowers. All flowers are plants. Conclusion: All roses are plants. Is the conclusion valid?', options: ['Yes, it follows', 'No, it does not follow', 'Data insufficient', 'Only partially'], correct: 0, topic: 'Syllogism', difficulty: 'medium', explanation: 'Since all roses are flowers and all flowers are plants, by transitivity all roses are plants. The conclusion follows.' },
+          { id: 'ssc-cgl-s25-7', text: 'If A + B means A is the father of B, and A − B means A is the wife of B, then in P − Q + R, how is R related to P?', options: ['Son', 'Daughter', 'Father', 'Husband'], correct: 0, topic: 'Blood Relations', difficulty: 'hard', explanation: 'Q + R means Q is the father of R. P − Q means P is the wife of Q. So P is R\'s mother, and R is the son of P (R is referred to as Son among the options).' },
+        ]},
+        { id: 'ga', name: 'General Awareness', questions: [
+          { id: 'ssc-cgl-s25-8', text: 'The Jallianwala Bagh massacre took place in which year?', options: ['1919', '1920', '1857', '1930'], correct: 0, topic: 'History', difficulty: 'easy', explanation: 'The Jallianwala Bagh massacre took place at Amritsar on 13 April 1919, when troops under General Dyer fired on an unarmed gathering.' },
+          { id: 'ssc-cgl-s25-9', text: 'How many fundamental duties are enshrined in the Indian Constitution at present?', options: ['10', '11', '9', '12'], correct: 1, topic: 'Polity', difficulty: 'medium-hard', explanation: 'Originally 10 fundamental duties were added by the 42nd Amendment; an 11th was added by the 86th Amendment (2002), making 11 in total.' },
+          { id: 'ssc-cgl-s25-10', text: 'The Nathu La pass connects India with China through which state?', options: ['Arunachal Pradesh', 'Sikkim', 'Himachal Pradesh', 'Uttarakhand'], correct: 1, topic: 'Geography', difficulty: 'easy-medium', explanation: 'Nathu La is a mountain pass in Sikkim that connects India with the Tibet Autonomous Region of China.' },
+          { id: 'ssc-cgl-s25-11', text: 'The chemical symbol "Na" stands for which element?', options: ['Nitrogen', 'Neon', 'Sodium', 'Nickel'], correct: 2, topic: 'Science', difficulty: 'medium', explanation: 'The symbol "Na" comes from the Latin name "Natrium" and represents Sodium. Nitrogen is N, Neon is Ne, Nickel is Ni.' },
+          { id: 'ssc-cgl-s25-12', text: 'The headquarters of the World Health Organization (WHO) is located in:', options: ['New York', 'Geneva', 'Paris', 'Vienna'], correct: 1, topic: 'Static GK', difficulty: 'medium', explanation: 'The WHO has its headquarters in Geneva, Switzerland.' },
+          { id: 'ssc-cgl-s25-13', text: 'Who is known as the "Father of the Indian Constitution"?', options: ['Mahatma Gandhi', 'B. R. Ambedkar', 'Jawaharlal Nehru', 'Sardar Patel'], correct: 1, topic: 'History', difficulty: 'easy', explanation: 'Dr. B. R. Ambedkar, chairman of the Drafting Committee, is regarded as the Father of the Indian Constitution.' },
+        ]},
+        { id: 'qa', name: 'Quantitative Aptitude', questions: [
+          { id: 'ssc-cgl-s25-14', text: 'A train travels 360 km in 4 hours. What is its speed in metres per second?', options: ['20 m/s', '25 m/s', '30 m/s', '90 m/s'], correct: 1, topic: 'Time, Speed and Distance', difficulty: 'medium', explanation: 'Speed = 360/4 = 90 km/h. Converting: 90 × (5/18) = 25 m/s.' },
+          { id: 'ssc-cgl-s25-15', text: 'A can do a piece of work in 12 days and B in 6 days. Working together, in how many days will they finish it?', options: ['3 days', '4 days', '5 days', '6 days'], correct: 1, topic: 'Time and Work', difficulty: 'medium', explanation: 'A\'s one-day work = 1/12, B\'s = 1/6 = 2/12. Together = 1/12 + 2/12 = 3/12 = 1/4. So they finish in 4 days.' },
+          { id: 'ssc-cgl-s25-16', text: 'What is 35% of 240?', options: ['72', '84', '96', '108'], correct: 1, topic: 'Percentage', difficulty: 'easy', explanation: '35% of 240 = (35/100) × 240 = 0.35 × 240 = 84.' },
+          { id: 'ssc-cgl-s25-17', text: 'Find the compound interest on ₹8000 at 10% per annum for 2 years, compounded annually.', options: ['₹1600', '₹1680', '₹1720', '₹1800'], correct: 1, topic: 'Compound Interest', difficulty: 'medium-hard', explanation: 'Amount = 8000 × (1.1)² = 8000 × 1.21 = 9680. CI = 9680 − 8000 = ₹1680.' },
+          { id: 'ssc-cgl-s25-18', text: 'The smallest number which when divided by 12, 15 and 18 leaves no remainder is:', options: ['90', '120', '180', '360'], correct: 2, topic: 'Number System', difficulty: 'medium', explanation: 'LCM of 12, 15, 18: 12 = 2²×3, 15 = 3×5, 18 = 2×3². LCM = 2²×3²×5 = 4×9×5 = 180.' },
+          { id: 'ssc-cgl-s25-19', text: 'The perimeter of a rectangle is 48 cm and its length is 14 cm. Its area is:', options: ['120 cm²', '140 cm²', '154 cm²', '168 cm²'], correct: 1, topic: 'Mensuration', difficulty: 'hard', explanation: 'Perimeter = 2(l + b) = 48 → l + b = 24 → b = 24 − 14 = 10. Area = l × b = 14 × 10 = 140 cm².' },
+        ]},
+        { id: 'en', name: 'English Comprehension', questions: [
+          { id: 'ssc-cgl-s25-20', text: 'Select the synonym of: BENEVOLENT', options: ['Cruel', 'Kind', 'Selfish', 'Harsh'], correct: 1, topic: 'Synonym', difficulty: 'easy', explanation: '"Benevolent" means well-meaning and kindly; its synonym is "Kind".' },
+          { id: 'ssc-cgl-s25-21', text: 'Choose the antonym of: TRANSPARENT', options: ['Clear', 'Opaque', 'Visible', 'Pure'], correct: 1, topic: 'Antonym', difficulty: 'easy-medium', explanation: '"Transparent" means allowing light through so objects can be seen; its opposite is "Opaque".' },
+          { id: 'ssc-cgl-s25-22', text: 'Select the one-word substitution for: "A person who knows many languages"', options: ['Linguist', 'Polyglot', 'Orator', 'Novelist'], correct: 1, topic: 'One-word Substitution', difficulty: 'medium-hard', explanation: 'A "Polyglot" is a person who knows and is able to use several languages. A linguist studies language as a subject.' },
+          { id: 'ssc-cgl-s25-23', text: 'Select the correctly improved version: "He is junior than me in the office."', options: ['junior than I', 'junior to me', 'more junior than me', 'No improvement'], correct: 1, topic: 'Sentence Improvement', difficulty: 'medium', explanation: 'Words like "junior", "senior", "superior" are followed by "to", not "than". The correct form is "junior to me".' },
+          { id: 'ssc-cgl-s25-24', text: 'Identify the part with the error: "The teacher along with (A)/ her students (B)/ were going (C)/ to the museum. (D)"', options: ['A', 'B', 'C', 'D'], correct: 2, topic: 'Error Spotting', difficulty: 'hard', explanation: 'The subject is "The teacher" (singular); "along with her students" does not change the number. The verb should be "was going", so the error is in part C.' },
+          { id: 'ssc-cgl-s25-25', text: 'Fill in the blank: "If I ____ rich, I would travel the world."', options: ['am', 'was', 'were', 'will be'], correct: 2, topic: 'Fill in the Blank', difficulty: 'easy', explanation: 'In a second conditional (unreal present), the subjunctive "were" is used with all subjects: "If I were rich".' },
+        ]},
+      ],
+    },
+  ];
+  window.EXAMS = (window.EXAMS || []).concat(mocks);
+})();

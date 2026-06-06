@@ -1,0 +1,15 @@
+{
+  "name": "question-bank",
+  "version": "1.0.0",
+  "description": "Multi-exam question bank with seed loader",
+  "main": "seed.js",
+  "scripts": {
+    "seed": "node seed.js",
+    "seed:dry": "node seed.js --dry-run",
+    "seed:reset": "node seed.js --reset"
+  },
+  "dependencies": {
+    "mongoose": "^8.0.0",
+    "glob": "^10.3.10"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "code": "UPSC",
+  "name": "UPSC CSE Prelims",
+  "fullForm": "Union Public Service Commission - Civil Services Examination (Preliminary)",
+  "conductingBody": "Union Public Service Commission",
+  "level": "Civil Services",
+  "mode": "Offline",
+  "totalDurationMinutes": 240,
+  "languages": ["English", "Hindi"],
+  "sections": [
+    { "code": "GS1", "name": "General Studies Paper I", "subjects": ["History", "Geography", "Polity", "Economy", "Environment", "Science", "Current Affairs"], "questionCount": 100, "durationMinutes": 120 },
+    { "code": "CSAT", "name": "General Studies Paper II (CSAT)", "subjects": ["Comprehension", "Logical Reasoning", "Quantitative Aptitude", "Decision Making"], "questionCount": 80, "durationMinutes": 120, "optional": false }
+  ],
+  "markingScheme": {
+    "GS1_MCQ": { "correct": 2, "incorrect": -0.66, "unattempted": 0 },
+    "CSAT_MCQ": { "correct": 2.5, "incorrect": -0.83, "unattempted": 0 }
+  },
+  "defaultMarking": { "correct": 2, "incorrect": -0.66, "unattempted": 0, "notes": "GS1 marking; CSAT differs" },
+  "metadata": {
+    "qualifyingPaper": "CSAT (33% required)",
+    "subjectShortCodes": { "History": "his", "Geography": "geo", "Polity": "pol", "Economy": "eco", "Environment": "env", "Science": "sci", "Current Affairs": "ca", "Comprehension": "comp", "Logical Reasoning": "lr", "Quantitative Aptitude": "qa", "Decision Making": "dm" }
+  }
+}

@@ -1,0 +1,15 @@
+# Claude Code local settings & memory (keep private)
+.claude/
+
+# Dependencies
+node_modules/
+
+# Vercel
+.vercel/
+
+# Build artifacts / archives
+*.zip
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store

@@ -1,0 +1,27 @@
+{
+  "code": "GATE",
+  "name": "GATE",
+  "fullForm": "Graduate Aptitude Test in Engineering",
+  "conductingBody": "IISc Bangalore & IITs (rotational)",
+  "level": "PG",
+  "mode": "Online",
+  "totalDurationMinutes": 180,
+  "languages": ["English"],
+  "sections": [
+    { "code": "GA", "name": "General Aptitude", "subjects": ["Verbal Aptitude", "Quantitative Aptitude"], "questionCount": 10 },
+    { "code": "CORE", "name": "Subject Paper (e.g., CS, EE, ME)", "subjects": ["Engineering Mathematics", "Core Subject"], "questionCount": 55 }
+  ],
+  "markingScheme": {
+    "MCQ_1": { "correct": 1, "incorrect": -0.33, "unattempted": 0 },
+    "MCQ_2": { "correct": 2, "incorrect": -0.66, "unattempted": 0 },
+    "MSQ": { "correct": 1, "incorrect": 0, "unattempted": 0, "notes": "No negative marking; all correct options must be selected" },
+    "NAT": { "correct": 2, "incorrect": 0, "unattempted": 0, "notes": "No negative marking for NAT" }
+  },
+  "defaultMarking": { "correct": 1, "incorrect": -0.33, "unattempted": 0 },
+  "metadata": {
+    "totalQuestions": 65,
+    "totalMarks": 100,
+    "papers": ["CS", "EC", "EE", "ME", "CE", "CH", "BT", "MA", "PH", "ST", "DA"],
+    "subjectShortCodes": { "Engineering Mathematics": "em", "Data Structures": "ds", "Algorithms": "algo", "Operating Systems": "os", "Databases": "db", "Computer Networks": "cn", "Theory of Computation": "toc", "Compiler Design": "cd", "Digital Logic": "dl", "Computer Architecture": "coa" }
+  }
+}

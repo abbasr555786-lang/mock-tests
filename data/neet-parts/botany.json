@@ -1,0 +1,452 @@
+[
+  {
+    "id": "neet-fp1-bot-01",
+    "section": "Botany",
+    "text": "In the five-kingdom classification proposed by R.H. Whittaker, the chief criterion that distinguishes Kingdom Fungi from Kingdom Plantae is:",
+    "options": ["Presence of a cell wall", "Eukaryotic cell organization", "Mode of nutrition (heterotrophic vs autotrophic)", "Presence of a true nucleus"],
+    "correct": 2,
+    "topic": "Biological classification",
+    "difficulty": "easy-medium",
+    "explanation": "Whittaker's main criteria included mode of nutrition. Plantae are autotrophic (photosynthetic) while Fungi are heterotrophic (saprophytic/parasitic, absorptive). Both are eukaryotic and possess cell walls and true nuclei, so those features cannot separate them. Hence nutrition is the distinguishing criterion."
+  },
+  {
+    "id": "neet-fp1-bot-02",
+    "section": "Botany",
+    "text": "The cyanobacterial genus Nostoc fixes atmospheric nitrogen in specialised, thick-walled cells called:",
+    "options": ["Akinetes", "Heterocysts", "Hormogonia", "Baeocytes"],
+    "correct": 1,
+    "topic": "Biological classification",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, cyanobacteria such as Nostoc and Anabaena fix nitrogen in specialised cells called heterocysts. Akinetes are resting spores and hormogonia are reproductive fragments; they are not the nitrogen-fixing cells."
+  },
+  {
+    "id": "neet-fp1-bot-03",
+    "section": "Botany",
+    "text": "In which group of plants is the dominant, photosynthetic, independent phase of the life cycle the gametophyte (haploid)?",
+    "options": ["Pteridophytes", "Gymnosperms", "Bryophytes", "Angiosperms"],
+    "correct": 2,
+    "topic": "Plant kingdom",
+    "difficulty": "medium",
+    "explanation": "In bryophytes the main plant body is the gametophyte, which is photosynthetic and independent; the sporophyte is small and dependent on it. In pteridophytes, gymnosperms and angiosperms the sporophyte is the dominant phase."
+  },
+  {
+    "id": "neet-fp1-bot-04",
+    "section": "Botany",
+    "text": "The first terrestrial plants to possess vascular tissues (xylem and phloem), with a well-differentiated, dominant diploid sporophyte, are the:",
+    "options": ["Bryophytes", "Pteridophytes", "Gymnosperms", "Algae"],
+    "correct": 1,
+    "topic": "Plant kingdom",
+    "difficulty": "easy-medium",
+    "explanation": "Per NCERT, pteridophytes (e.g., ferns, Selaginella) are the first terrestrial plants to possess vascular tissues (xylem and phloem), with a dominant, well-differentiated diploid sporophyte. Bryophytes lack vascular tissue (and are the group called 'amphibians of the plant kingdom'); in gymnosperms and algae these two criteria do not both apply."
+  },
+  {
+    "id": "neet-fp1-bot-05",
+    "section": "Botany",
+    "text": "Red algae (Rhodophyceae) owe their characteristic red colour predominantly to the pigment:",
+    "options": ["Fucoxanthin", "Phycoerythrin", "Phycocyanin", "Chlorophyll d"],
+    "correct": 1,
+    "topic": "Plant kingdom",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, the red colour of Rhodophyceae is mainly due to the predominance of the red pigment r-phycoerythrin. Fucoxanthin is characteristic of brown algae; phycocyanin is a blue pigment present in lesser amount in red algae."
+  },
+  {
+    "id": "neet-fp1-bot-06",
+    "section": "Botany",
+    "text": "When the margin of a leaf is incised to varying depths but the incisions do not reach the midrib, the leaf type is described as:",
+    "options": ["Compound (pinnately)", "Simple", "Compound (palmately)", "Decompound"],
+    "correct": 1,
+    "topic": "Morphology of flowering plants",
+    "difficulty": "medium",
+    "explanation": "NCERT states that a leaf is simple when its lamina is entire or, even when incised, the incisions do not touch the midrib. A leaf is compound only when the incisions reach up to the midrib, dividing it into leaflets."
+  },
+  {
+    "id": "neet-fp1-bot-07",
+    "section": "Botany",
+    "text": "Aestivation in which one margin of an appendage overlaps the next and so on (as in china rose, Hibiscus) is called:",
+    "options": ["Valvate", "Twisted", "Imbricate", "Vexillary"],
+    "correct": 1,
+    "topic": "Morphology of flowering plants",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, twisted aestivation is when one margin of an appendage overlaps the next one and so on, as seen in the corolla of china rose (Hibiscus), cotton and lady's finger. Valvate is just touching; imbricate has irregular overlap; vexillary is the pea-flower type."
+  },
+  {
+    "id": "neet-fp1-bot-08",
+    "section": "Botany",
+    "text": "In a monocot stem, the vascular bundles are characteristically:",
+    "options": ["Conjoint, open and arranged in a ring", "Conjoint, closed and scattered", "Radial and closed", "Bicollateral and open"],
+    "correct": 1,
+    "topic": "Anatomy of flowering plants",
+    "difficulty": "medium",
+    "explanation": "NCERT states that in a monocot stem the vascular bundles are conjoint and closed (lacking cambium, so no secondary growth) and are scattered throughout the ground tissue. In dicot stems they are conjoint, open and arranged in a ring."
+  },
+  {
+    "id": "neet-fp1-bot-09",
+    "section": "Botany",
+    "text": "The Casparian strips, which are deposits of suberin regulating the radial movement of water and ions, are a characteristic feature of the:",
+    "options": ["Epidermis", "Pericycle", "Endodermis", "Pith"],
+    "correct": 2,
+    "topic": "Anatomy of flowering plants",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, the endodermal cells of the root possess Casparian strips — tangential and radial walls impregnated with suberin — that prevent free passage of water and force it through the symplast, regulating mineral and water entry into the vascular tissue."
+  },
+  {
+    "id": "neet-fp1-bot-10",
+    "section": "Botany",
+    "text": "In which plant family is the placentation typically axile, with a superior bicarpellary syncarpous ovary bearing many ovules, and the fruit a capsule or berry (e.g., tomato, brinjal, potato)?",
+    "options": ["Fabaceae", "Liliaceae", "Solanaceae", "Brassicaceae"],
+    "correct": 2,
+    "topic": "Morphology of flowering plants",
+    "difficulty": "medium-hard",
+    "explanation": "NCERT describes Solanaceae as having a bicarpellary, syncarpous, superior ovary with axile placentation and many ovules; the fruit is a berry or capsule (tomato, brinjal, potato). Fabaceae has marginal placentation and a legume fruit; Brassicaceae has parietal placentation."
+  },
+  {
+    "id": "neet-fp1-bot-11",
+    "section": "Botany",
+    "text": "The green, flattened, fleshy photosynthetic stems found in xerophytes such as Opuntia are called:",
+    "options": ["Phylloclades", "Cladodes", "Phyllodes", "Tendrils"],
+    "correct": 0,
+    "topic": "Morphology of flowering plants",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, in Opuntia the stem is modified into a flattened, green, fleshy photosynthetic structure called a phylloclade, which bears leaves modified into spines. A cladode is a phylloclade of one or two internodes (e.g., Asparagus); a phyllode is a modified petiole."
+  },
+  {
+    "id": "neet-fp1-bot-12",
+    "section": "Botany",
+    "text": "The fluid-mosaic model of the plasma membrane, which accounts for the lateral movement of proteins within the lipid bilayer, was proposed by:",
+    "options": ["Robert Brown", "Singer and Nicolson", "Schleiden and Schwann", "Camillo Golgi"],
+    "correct": 1,
+    "topic": "Cell structure and function",
+    "difficulty": "easy-medium",
+    "explanation": "Per NCERT, the widely accepted fluid mosaic model of membrane structure was given by Singer and Nicolson (1972), proposing that the quasi-fluid lipid bilayer allows lateral movement of proteins. Robert Brown discovered the nucleus; Schleiden and Schwann gave the cell theory."
+  },
+  {
+    "id": "neet-fp1-bot-13",
+    "section": "Botany",
+    "text": "Polysomes (polyribosomes) are best described as:",
+    "options": ["A stack of flattened Golgi cisternae", "Several ribosomes attached to a single mRNA molecule during translation", "Membrane-bound vesicles containing enzymes", "A cluster of plastids in a cell"],
+    "correct": 1,
+    "topic": "Cell structure and function",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, several ribosomes may attach to a single mRNA and form a chain called a polysome or polyribosome; these ribosomes translate the mRNA into protein simultaneously. The other options describe Golgi, lysosomes/peroxisomes and chloroplast aggregates."
+  },
+  {
+    "id": "neet-fp1-bot-14",
+    "section": "Botany",
+    "text": "In a eukaryotic chromosome, the primary constriction that holds the two chromatids together and to which spindle fibres attach is the:",
+    "options": ["Telomere", "Satellite", "Centromere", "Secondary constriction"],
+    "correct": 2,
+    "topic": "Cell structure and function",
+    "difficulty": "easy",
+    "explanation": "Per NCERT, the centromere is the primary constriction of a chromosome at which the two sister chromatids are held together; the kinetochore on it serves as the site of spindle fibre attachment. Telomeres are chromosome ends; secondary constrictions bear satellites."
+  },
+  {
+    "id": "neet-fp1-bot-15",
+    "section": "Botany",
+    "text": "According to the latest NCERT, the cell-cycle phase that occupies most of the cell's lifespan and during which the cell prepares biochemically for division (DNA replication occurs within it) is:",
+    "options": ["M phase", "Interphase", "Cytokinesis", "Prophase"],
+    "correct": 1,
+    "topic": "Cell structure and function",
+    "difficulty": "easy-medium",
+    "explanation": "Per NCERT, interphase (G1, S, G2) constitutes more than 95% of the cell cycle duration; it is the phase of growth and DNA replication (in S phase), preparing the cell for the much shorter M phase (mitosis)."
+  },
+  {
+    "id": "neet-fp1-bot-16",
+    "section": "Botany",
+    "text": "In a plant cell, the semi-autonomous, double-membrane-bound organelle that contains its own DNA, 70S ribosomes and the photosynthetic pigments is the:",
+    "options": ["Mitochondrion", "Chloroplast", "Golgi apparatus", "Vacuole"],
+    "correct": 1,
+    "topic": "Cell structure and function",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, the chloroplast is a double-membrane plastid that is semi-autonomous: it has its own circular DNA and 70S ribosomes, and its thylakoids bear the photosynthetic pigments (chlorophylls and carotenoids). Mitochondria are also semi-autonomous but lack photosynthetic pigments; Golgi and vacuoles have neither DNA nor 70S ribosomes."
+  },
+  {
+    "id": "neet-fp1-bot-17",
+    "section": "Botany",
+    "text": "In an enzyme-catalysed reaction, a competitive inhibitor reduces the rate of reaction by:",
+    "options": ["Binding to the active site because of its structural similarity to the substrate", "Permanently destroying the enzyme", "Binding to a site other than the active site", "Lowering the temperature of the reaction"],
+    "correct": 0,
+    "topic": "Cell structure and function",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, a competitive inhibitor closely resembles the substrate in structure and competes with it for binding at the active site, thereby inhibiting enzyme activity (e.g., malonate inhibiting succinate dehydrogenase). It does not bind elsewhere or destroy the enzyme."
+  },
+  {
+    "id": "neet-fp1-bot-18",
+    "section": "Botany",
+    "text": "Light absorption by chlorophyll a is maximal in which regions of the visible spectrum, as reflected in the action spectrum of photosynthesis?",
+    "options": ["Green and yellow", "Blue and red", "Orange and green", "Violet and yellow only"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, chlorophyll a shows maximum absorption in the blue and red regions of the spectrum, and the rate of photosynthesis is highest in these regions. Green light is largely reflected, which is why leaves appear green."
+  },
+  {
+    "id": "neet-fp1-bot-19",
+    "section": "Botany",
+    "text": "In C4 plants such as maize, the primary CO2 acceptor in mesophyll cells is a 3-carbon compound, and the first stable product formed is a 4-carbon acid. This acceptor is:",
+    "options": ["Ribulose-1,5-bisphosphate (RuBP)", "Phosphoenolpyruvate (PEP)", "Oxaloacetic acid (OAA)", "3-Phosphoglyceric acid (PGA)"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, in the C4 pathway the primary CO2 acceptor in mesophyll cells is phosphoenolpyruvate (PEP), a 3-carbon molecule, and the enzyme PEPcase fixes CO2 to form the 4-carbon oxaloacetic acid (OAA). RuBP is the acceptor in the Calvin cycle of bundle-sheath cells."
+  },
+  {
+    "id": "neet-fp1-bot-20",
+    "section": "Botany",
+    "text": "The phenomenon by which the rate of photosynthesis decreases in many C3 plants at high O2 concentration and low CO2, because RuBisCO binds O2 instead of CO2, is:",
+    "options": ["Photorespiration", "Photophosphorylation", "Photolysis", "Photoperiodism"],
+    "correct": 0,
+    "topic": "Plant physiology",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, photorespiration occurs in C3 plants when RuBisCO acts as an oxygenase under high O2/low CO2, binding O2 to RuBP and forming phosphoglycolate; this wasteful process yields no sugar, ATP or NADPH. C4 plants largely avoid it by concentrating CO2 around RuBisCO."
+  },
+  {
+    "id": "neet-fp1-bot-21",
+    "section": "Botany",
+    "text": "During aerobic respiration in plant cells, the complete oxidation of one molecule of pyruvic acid occurs in the:",
+    "options": ["Cytoplasm via glycolysis", "Mitochondrial matrix and inner membrane", "Chloroplast stroma", "Endoplasmic reticulum"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, pyruvate formed in cytoplasmic glycolysis enters the mitochondria, where it is fully oxidised in the matrix (Krebs cycle) and the electrons feed the electron transport chain on the inner mitochondrial membrane (oxidative phosphorylation). Glycolysis itself does not fully oxidise pyruvate."
+  },
+  {
+    "id": "neet-fp1-bot-22",
+    "section": "Botany",
+    "text": "The respiratory quotient (RQ) value when a fatty substance is used as the respiratory substrate is:",
+    "options": ["Equal to 1", "Greater than 1", "Less than 1", "Exactly zero"],
+    "correct": 2,
+    "topic": "Plant physiology",
+    "difficulty": "hard",
+    "explanation": "Per NCERT, the RQ (CO2 released / O2 consumed) for fats is less than 1 because fats require more O2 for their oxidation relative to the CO2 produced (e.g., ~0.7 for tripalmitin). Carbohydrates give RQ = 1, and organic acids give RQ greater than 1."
+  },
+  {
+    "id": "neet-fp1-bot-23",
+    "section": "Botany",
+    "text": "The driving force for the ascent of sap (movement of water up the xylem) according to the cohesion-tension theory is:",
+    "options": ["Root pressure", "Transpiration pull", "Active pumping by xylem vessels", "Capillary action alone"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, the cohesion-tension and transpiration-pull model explains that water loss by transpiration from leaves generates a negative pressure (tension) that pulls a continuous column of water (held by cohesion and adhesion) up the xylem. Root pressure plays only a minor role."
+  },
+  {
+    "id": "neet-fp1-bot-24",
+    "section": "Botany",
+    "text": "Which one of the following is a macronutrient required by plants and is a constituent of proteins, nucleic acids and chlorophyll?",
+    "options": ["Iron", "Nitrogen", "Boron", "Molybdenum"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "easy-medium",
+    "explanation": "Per NCERT, nitrogen is a macronutrient and a component of proteins, nucleic acids, vitamins and chlorophyll, required by plants in large amounts. Iron, boron and molybdenum are micronutrients needed in trace quantities."
+  },
+  {
+    "id": "neet-fp1-bot-25",
+    "section": "Botany",
+    "text": "The deficiency of which mobile element first shows symptoms (such as chlorosis) in the older/senescent leaves of a plant?",
+    "options": ["Calcium", "Sulphur", "Magnesium", "Boron"],
+    "correct": 2,
+    "topic": "Plant physiology",
+    "difficulty": "hard",
+    "explanation": "Per NCERT, deficiency symptoms of mobile elements (like nitrogen, potassium and magnesium) appear first in older leaves because these elements are remobilised to younger growing parts. Calcium and boron are immobile, so their deficiency appears in young tissues."
+  },
+  {
+    "id": "neet-fp1-bot-26",
+    "section": "Botany",
+    "text": "The plant growth regulator that promotes cell division, delays leaf senescence and overcomes apical dominance is:",
+    "options": ["Abscisic acid", "Cytokinin", "Ethylene", "Gibberellin"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, cytokinins promote cytokinesis (cell division), help delay leaf senescence (Richmond-Lang effect) and promote growth of lateral buds, thereby overcoming apical dominance. Abscisic acid is the stress/dormancy hormone, ethylene promotes ripening, and gibberellins promote stem elongation."
+  },
+  {
+    "id": "neet-fp1-bot-27",
+    "section": "Botany",
+    "text": "The 'bakanae' (foolish seedling) disease of rice, characterised by abnormal elongation of internodes, led to the discovery of which group of plant hormones?",
+    "options": ["Auxins", "Gibberellins", "Cytokinins", "Abscisins"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, gibberellins were discovered from the fungus Gibberella fujikuroi, the causal organism of the bakanae (foolish seedling) disease of rice, which causes excessive internodal elongation. Gibberellins promote internode/stem elongation."
+  },
+  {
+    "id": "neet-fp1-bot-28",
+    "section": "Botany",
+    "text": "Photoperiodism in flowering plants — the response of flowering to the relative durations of light and dark — is perceived by the pigment:",
+    "options": ["Chlorophyll a", "Phytochrome", "Carotenoid", "Phycocyanin"],
+    "correct": 1,
+    "topic": "Plant physiology",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, the pigment phytochrome (present in leaves) perceives the photoperiod (light/dark durations) and is responsible for the induction of flowering in response to day length, in conjunction with a hormonal flowering signal."
+  },
+  {
+    "id": "neet-fp1-bot-29",
+    "section": "Botany",
+    "text": "In plant genetic engineering, the soil bacterium most commonly exploited as a natural vector to deliver foreign genes into dicot plant cells is:",
+    "options": ["Escherichia coli", "Agrobacterium tumefaciens", "Bacillus thuringiensis", "Rhizobium leguminosarum"],
+    "correct": 1,
+    "topic": "Biotechnology and its applications",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, Agrobacterium tumefaciens is used as a natural genetic engineer of plants; its Ti (tumour-inducing) plasmid is disarmed and used as a cloning vector to transfer desired genes into plant cells. Bacillus thuringiensis is the source of Bt cry genes, not a delivery vector; E. coli is a bacterial host; Rhizobium fixes nitrogen."
+  },
+  {
+    "id": "neet-fp1-bot-30",
+    "section": "Botany",
+    "text": "The promotion of flowering in certain plants by exposure to a period of low temperature is known as:",
+    "options": ["Vernalization", "Photoperiodism", "Stratification", "Etiolation"],
+    "correct": 0,
+    "topic": "Plant physiology",
+    "difficulty": "easy-medium",
+    "explanation": "Per NCERT, vernalization is the phenomenon in which flowering is quantitatively or qualitatively promoted by exposure to low temperature (cold treatment), as in certain varieties of wheat, barley and biennials like beet."
+  },
+  {
+    "id": "neet-fp1-bot-31",
+    "section": "Botany",
+    "text": "In the anther of a flowering plant, the innermost layer of the wall that nourishes the developing pollen grains is the:",
+    "options": ["Epidermis", "Endothecium", "Middle layers", "Tapetum"],
+    "correct": 3,
+    "topic": "Reproduction in flowering plants",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, the anther wall consists (from outside in) of epidermis, endothecium, middle layers and the tapetum. The tapetum is the innermost layer and provides nourishment to the developing pollen grains."
+  },
+  {
+    "id": "neet-fp1-bot-32",
+    "section": "Botany",
+    "text": "The most common type of embryo sac in angiosperms is 8-nucleate and 7-celled. The three cells at the micropylar end constitute the:",
+    "options": ["Antipodal cells", "Egg apparatus", "Central cell", "Synergids only"],
+    "correct": 1,
+    "topic": "Reproduction in flowering plants",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, the typical (Polygonum-type) embryo sac is 7-celled, 8-nucleate. The micropylar end has the egg apparatus comprising one egg cell and two synergids; the chalazal end has three antipodal cells, and the centre has a binucleate central cell."
+  },
+  {
+    "id": "neet-fp1-bot-33",
+    "section": "Botany",
+    "text": "The phenomenon in which seeds develop without fertilization, producing fruits, is termed:",
+    "options": ["Apomixis", "Parthenocarpy", "Polyembryony", "Apospory"],
+    "correct": 0,
+    "topic": "Reproduction in flowering plants",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, apomixis is a form of asexual reproduction that mimics sexual reproduction by producing seeds without fertilization. Parthenocarpy is the development of fruit without fertilization but without seeds; polyembryony is the occurrence of more than one embryo in a seed."
+  },
+  {
+    "id": "neet-fp1-bot-34",
+    "section": "Botany",
+    "text": "In which of the following does the seed retain its endosperm at maturity (i.e., it is albuminous/endospermic)?",
+    "options": ["Pea", "Groundnut", "Castor", "Bean"],
+    "correct": 2,
+    "topic": "Reproduction in flowering plants",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, castor (and cereals like maize) are endospermic (albuminous) seeds that retain the endosperm at maturity. In non-endospermic (exalbuminous) seeds such as pea, groundnut and bean, the endosperm is consumed during embryo development."
+  },
+  {
+    "id": "neet-fp1-bot-35",
+    "section": "Botany",
+    "text": "Geitonogamy, a type of pollination, refers to the transfer of pollen grains:",
+    "options": ["From an anther to the stigma of the same flower", "From the anther to the stigma of another flower on the same plant", "From the anther of one plant to the stigma of a genetically different plant", "By wind to a flower of a different species"],
+    "correct": 1,
+    "topic": "Reproduction in flowering plants",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, geitonogamy is the transfer of pollen from the anther to the stigma of another flower of the same plant. Functionally it is cross-pollination involving a pollinating agent, but genetically it is similar to autogamy (self-pollination)."
+  },
+  {
+    "id": "neet-fp1-bot-36",
+    "section": "Botany",
+    "text": "To determine whether a pea plant showing the dominant tall phenotype is homozygous (TT) or heterozygous (Tt), it is crossed in a test cross with a plant that is:",
+    "options": ["Homozygous dominant (TT)", "Homozygous recessive (tt)", "Heterozygous (Tt)", "Of any genotype"],
+    "correct": 1,
+    "topic": "Genetics and molecular inheritance",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, a test cross crosses the individual of unknown genotype with a homozygous recessive (tt). If the tall parent is TT, all offspring are tall; if it is Tt, the offspring segregate 1 tall : 1 dwarf, revealing the unknown genotype."
+  },
+  {
+    "id": "neet-fp1-bot-37",
+    "section": "Botany",
+    "text": "The Law of Segregation (Mendel's first law) is based on the fact that the two alleles of a gene:",
+    "options": ["Always blend in the heterozygote", "Separate during gamete formation, so a gamete carries only one", "Assort independently of other genes", "Are always located on the same chromosome"],
+    "correct": 1,
+    "topic": "Genetics and molecular inheritance",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, the Law of Segregation states that the two alleles of a character do not blend; they segregate (separate) during gamete formation such that each gamete receives only one of the two alleles, and they are pure even in a hybrid. Independent assortment is the second law."
+  },
+  {
+    "id": "neet-fp1-bot-38",
+    "section": "Botany",
+    "text": "In the Meselson and Stahl experiment that demonstrated semiconservative DNA replication, the heavy isotope used to label the parental DNA was:",
+    "options": ["32P", "15N", "35S", "3H"],
+    "correct": 1,
+    "topic": "Genetics and molecular inheritance",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, Meselson and Stahl grew E. coli in a medium containing 15N (heavy nitrogen) so that the parental DNA was 'heavy', then transferred them to 14N medium; the density-gradient pattern of the resulting DNA proved replication is semiconservative. 32P and 35S were used in the Hershey-Chase experiment."
+  },
+  {
+    "id": "neet-fp1-bot-39",
+    "section": "Botany",
+    "text": "In a DNA molecule following Chargaff's rule, if the adenine content is 30%, the percentage of guanine present is:",
+    "options": ["30%", "20%", "70%", "40%"],
+    "correct": 1,
+    "topic": "Genetics and molecular inheritance",
+    "difficulty": "medium",
+    "explanation": "By Chargaff's rule A = T and G = C. If A = 30%, then T = 30%, so A + T = 60%, leaving G + C = 40%. Since G = C, guanine = 40/2 = 20%. Hence guanine is 20%."
+  },
+  {
+    "id": "neet-fp1-bot-40",
+    "section": "Botany",
+    "text": "In the genetic code, the property that a single amino acid is coded by more than one codon is called:",
+    "options": ["Universality", "Degeneracy", "Ambiguity", "Non-overlapping nature"],
+    "correct": 1,
+    "topic": "Genetics and molecular inheritance",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, the genetic code is degenerate, meaning some amino acids are coded by more than one codon (e.g., leucine has six codons). The code is also nearly universal, non-overlapping and unambiguous (one codon codes for only one amino acid)."
+  },
+  {
+    "id": "neet-fp1-bot-41",
+    "section": "Botany",
+    "text": "According to the exponential growth equation Nt = N0 e^rt, the symbol 'r' represents the:",
+    "options": ["Carrying capacity of the habitat", "Intrinsic rate of natural increase", "Total population size", "Time interval"],
+    "correct": 1,
+    "topic": "Ecology and environment",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, in the exponential growth equation Nt = N0 e^rt, 'r' is the intrinsic rate of natural increase (a measure of the population's innate capacity to grow). Carrying capacity is denoted K and appears in the logistic growth equation."
+  },
+  {
+    "id": "neet-fp1-bot-42",
+    "section": "Botany",
+    "text": "In an ecological pyramid, the amount of energy available decreases at each successive trophic level. As per the 10 per cent law (Lindeman), the energy transferred to the next trophic level is about:",
+    "options": ["1%", "10%", "50%", "90%"],
+    "correct": 1,
+    "topic": "Ecology and environment",
+    "difficulty": "easy-medium",
+    "explanation": "Per NCERT, according to Lindeman's 10 per cent law, only about 10% of the energy at a trophic level is transferred to the next higher trophic level; the rest is lost mainly as heat in metabolism. This makes the energy pyramid always upright."
+  },
+  {
+    "id": "neet-fp1-bot-43",
+    "section": "Botany",
+    "text": "The interaction in which one species (e.g., an orchid growing on a mango branch) benefits while the other is neither harmed nor benefited is:",
+    "options": ["Mutualism", "Commensalism", "Parasitism", "Amensalism"],
+    "correct": 1,
+    "topic": "Ecology and environment",
+    "difficulty": "medium",
+    "explanation": "Per NCERT, commensalism is an interaction in which one species benefits and the other is neither harmed nor benefited, e.g., an epiphytic orchid growing on a mango branch. Mutualism benefits both; in parasitism and amensalism one species is harmed."
+  },
+  {
+    "id": "neet-fp1-bot-44",
+    "section": "Botany",
+    "text": "The maximum biodiversity (species richness) on Earth is found in:",
+    "options": ["Temperate forests", "Tropical rainforests (e.g., Amazonia)", "Polar regions", "Deserts"],
+    "correct": 1,
+    "topic": "Ecology and environment",
+    "difficulty": "easy",
+    "explanation": "Per NCERT, species diversity decreases as we move from the equator towards the poles; tropical regions, particularly tropical rainforests like the Amazon, harbour the greatest biodiversity (latitudinal gradient in diversity)."
+  },
+  {
+    "id": "neet-fp1-bot-45",
+    "section": "Botany",
+    "text": "The biofertiliser association involving the water fern Azolla, which is widely used in paddy fields, fixes nitrogen because Azolla harbours the symbiotic cyanobacterium:",
+    "options": ["Rhizobium", "Anabaena", "Glomus", "Frankia"],
+    "correct": 1,
+    "topic": "Microbes in human welfare",
+    "difficulty": "medium-hard",
+    "explanation": "Per NCERT, the water fern Azolla harbours the symbiotic nitrogen-fixing cyanobacterium Anabaena (Anabaena azollae) in its leaf cavities, making the Azolla-Anabaena association an important biofertiliser in rice fields. Rhizobium nodulates legumes; Glomus is a mycorrhizal fungus; Frankia associates with non-legume roots."
+  }
+]
