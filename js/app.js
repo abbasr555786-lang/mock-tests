@@ -222,9 +222,13 @@
     const logout = aside.querySelector('#sidebar-logout');
     if (logout) logout.addEventListener('click', (e) => {
       e.preventDefault();
-      if (window.repo) window.repo.clearUser();
       closeSidebar();
-      window.location.hash = '#/login';
+      if (window.auth && window.auth.signOut) {
+        window.auth.signOut();
+      } else {
+        if (window.repo) window.repo.clearUser();
+        window.location.hash = '#/login';
+      }
     });
 
     const themeBtn = aside.querySelector('#sidebar-theme');
@@ -389,8 +393,12 @@
     const logout = $('#nav-logout');
     if (logout) logout.addEventListener('click', (e) => {
       e.preventDefault();
-      if (window.repo) window.repo.clearUser();
-      window.location.hash = '#/login';
+      if (window.auth && window.auth.signOut) {
+        window.auth.signOut();
+      } else {
+        if (window.repo) window.repo.clearUser();
+        window.location.hash = '#/login';
+      }
     });
 
     addThemeToggle($('.topbar__nav'));
@@ -1244,6 +1252,16 @@
     const changeLink = $('#change-phone-link');
     const resendLink = $('#resend-otp-link');
     const skipLink = $('#skip-login-link');
+    const googleBtn = $('#google-signin-btn');
+
+    if (googleBtn) {
+      googleBtn.addEventListener('click', () => {
+        if (window.auth && window.auth.signInWithGoogle) {
+          googleBtn.disabled = true;
+          window.auth.signInWithGoogle();
+        }
+      });
+    }
 
     function showError(node, msg) {
       node.textContent = msg;

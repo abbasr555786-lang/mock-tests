@@ -1211,6 +1211,40 @@ textarea:focus-visible,
   font-size: 15px;
 }
 
+/* Google sign-in button (primary auth action) */
+.btn--google {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fff;
+  color: #3c4043;
+  border: 1px solid var(--line, #dadce0);
+  font-weight: 600;
+  box-shadow: var(--shadow-xs);
+}
+.btn--google:hover { background: #f7f8fa; border-color: #c6c9cd; }
+.btn--google .g-ico { flex: 0 0 auto; }
+
+/* "or" divider between Google and demo login */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 4px;
+  color: var(--ink-400, #8a90a2);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line, #e5e7eb);
+}
+
 .auth-helper {
   margin: 14px 0 6px;
   font-size: 13px;
