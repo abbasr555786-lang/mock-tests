@@ -20,7 +20,7 @@
   // Bump this whenever the built-in exams in data*.js change so the new content
   // reaches users who already have a seeded DB. On a version bump, built-in exams
   // are refreshed in place; user-created exams, attempts and reviews are untouched.
-  const SEED_VERSION = 14;
+  const SEED_VERSION = 15; // JamiaPrep relaunch: re-seed so the 6 JMI MBA papers reach already-seeded browsers.
 
   function readDB() {
     try {

@@ -964,7 +964,10 @@
   // const catMock     = { ..., template: 'cat', timerMode: 'per-section', allowSectionSwitch: false };
   // const gateMock    = { ..., template: 'gate', calculator: true, questionTypes: ['mcq','msq','numerical'] };
 
-  window.EXAMS = [sscCglMock1];
+  // JamiaPrep: JMI-only focus — was [sscCglMock1]. The SSC seed mock is removed so
+  // the live catalogue is seeded purely from the JMI data files. Restore the seed
+  // here if you re-enable the other exams.
+  window.EXAMS = [];
 
   // ----------------------------------------------------------------
   // Exam Catalogue — the parent entity above tests/papers.
@@ -1425,6 +1428,12 @@
       },
     },
   ];
+
+  // JamiaPrep: JMI-only focus. The full multi-exam catalogue is defined above and
+  // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
+  // To re-enable the other exams, remove this single filter line (and uncomment the
+  // data-*.js <script> tags in index.html).
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {

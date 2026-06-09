@@ -89,7 +89,7 @@
   function buildTopbar() {
     return el('header', { class: 'topbar' },
       el('div', { class: 'topbar__inner' },
-        el('div', { class: 'brand' }, 'Mockly — Admin'),
+        el('div', { class: 'brand' }, 'JamiaPrep — Admin'),
         el('nav', { class: 'topbar__nav' },
           el('a', { class: 'topbar__link', href: '#/admin' }, 'Exams'),
           el('a', { class: 'topbar__link', href: '#/' }, 'Student View'),

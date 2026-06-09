@@ -4,13 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#1e3a8a" />
-  <title>Mockly — Practice Mock Tests</title>
+  <title>JamiaPrep — JMI Entrance Mock Tests</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
   <link rel="apple-touch-icon" href="assets/logo-mark.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="css/styles.css" />
   <!-- Supabase JS client (paid-papers backend: auth + DB) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Razorpay Checkout (pay-to-attempt for premium papers) -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
   <div id="app"></div>
@@ -19,7 +21,7 @@
   <template id="view-home">
     <header class="topbar">
       <div class="topbar__inner">
-        <div class="brand">Mockly</div>
+        <div class="brand">JamiaPrep</div>
         <nav class="topbar__nav">
           <a class="topbar__link" href="#/">Mock Tests</a>
           <a class="topbar__link" href="#/my-tests">My Tests</a>
@@ -38,7 +40,7 @@
 
       <div class="hero-search">
         <span class="hero-search__icon" aria-hidden="true">&#9906;</span>
-        <input id="exam-search" type="search" autocomplete="off" placeholder="Search exams — SSC CGL, NEET UG, JEE…" aria-label="Search exams" />
+        <input id="exam-search" type="search" autocomplete="off" placeholder="Search JMI entrance papers — MBA CET…" aria-label="Search exams" />
       </div>
 
       <section id="featured-section">
@@ -62,7 +64,7 @@
   <template id="view-mytests">
     <header class="topbar">
       <div class="topbar__inner">
-        <div class="brand">Mockly</div>
+        <div class="brand">JamiaPrep</div>
         <nav class="topbar__nav">
           <a class="topbar__link" href="#/">Mock Tests</a>
           <a class="topbar__link" href="#/my-tests">My Tests</a>
@@ -92,7 +94,7 @@
           <span class="back-btn__arrow" aria-hidden="true">&larr;</span>
           <span class="back-btn__label" id="exam-back-label">All Exams</span>
         </a>
-        <div class="brand">Mockly</div>
+        <div class="brand">JamiaPrep</div>
         <a class="home-btn" href="#/" aria-label="Go to home screen">
           <span class="home-btn__icon" aria-hidden="true">&#8962;</span>
           <span class="home-btn__label">Home</span>
@@ -136,14 +138,14 @@
   <template id="view-login">
     <header class="topbar">
       <div class="topbar__inner">
-        <div class="brand">Mockly</div>
+        <div class="brand">JamiaPrep</div>
       </div>
     </header>
     <main class="auth-wrap">
       <div class="auth-card">
         <div class="auth-hero">
-          <div class="auth-hero__brand">Mockly</div>
-          <div class="auth-hero__tag">Mock it. Ace it.</div>
+          <div class="auth-hero__brand">JamiaPrep</div>
+          <div class="auth-hero__tag">Crack the Jamia entrance.</div>
         </div>
 
         <button class="btn btn--google auth-cta" id="google-signin-btn" type="button">
@@ -204,7 +206,7 @@
   <template id="view-profile">
     <header class="topbar">
       <div class="topbar__inner">
-        <div class="brand">Mockly</div>
+        <div class="brand">JamiaPrep</div>
         <nav class="topbar__nav">
           <a class="topbar__link" href="#/">Mock Tests</a>
         </nav>
@@ -268,7 +270,7 @@
           <span class="back-btn__arrow" aria-hidden="true">&larr;</span>
           <span class="back-btn__label">Back</span>
         </a>
-        <div class="brand">Mockly</div>
+        <div class="brand">JamiaPrep</div>
         <a class="home-btn" href="#/" aria-label="Go to home screen">
           <span class="home-btn__icon" aria-hidden="true">&#8962;</span>
           <span class="home-btn__label">Home</span>
@@ -385,7 +387,7 @@
           <span class="back-btn__arrow" aria-hidden="true">&larr;</span>
           <span class="back-btn__label">Back to Tests</span>
         </a>
-        <div class="brand">Mockly</div>
+        <div class="brand">JamiaPrep</div>
       </div>
     </header>
     <main class="container">
@@ -444,14 +446,15 @@
   </template>
 
   <script src="js/data.js"></script>
+  <!--
+    JamiaPrep focus: the site ships JMI entrance papers only. All non-JMI exam
+    data files below are kept on disk but unregistered (commented out) so they
+    can be re-enabled later by uncommenting these tags + the catalogue filter in
+    js/data.js. See also FEATURED_EXAM_IDS / CATEGORY_MAP / TARGET_EXAMS in js/app.js.
   <script src="js/data-mocks.js"></script>
-  <!-- SSC CGL question pool (window.SSC_CGL_POOL) for repo.buildMock() — the GET /mock endpoint -->
   <script src="js/data-ssc-cgl-pyq.js"></script>
-  <!-- NEET UG question pool (window.NEET_UG_POOL) + full-length 180-Q paper -->
   <script src="js/data-neet-ug.js"></script>
-  <!-- NEET exam-level (hard tier) sectionals — must load before repo.js seeds window.EXAMS -->
   <script src="js/data-neet-hard.js"></script>
-  <!-- Short Mocks (20Q & 25Q per exam) — must load before repo.js seeds window.EXAMS -->
   <script src="js/data-short-ssc-cgl.js"></script>
   <script src="js/data-short-ssc-chsl.js"></script>
   <script src="js/data-short-jee-main.js"></script>
@@ -464,6 +467,7 @@
   <script src="js/data-short-sbi-po.js"></script>
   <script src="js/data-short-rrb-ntpc.js"></script>
   <script src="js/data-short-cuet-ug.js"></script>
+  -->
   <!-- JMI MBA full-length mocks (real entrance papers, Paper Code M-55) — must load before repo.js seeds window.EXAMS -->
   <script src="js/data-jmi-mba.js"></script>
   <script src="js/data-jmi-2018-mba.js"></script>
@@ -476,6 +480,8 @@
   <script src="js/supabase-client.js"></script>
   <!-- Real auth (Google sign-in) — bridges Supabase session to repo user -->
   <script src="js/auth.js"></script>
+  <!-- Paper access gate: browse free, sign-in + Razorpay pay to attempt -->
+  <script src="js/paper-access.js"></script>
   <script src="js/csv.js"></script>
   <script src="js/admin.js"></script>
   <script src="js/app.js"></script>

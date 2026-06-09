@@ -13,3 +13,9 @@ node_modules/
 # OS / editor cruft
 Thumbs.db
 .DS_Store
+
+.vercel
+
+# Source paper scans / PDF page renders (copyright source material — not for the public repo)
+jmi_render/
+jmi_build/

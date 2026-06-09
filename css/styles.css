@@ -2096,6 +2096,8 @@ textarea:focus-visible,
 .badge--ok    { background: var(--success-50); color: var(--success-700); }
 .badge--draft { background: var(--warn-50); color: var(--warn-600); }
 .badge--type  { background: var(--brand-50); color: var(--brand-700); }
+.badge--free    { background: var(--success-50); color: var(--success-700); }
+.badge--premium { background: #fff4d6; color: #8a5a00; }
 
 .storage-bar {
   background: var(--surface);

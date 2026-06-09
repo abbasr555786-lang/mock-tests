@@ -1,7 +1,7 @@
 {
-  "name": "Mockly — Indian Competitive Exam Mock Tests",
-  "short_name": "Mockly",
-  "description": "Computer-Based Test (CBT) style mock tests for SSC, JEE, CAT, GATE and other Indian competitive exams.",
+  "name": "JamiaPrep — JMI Entrance Mock Tests",
+  "short_name": "JamiaPrep",
+  "description": "Computer-Based Test (CBT) style mock tests built from real Jamia Millia Islamia (JMI) entrance papers.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

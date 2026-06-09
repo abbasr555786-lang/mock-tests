@@ -107,6 +107,15 @@
 
   // ---------- Catalogue categories ----------
   // Ordered category list for the home page, plus a catalogue-id → category map.
+  // JamiaPrep: JMI-only focus. Original multi-exam categories are preserved in the
+  // commented block below — restore them when re-enabling the other exams.
+  const CATEGORY_ORDER = [
+    { id: 'jmi', label: 'JMI Entrance' },
+  ];
+  const CATEGORY_MAP = {
+    'jmi-mba': 'jmi',
+  };
+  /* Original (multi-exam) categories:
   const CATEGORY_ORDER = [
     { id: 'ssc-railways', label: 'SSC & Railways' },
     { id: 'banking',      label: 'Banking & Insurance' },
@@ -125,6 +134,7 @@
     'upsc-cse': 'civil',
     'cuet-ug': 'school',
   };
+  */
   function categoryOf(id) { return CATEGORY_MAP[id] || 'other'; }
   function categoryLabel(catId) {
     const c = CATEGORY_ORDER.find((x) => x.id === catId);
@@ -184,8 +194,8 @@
     aside.id = 'app-sidebar';
     aside.setAttribute('aria-label', 'Main navigation');
     aside.innerHTML =
-      '<a class="sidebar__brand" href="#/" aria-label="Mockly home">' +
-        '<span class="sidebar__logo" aria-hidden="true"></span><span>Mockly</span></a>' +
+      '<a class="sidebar__brand" href="#/" aria-label="JamiaPrep home">' +
+        '<span class="sidebar__logo" aria-hidden="true"></span><span>JamiaPrep</span></a>' +
       '<nav class="sidebar__nav" aria-label="Primary">' +
         '<a class="sidebar__link" data-nav="home" href="#/"><span class="sidebar__ico" aria-hidden="true">&#8962;</span><span>Home</span></a>' +
         '<a class="sidebar__link" data-nav="mytests" href="#/my-tests"><span class="sidebar__ico" aria-hidden="true">&#9776;</span><span>My Tests</span></a>' +
@@ -194,8 +204,7 @@
       '</nav>' +
       '<div class="sidebar__label">Featured exams</div>' +
       '<nav class="sidebar__nav" aria-label="Featured exams">' +
-        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:ssc-cgl" href="#/exam/ssc-cgl"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">SSC</span><span>SSC CGL</span></a>' +
-        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:neet-ug" href="#/exam/neet-ug"><span class="sidebar__tag sidebar__tag--neet" aria-hidden="true">NEET</span><span>NEET UG</span></a>' +
+        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-mba" href="#/exam/jmi-mba"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MBA CET</span></a>' +
       '</nav>' +
       '<div class="sidebar__foot">' +
         '<button class="sidebar__link theme-toggle" type="button" id="sidebar-theme"><span class="sidebar__ico" aria-hidden="true">&#9728;</span><span>Theme</span></button>' +
@@ -429,7 +438,7 @@
   }
 
   // Exams given prime placement in the home-screen featured band, in order.
-  const FEATURED_EXAM_IDS = ['jmi-mba', 'ssc-cgl', 'neet-ug'];
+  const FEATURED_EXAM_IDS = ['jmi-mba']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
   const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
 
   function buildFeaturedCard(entry) {
@@ -1056,6 +1065,12 @@
     if (test.year) tags.appendChild(makeBadge(String(test.year), 'badge--type'));
     if (test.sectionTag) tags.appendChild(makeBadge(test.sectionTag, 'badge--type'));
     if (test.sourceSet) tags.appendChild(makeBadge(test.sourceSet, 'badge--draft'));
+    // Free vs premium marker (browsing is open; payment only on attempt).
+    if (window.paperAccess) {
+      tags.appendChild(window.paperAccess.isFree(test)
+        ? makeBadge('Free', 'badge--free')
+        : makeBadge(window.paperAccess.priceLabel(test), 'badge--premium'));
+    }
     head.appendChild(tags);
     card.appendChild(head);
 
@@ -1192,6 +1207,16 @@
     const btn = $('#start-btn');
     cb.addEventListener('change', () => { btn.disabled = !cb.checked; });
     btn.addEventListener('click', () => {
+      // Gate the actual attempt: free papers start immediately; premium papers
+      // require sign-in + payment (Razorpay) before the test loads.
+      if (window.paperAccess) {
+        btn.disabled = true;
+        window.paperAccess.ensure(exam).then((ok) => {
+          btn.disabled = false;
+          if (ok) window.location.hash = '#/test/' + exam.id;
+        });
+        return;
+      }
       window.location.hash = '#/test/' + exam.id;
     });
 
@@ -1207,6 +1232,11 @@
   }
 
   // ---------- Onboarding data ----------
+  // JamiaPrep: JMI-only focus. Full list preserved below for re-enabling later.
+  const TARGET_EXAMS = [
+    { id: 'jmi-mba',        label: 'JMI MBA CET' },
+  ];
+  /* Original (multi-exam) onboarding targets:
   const TARGET_EXAMS = [
     { id: 'ssc-cgl',        label: 'SSC CGL' },
     { id: 'ssc-chsl',       label: 'SSC CHSL' },
@@ -1221,6 +1251,7 @@
     { id: 'rrb-ntpc',       label: 'RRB NTPC' },
     { id: 'cuet-ug',        label: 'CUET UG' },
   ];
+  */
   const EDUCATION_OPTIONS = ['Class 11', 'Class 12', 'Dropper', 'Undergraduate', 'Graduate', 'Working Professional'];
   const INDIAN_STATES = [
     'Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat',
@@ -1473,6 +1504,22 @@
   function renderTest(examId) {
     const exam = findExam(examId);
     if (!exam) return renderHome();
+
+    // Access guard: block direct navigation to a premium paper that hasn't been
+    // unlocked. Resuming an already-saved in-progress attempt is allowed (it can
+    // only exist if the paper was unlocked earlier). Otherwise route through the
+    // instructions page, where the sign-in / payment gate runs.
+    if (window.paperAccess && !window.paperAccess.isGranted(examId)) {
+      const hasSavedAttempt = !!(window.repo && window.repo.getAttempt(examId));
+      if (!hasSavedAttempt) {
+        window.paperAccess.ensure(exam).then((ok) => {
+          if (ok) renderTest(examId);
+          else window.location.hash = '#/instructions/' + examId;
+        });
+        return;
+      }
+    }
+
     mount('view-test');
 
     const flat = flattenQuestions(exam);
