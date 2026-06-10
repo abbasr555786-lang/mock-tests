@@ -1427,13 +1427,50 @@
         ],
       },
     },
+    {
+      id: 'jmi-ballb',
+      name: 'JMI BA LLB',
+      tagline: 'Jamia Millia Islamia — BA LLB (Hons.) 5-year Entrance',
+      sections: ['Numerical Ability', 'General English', 'Legal Aptitude', 'General Awareness & Current Affairs', 'General Studies'],
+      info: {
+        pattern: {
+          title: 'JMI BA LLB (Hons.) Entrance Exam Pattern',
+          type: 'University-level integrated-law admission test — objective MCQs',
+          mode: 'Computer-Based Test (CBT)',
+          languages: 'English',
+          durationMin: 120,
+          totalQuestions: 150,
+          totalMarks: 150,
+          marking: '+1 for each correct answer, −0.25 for each wrong answer (no marks for unattempted).',
+          sections: [
+            { name: 'Numerical Ability', questions: 10, marks: 10 },
+            { name: 'General English (Synonyms, Antonyms, One-word, Sentence Completion)', questions: 30, marks: 30 },
+            { name: 'General Awareness & Current Affairs', questions: 30, marks: 30 },
+            { name: 'General Studies', questions: 40, marks: 40 },
+            { name: 'Legal Aptitude (terms, maxims & principle–fact reasoning)', questions: 40, marks: 40 },
+          ],
+        },
+        eligibility: [
+          'Passed the 10+2 (Senior Secondary) examination, or equivalent, with the minimum aggregate marks specified in the JMI prospectus.',
+          'Candidates appearing in the qualifying examination may apply subject to meeting the eligibility before admission.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact eligibility and age criteria for the 5-year integrated BA LLB (Hons.) programme.',
+        ],
+        syllabus: [
+          { section: 'Numerical Ability', topics: ['Number system & simplification', 'Percentage, profit & loss', 'Ratio, proportion, averages & mixtures', 'Time & work', 'Simple interest', 'Number series & fractions'] },
+          { section: 'General English', topics: ['Synonyms & antonyms', 'One-word substitution', 'Sentence completion (vocabulary)', 'Idioms & usage'] },
+          { section: 'General Awareness & Current Affairs', topics: ['National & international current affairs', 'Awards & honours', 'Sports', 'Books & authors', 'Government schemes & appointments'] },
+          { section: 'General Studies', topics: ['History', 'Geography', 'Indian polity', 'General science', 'Economy', 'Static GK'] },
+          { section: 'Legal Aptitude', topics: ['Legal terms, maxims & foreign phrases', 'Constitutional & legal general knowledge', 'Principle–fact legal reasoning (contracts, torts, fundamental rights)'] },
+        ],
+      },
+    },
   ];
 
   // JamiaPrep: JMI-only focus. The full multi-exam catalogue is defined above and
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {

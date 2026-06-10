@@ -37,9 +37,30 @@
     });
   }
 
+  // Where to land after the OAuth round-trip. We stash the page the user was on
+  // when they hit "sign in" (e.g. the instructions page for a paper) so we can
+  // bring them right back instead of dumping them on home. The login page itself
+  // is never a useful return target.
+  var RETURN_KEY = "jamiaprep:postLogin";
+  function rememberReturn() {
+    try {
+      var h = window.location.hash || "";
+      if (h && h !== "#/login") localStorage.setItem(RETURN_KEY, h);
+      else localStorage.removeItem(RETURN_KEY);
+    } catch (e) {}
+  }
+  function takeReturn() {
+    try {
+      var h = localStorage.getItem(RETURN_KEY);
+      localStorage.removeItem(RETURN_KEY);
+      return h || "#/";
+    } catch (e) { return "#/"; }
+  }
+
   window.auth = {
     // Kick off Google OAuth (redirects away to Google, then back to the site).
     signInWithGoogle: function () {
+      rememberReturn();
       var redirectTo = window.location.origin + window.location.pathname;
       return sb.auth.signInWithOAuth({
         provider: "google",
@@ -72,10 +93,11 @@
   sb.auth.onAuthStateChange(function (event, session) {
     if (session && session.user) {
       syncUserFromSession(session);
-      // Just returned from Google -> land on home.
+      // Just returned from Google -> bring the user back to where they left off
+      // (e.g. the paper they were about to attempt), else home.
       if (cameFromOAuth) {
         cameFromOAuth = false;
-        window.location.hash = "#/";
+        window.location.hash = takeReturn();
       }
       rerender();
     } else if (event === "SIGNED_OUT") {

@@ -19,3 +19,7 @@ Thumbs.db
 # Source paper scans / PDF page renders (copyright source material — not for the public repo)
 jmi_render/
 jmi_build/
+
+# Local working sources for paper digitization (raw watermarked scans, PDFs,
+# transcription notes) — never published to the public site/repo.
+papers-source/

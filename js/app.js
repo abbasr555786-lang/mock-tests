@@ -114,6 +114,7 @@
   ];
   const CATEGORY_MAP = {
     'jmi-mba': 'jmi',
+    'jmi-ballb': 'jmi',
   };
   /* Original (multi-exam) categories:
   const CATEGORY_ORDER = [
@@ -205,6 +206,7 @@
       '<div class="sidebar__label">Featured exams</div>' +
       '<nav class="sidebar__nav" aria-label="Featured exams">' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-mba" href="#/exam/jmi-mba"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MBA CET</span></a>' +
+        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-ballb" href="#/exam/jmi-ballb"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI BA LLB</span></a>' +
       '</nav>' +
       '<div class="sidebar__foot">' +
         '<button class="sidebar__link theme-toggle" type="button" id="sidebar-theme"><span class="sidebar__ico" aria-hidden="true">&#9728;</span><span>Theme</span></button>' +
@@ -337,11 +339,8 @@
     updateSidebar(parts);
 
     if (parts.length === 0) {
-      // First-visit gate: send unauth'd users to login (skippable).
-      if (window.repo && !window.repo.hasOnboarded()) {
-        window.location.hash = '#/login';
-        return;
-      }
+      // No browse-time gate: exploring the catalogue is fully open. Login is
+      // requested only at the moment of attempting a paper (see paperAccess).
       return renderHome();
     }
     if (parts[0] === 'login') return renderLogin();
@@ -438,8 +437,8 @@
   }
 
   // Exams given prime placement in the home-screen featured band, in order.
-  const FEATURED_EXAM_IDS = ['jmi-mba']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
-  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
+  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
+  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
 
   function buildFeaturedCard(entry) {
     const counts = window.repo.catalogueCounts(entry.id);
@@ -458,12 +457,12 @@
           '<div class="featured-card__tag"></div>' +
         '</div>' +
       '</div>' +
+      // JamiaPrep focus: only previous-year papers are live, so show a single
+      // honest count instead of the old Full-length/Sectional/Total mocks split.
       '<div class="featured-card__stats">' +
-        '<span class="featured-stat"><b>' + (counts.mockFull + counts.pyqFull) + '</b> Full-length</span>' +
-        '<span class="featured-stat"><b>' + counts.mockSectional + '</b> Sectional</span>' +
-        '<span class="featured-stat"><b>' + counts.total + '</b> Total mocks</span>' +
+        '<span class="featured-stat"><b>' + counts.pyqFull + '</b> Previous year paper' + (counts.pyqFull === 1 ? '' : 's') + '</span>' +
       '</div>' +
-      '<span class="featured-card__cta">Explore mocks &rarr;</span>';
+      '<span class="featured-card__cta">Explore papers &rarr;</span>';
     card.querySelector('.featured-card__name').textContent = entry.name;
     card.querySelector('.featured-card__tag').textContent = entry.tagline;
     return card;
@@ -733,6 +732,12 @@
     { key: 'pyq-sectional',  kind: 'pyq',  scope: 'sectional',  title: 'PYQ Sectionals',        blurb: 'Section-wise PYQ practice (Quant, Reasoning, English, ...).', countKey: 'pyqSectional', accent: '#8a4baf' },
   ];
 
+  // JamiaPrep focus: only previous-year papers are live right now. The other
+  // quadrants (full-length mocks, sectional mocks, short mocks, PYQ sectionals)
+  // are kept in QUADRANT_DEFS but hidden from the exam dashboard until we upload
+  // that content. To re-enable a section later, add its key back to this list.
+  const VISIBLE_QUADRANT_KEYS = ['pyq-full'];
+
   function renderExamDashboard(catalogueId, quadrantKey) {
     stopTimer();
     const entry = window.repo && window.repo.getCatalogueEntry(catalogueId);
@@ -742,7 +747,11 @@
     $('#exam-hero-name').textContent = entry.name;
     $('#exam-hero-tag').textContent = entry.tagline;
 
-    const def = quadrantKey ? QUADRANT_DEFS.find((d) => d.key === quadrantKey) : null;
+    // Only honor a quadrant route if that section is currently live; otherwise
+    // fall back to the selectors view (avoids dead-ending on a hidden section).
+    const def = quadrantKey && VISIBLE_QUADRANT_KEYS.includes(quadrantKey)
+      ? QUADRANT_DEFS.find((d) => d.key === quadrantKey)
+      : null;
 
     // Context-aware back button: from a paper list, go back to the exam's selectors;
     // from the selectors, go back to all exams.
@@ -786,8 +795,8 @@
       return;
     }
 
-    // ---- Selectors view: mocks/PYQ quadrants front and center ----
-    QUADRANT_DEFS.forEach((qd) => {
+    // ---- Selectors view: only the live sections (previous-year papers) ----
+    QUADRANT_DEFS.filter((qd) => VISIBLE_QUADRANT_KEYS.includes(qd.key)).forEach((qd) => {
       const count = counts[qd.countKey] || 0;
       const isEmpty = count === 0;
       // Zero-count quadrants are NOT links — tapping them used to dead-end on an
@@ -1235,6 +1244,7 @@
   // JamiaPrep: JMI-only focus. Full list preserved below for re-enabling later.
   const TARGET_EXAMS = [
     { id: 'jmi-mba',        label: 'JMI MBA CET' },
+    { id: 'jmi-ballb',      label: 'JMI BA LLB' },
   ];
   /* Original (multi-exam) onboarding targets:
   const TARGET_EXAMS = [

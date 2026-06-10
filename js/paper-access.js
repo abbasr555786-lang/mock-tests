@@ -1,11 +1,11 @@
-// Paper access gate (browse-free, pay-to-attempt).
+// Paper access gate (browse-free, sign-in-to-attempt).
 //
-// Everyone can explore every paper. The gate only fires when a user tries to
-// ATTEMPT a paper:
-//   - Free papers (the latest 2026 set)      -> start immediately.
-//   - Paid papers, not signed in             -> Google sign-in prompt.
-//   - Paid papers, signed in, not purchased  -> Razorpay Checkout popup.
-//   - Paid papers, signed in, already owned  -> start immediately.
+// Everyone can explore every paper with no login. The gate only fires when a
+// user tries to ATTEMPT a paper, and sign-in is always required first:
+//   - Not signed in (any paper)              -> Google sign-in prompt.
+//   - Signed in, free paper                  -> start immediately.
+//   - Signed in, paid paper, not purchased   -> Razorpay Checkout popup.
+//   - Signed in, paid paper, already owned   -> start immediately.
 //
 // Backend endpoints (Vercel): /api/create-order, /api/verify-payment.
 // Purchase/access truth lives in Supabase (papers, purchases, has_active_access).
@@ -58,9 +58,11 @@
   function ensure(test) {
     if (!test || !test.id) return Promise.resolve(true);
     return loadCatalog().then(function () {
-      if (isFree(test) || granted[test.id]) return true;
+      // Login is required before any attempt — free or paid.
       if (!isSignedIn()) return promptLogin(test);
-      // Signed in: confirm ownership server-side, else open payment.
+      // Signed in + free (or already unlocked this session): start now.
+      if (isFree(test) || granted[test.id]) return true;
+      // Signed in + paid: confirm ownership server-side, else open payment.
       return checkAccess(test.id).then(function (owns) {
         if (owns) { granted[test.id] = true; return true; }
         return openPayModal(test);
@@ -78,12 +80,17 @@
 
   // ---- Sign-in prompt (paid paper, guest) -------------------------------
   function promptLogin(test) {
+    var free = isFree(test);
+    var message = free
+      ? "Sign in with Google to attempt “" + (test.name || "this paper") +
+          "”. It’s free — signing in lets us save your score and track your progress."
+      : "“" + (test.name || "This paper") +
+          "” is a premium previous-year paper. Sign in with Google to " +
+          "unlock it for " + priceLabel(test) + " (1-year access, unlimited attempts).";
     return new Promise(function (resolve) {
       var modal = buildModal(
         "Sign in to attempt",
-        "“" + (test.name || "This paper") +
-          "” is a premium previous-year paper. Sign in with Google to " +
-          "unlock it for " + priceLabel(test) + " (1-year access, unlimited attempts).",
+        message,
         [
           { label: "Continue with Google", primary: true, act: "login" },
           { label: "Not now", act: "cancel" },
