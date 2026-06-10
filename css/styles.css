@@ -2597,10 +2597,23 @@ textarea:focus-visible,
   .cat-chips .chip { flex: 0 0 auto; }
 }
 
-.cat-section { margin-bottom: 4px; }
+.cat-section { margin-bottom: 12px; }
+.cat-section + .cat-section {
+  margin-top: 16px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ink-200);
+}
+.cat-section__head {
+  display: flex; align-items: baseline; gap: 10px;
+  margin: 18px 0 12px;
+}
 .cat-section__title {
-  font-size: 13px; font-weight: 700; color: var(--ink-700);
-  margin: 18px 0 12px; letter-spacing: -0.005em;
+  font-size: 16px; font-weight: 800; color: var(--ink-900);
+  margin: 0; letter-spacing: -0.01em;
+}
+.cat-section__meta {
+  font-size: 12px; font-weight: 600; color: var(--ink-500);
+  white-space: nowrap;
 }
 .catalogue-empty {
   background: var(--surface);

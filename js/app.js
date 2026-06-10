@@ -107,8 +107,26 @@
 
   // ---------- Catalogue categories ----------
   // Ordered category list for the home page, plus a catalogue-id → category map.
-  // JamiaPrep: JMI-only focus. Original multi-exam categories are preserved in the
-  // commented block below — restore them when re-enabling the other exams.
+  // JamiaPrep groups programmes by academic level (same taxonomy as ssfjamia.in/pyq.html).
+  // All 10 levels are declared; only levels that actually contain programmes render,
+  // so new levels appear automatically once a programme is mapped into them.
+  const CATEGORY_ORDER = [
+    { id: 'ug',          label: 'Under Graduation' },
+    { id: 'pg',          label: 'Post Graduation' },
+    { id: 'school',      label: 'School' },
+    { id: 'certificate', label: 'Certificate' },
+    { id: 'diploma',     label: 'Diploma' },
+    { id: 'adv-diploma', label: 'Advance Diploma' },
+    { id: 'pg-diploma',  label: 'PG Diploma' },
+    { id: 'phd',         label: 'PhD' },
+    { id: 'cdoe',        label: 'CDOE' },
+    { id: 'rca',         label: 'RCA' },
+  ];
+  const CATEGORY_MAP = {
+    'jmi-mba': 'pg',
+    'jmi-ballb': 'ug',
+  };
+  /* Previous (single-bucket) JMI categories:
   const CATEGORY_ORDER = [
     { id: 'jmi', label: 'JMI Entrance' },
   ];
@@ -116,6 +134,7 @@
     'jmi-mba': 'jmi',
     'jmi-ballb': 'jmi',
   };
+  */
   /* Original (multi-exam) categories:
   const CATEGORY_ORDER = [
     { id: 'ssc-railways', label: 'SSC & Railways' },
@@ -480,7 +499,7 @@
     // Build chips: "All" + only the categories that actually have exams.
     const presentCats = CATEGORY_ORDER.filter((c) =>
       catalogue.some((e) => categoryOf(e.id) === c.id));
-    const chipDefs = [{ id: 'all', label: 'All exams' }].concat(presentCats);
+    const chipDefs = [{ id: 'all', label: 'All levels' }].concat(presentCats);
     if (chipsWrap) {
       chipsWrap.innerHTML = '';
       chipDefs.forEach((c) => {
@@ -503,11 +522,11 @@
     const featuredSection = $('#featured-section');
     const pinnedSection = $('#pinned-section');
     const hadPinned = pinnedSection && !pinnedSection.hidden;
-    const exploreHeading = $$('.section-heading').find((h) => /Explore all exams/i.test(h.textContent));
+    const exploreHeading = $$('.section-heading').find((h) => /Browse by level/i.test(h.textContent));
     function toggleBands(searching) {
       if (featuredSection) featuredSection.hidden = searching;
       if (pinnedSection) pinnedSection.hidden = searching ? true : !hadPinned;
-      if (exploreHeading) exploreHeading.textContent = searching ? 'Search results' : 'Explore all exams';
+      if (exploreHeading) exploreHeading.textContent = searching ? 'Search results' : 'Browse by level';
     }
 
     if (searchInput) {
@@ -544,10 +563,27 @@
           if (!items.length) return;
           const sec = document.createElement('section');
           sec.className = 'cat-section';
+
+          // Level header: name + "N programmes · M papers" count line.
+          let paperCount = 0;
+          items.forEach((e) => {
+            const counts = window.repo.catalogueCounts(e.id);
+            paperCount += (counts.pyqFull || 0);
+          });
+          const head = document.createElement('div');
+          head.className = 'cat-section__head';
           const h = document.createElement('h3');
           h.className = 'cat-section__title';
           h.textContent = c.label;
-          sec.appendChild(h);
+          head.appendChild(h);
+          const meta = document.createElement('span');
+          meta.className = 'cat-section__meta';
+          meta.textContent =
+            items.length + (items.length === 1 ? ' programme' : ' programmes') +
+            ' · ' + paperCount + (paperCount === 1 ? ' paper' : ' papers');
+          head.appendChild(meta);
+          sec.appendChild(head);
+
           const grid = document.createElement('div');
           grid.className = 'catalogue-grid';
           items.forEach((e) => grid.appendChild(buildCatalogueCard(e, false)));
