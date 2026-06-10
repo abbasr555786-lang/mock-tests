@@ -1464,13 +1464,47 @@
         ],
       },
     },
+    {
+      id: 'jmi-mca',
+      name: 'JMI MCA',
+      tagline: 'Jamia Millia Islamia — MCA Entrance (Paper Code M-54)',
+      sections: ['Computer Concepts & Programming', 'Mathematics', 'Reasoning', 'English'],
+      info: {
+        pattern: {
+          title: 'JMI MCA Entrance Exam Pattern',
+          type: 'University-level MCA admission test — objective MCQs',
+          mode: 'Offline (OMR-based) / as per JMI notification',
+          languages: 'English',
+          durationMin: 90,
+          totalQuestions: 100,
+          totalMarks: 100,
+          marking: '+1 for each correct answer, −0.25 for each wrong answer (no marks for unattempted).',
+          sections: [
+            { name: 'Computer Concepts & C Programming', questions: 40, marks: 40 },
+            { name: 'Mathematics', questions: 40, marks: 40 },
+            { name: 'Reasoning & English', questions: 20, marks: 20 },
+          ],
+        },
+        eligibility: [
+          'Bachelor\'s degree (minimum 3 years) with Mathematics at 10+2 or graduation level, with the minimum aggregate marks specified in the JMI prospectus.',
+          'Final-year graduation candidates may apply subject to meeting the eligibility before admission.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact eligibility for the MCA programme.',
+        ],
+        syllabus: [
+          { section: 'Computer Concepts & Programming', topics: ['Computer fundamentals & organization', 'Number systems & digital logic', 'C programming (operators, functions, files, strings)', 'Data structures & algorithm basics', 'Operating systems & system software', 'Networks & internet basics'] },
+          { section: 'Mathematics', topics: ['Sets, relations & functions', 'Algebra & quadratic equations', 'Matrices & determinants', 'Limits, continuity & differentiation', 'Integration & differential equations', 'Permutations, combinations & probability', 'Logarithms & binomial theorem'] },
+          { section: 'Reasoning', topics: ['Blood relations', 'Coding–decoding', 'Syllogisms', 'Non-verbal figure series'] },
+          { section: 'English', topics: ['Tenses & voice', 'Prepositions & conjunctions', 'Synonyms & vocabulary', 'Punctuation & sentence types'] },
+        ],
+      },
+    },
   ];
 
   // JamiaPrep: JMI-only focus. The full multi-exam catalogue is defined above and
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {

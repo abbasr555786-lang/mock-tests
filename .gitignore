@@ -23,3 +23,7 @@ jmi_build/
 # Local working sources for paper digitization (raw watermarked scans, PDFs,
 # transcription notes) — never published to the public site/repo.
 papers-source/
+
+# Downloaded JMI paper scans + page renders (working sources, not for the public repo)
+papers/
+source-papers/
