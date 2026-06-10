@@ -188,7 +188,7 @@
     name: 'JMI 2018 MBA Paper',
     template: 'ssc',
     examCatalogueId: 'jmi-mba',
-    kind: 'pyq', scope: 'full', sectionTag: null, sourceSet: 'M-55 Set B', year: 2018,
+    kind: 'pyq', scope: 'full', sectionTag: null, sourceSet: null, year: 2018,
     durationMin: 180,
     marking: { correct: 1, wrong: -0.25, unattempted: 0 },
     allowSectionSwitch: true, timerMode: 'full', calculator: false,
