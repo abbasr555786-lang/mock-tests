@@ -1112,12 +1112,6 @@
     if (test.year) tags.appendChild(makeBadge(String(test.year), 'badge--type'));
     if (test.sectionTag) tags.appendChild(makeBadge(test.sectionTag, 'badge--type'));
     if (test.sourceSet) tags.appendChild(makeBadge(test.sourceSet, 'badge--draft'));
-    // Free vs premium marker (browsing is open; payment only on attempt).
-    if (window.paperAccess) {
-      tags.appendChild(window.paperAccess.isFree(test)
-        ? makeBadge('Free', 'badge--free')
-        : makeBadge(window.paperAccess.priceLabel(test), 'badge--premium'));
-    }
     head.appendChild(tags);
     card.appendChild(head);
 
@@ -1254,8 +1248,7 @@
     const btn = $('#start-btn');
     cb.addEventListener('change', () => { btn.disabled = !cb.checked; });
     btn.addEventListener('click', () => {
-      // Gate the actual attempt: free papers start immediately; premium papers
-      // require sign-in + payment (Razorpay) before the test loads.
+      // Gate the actual attempt: sign-in is required before the test loads.
       if (window.paperAccess) {
         btn.disabled = true;
         window.paperAccess.ensure(exam).then((ok) => {
@@ -1554,10 +1547,9 @@
     const exam = findExam(examId);
     if (!exam) return renderHome();
 
-    // Access guard: block direct navigation to a premium paper that hasn't been
-    // unlocked. Resuming an already-saved in-progress attempt is allowed (it can
-    // only exist if the paper was unlocked earlier). Otherwise route through the
-    // instructions page, where the sign-in / payment gate runs.
+    // Access guard: block direct navigation to a paper while signed out.
+    // Resuming an already-saved in-progress attempt is allowed. Otherwise route
+    // through the instructions page, where the sign-in gate runs.
     if (window.paperAccess && !window.paperAccess.isGranted(examId)) {
       const hasSavedAttempt = !!(window.repo && window.repo.getAttempt(examId));
       if (!hasSavedAttempt) {

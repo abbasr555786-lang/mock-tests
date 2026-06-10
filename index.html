@@ -9,10 +9,8 @@
   <link rel="apple-touch-icon" href="assets/logo-mark.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- Supabase JS client (paid-papers backend: auth + DB) -->
+  <!-- Supabase JS client (auth + DB) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- Razorpay Checkout (pay-to-attempt for premium papers) -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
   <div id="app"></div>
@@ -484,7 +482,7 @@
   <script src="js/supabase-client.js"></script>
   <!-- Real auth (Google sign-in) — bridges Supabase session to repo user -->
   <script src="js/auth.js"></script>
-  <!-- Paper access gate: browse free, sign-in + Razorpay pay to attempt -->
+  <!-- Paper access gate: browse free, sign in to attempt (payments disabled) -->
   <script src="js/paper-access.js"></script>
   <script src="js/csv.js"></script>
   <script src="js/admin.js"></script>
