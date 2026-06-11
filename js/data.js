@@ -970,6 +970,43 @@
   window.EXAMS = [];
 
   // ----------------------------------------------------------------
+  // JMI admission-cycle data shared by every JMI track. Each JMI entry's `info`
+  // gets `dates` (important-dates timeline) and `application` (portal, fees,
+  // how to apply) from these helpers; only the programme-specific exam date and
+  // label are passed in. Update these once per admission cycle.
+  // ----------------------------------------------------------------
+  function jmiDates(examDateText) {
+    return {
+      cycle: '2026–27',
+      rows: [
+        { label: 'Admission notification & forms open', value: '20 February 2026' },
+        { label: 'Last date to apply (extended)', value: '10 April 2026' },
+        { label: 'Form correction window', value: '1 – 7 April 2026' },
+        { label: 'Admit card download', value: 'From 17 April 2026' },
+        { label: 'Entrance test', value: examDateText, highlight: true },
+        { label: 'Results & merit lists', value: 'From May–June 2026, on admission.jmi.ac.in' },
+        { label: 'Last date to submit qualifying-exam result', value: '31 October 2026' },
+      ],
+      note: 'Dates are from the official 2026–27 admission cycle. The next cycle (2027–28) is expected to open around February 2027 — always confirm on admission.jmi.ac.in.',
+    };
+  }
+  function jmiApplication(programmeLabel) {
+    return {
+      portal: 'https://admission.jmi.ac.in',
+      portalLabel: 'admission.jmi.ac.in',
+      mode: 'Online only — there is no offline/paper form.',
+      fee: '₹700 per programme (₹1,000 for some self-financed programmes) — non-refundable, paid online. Confirm the exact amount for your course on the portal.',
+      steps: [
+        'Register on admission.jmi.ac.in with your name, a working email and mobile number.',
+        'Fill the application form — personal details, qualifying-exam marks, and select ' + programmeLabel + ' as your programme.',
+        'Upload a scanned photograph and signature in the prescribed format and size.',
+        'Pay the application fee online (UPI, debit/credit card or net banking).',
+        'Download and save the confirmation page — you will need it at the time of admission.',
+      ],
+    };
+  }
+
+  // ----------------------------------------------------------------
   // Exam Catalogue — the parent entity above tests/papers.
   // Each entry groups PYQs, PYQ sectionals, full mocks, and sectional mocks.
   // `sections` lists canonical section tags used for sectional papers (Phase C filters).
@@ -1397,6 +1434,8 @@
       tagline: 'Jamia Millia Islamia — MBA (Regular / IB / IE) Entrance',
       sections: ['Quantitative Aptitude', 'Data Interpretation', 'Logical Reasoning', 'English', 'General Awareness'],
       info: {
+        dates: jmiDates('Between 26 April and 5 June 2026 — exact slot on your admit card / course-wise date sheet'),
+        application: jmiApplication('MBA (Regular / International Business / Insurance & Banking)'),
         pattern: {
           title: 'JMI MBA Entrance Exam Pattern',
           type: 'University-level MBA admission test — objective MCQs',
@@ -1433,6 +1472,8 @@
       tagline: 'Jamia Millia Islamia — BA LLB (Hons.) 5-year Entrance',
       sections: ['Numerical Ability', 'General English', 'Legal Aptitude', 'General Awareness & Current Affairs', 'General Studies'],
       info: {
+        dates: jmiDates('4 June 2026 (12:00 – 2:00 PM)'),
+        application: jmiApplication('BA LLB (Hons.)'),
         pattern: {
           title: 'JMI BA LLB (Hons.) Entrance Exam Pattern',
           type: 'University-level integrated-law admission test — objective MCQs',
@@ -1470,6 +1511,8 @@
       tagline: 'Jamia Millia Islamia — MCA Entrance (Paper Code M-54)',
       sections: ['Computer Concepts & Programming', 'Mathematics', 'Reasoning', 'English'],
       info: {
+        dates: jmiDates('Between 26 April and 5 June 2026 — exact slot on your admit card / course-wise date sheet'),
+        application: jmiApplication('MCA'),
         pattern: {
           title: 'JMI MCA Entrance Exam Pattern',
           type: 'University-level MCA admission test — objective MCQs',

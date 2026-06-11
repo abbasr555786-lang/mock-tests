@@ -856,7 +856,8 @@
     }
 
     // Exam info drawer is available on the main exam page (selectors view).
-    setupInfoDrawer(entry, !def);
+    const infoDrawer = setupInfoDrawer(entry, !def);
+    renderExamKnow(entry, infoDrawer);
 
     const counts = window.repo.catalogueCounts(catalogueId);
     const grid = $('#quadrant-grid');
@@ -916,21 +917,24 @@
     const titleEl = $('#info-drawer-title');
     const tabsEl = $('#exam-info-tabs');
     const panelsEl = $('#exam-info-panels');
-    if (!fab || !drawer || !tabsEl || !panelsEl) return;
+    if (!fab || !drawer || !tabsEl || !panelsEl) return null;
 
     const info = entry.info;
-    if (!available || !info) { fab.hidden = true; drawer.hidden = true; return; }
+    if (!available || !info) { fab.hidden = true; drawer.hidden = true; return null; }
 
     if (titleEl) titleEl.textContent = entry.name + ' — Exam Info';
     fab.hidden = false;
     tabsEl.innerHTML = '';
     panelsEl.innerHTML = '';
 
-    const tabs = [
+    const tabs = [];
+    if (info.dates) tabs.push({ key: 'dates', label: 'Important Dates', build: () => buildDatesPanel(info) });
+    tabs.push(
       { key: 'syllabus',    label: 'Syllabus',     build: () => buildSyllabusPanel(info, entry) },
       { key: 'pattern',     label: 'Exam Pattern', build: () => buildPatternPanel(info, entry) },
-      { key: 'eligibility', label: 'Eligibility',  build: () => buildEligibilityPanel(info) },
-    ];
+      { key: 'eligibility', label: 'Eligibility',  build: () => buildEligibilityPanel(info) }
+    );
+    if (info.application) tabs.push({ key: 'apply', label: 'How to Apply', build: () => buildApplyPanel(info) });
 
     const panelNodes = {};
     tabs.forEach((t, i) => {
@@ -968,6 +972,75 @@
     document.addEventListener('keydown', function onEsc(e) {
       if (e.key === 'Escape' && !drawer.hidden) closeDrawer();
     });
+
+    // Handle for the "Know this exam" cards: open the drawer on a given tab.
+    return {
+      tabs: tabs.map((t) => ({ key: t.key, label: t.label })),
+      open(key) {
+        if (key && panelNodes[key]) activateInfoTab(key);
+        openDrawer();
+      },
+    };
+  }
+
+  // ---------- "Know this exam" cards (dates / pattern / syllabus / ...) ----------
+  // Rendered on the exam dashboard's selectors view; each card opens the info
+  // drawer on its tab. Driven entirely by the catalogue entry's `info`, so any
+  // new exam gets these sections by filling in its data.
+  function renderExamKnow(entry, drawer) {
+    const section = $('#exam-know');
+    const grid = $('#exam-know-grid');
+    if (!section || !grid || !drawer || !drawer.tabs.length) return;
+
+    const info = entry.info || {};
+    const p = info.pattern || {};
+    const examDateRow = ((info.dates && info.dates.rows) || []).find((r) => r.highlight);
+    const TEASERS = {
+      dates: examDateRow
+        ? 'Exam: ' + examDateRow.value
+        : 'Forms, admit card, exam & results',
+      syllabus: (info.syllabus && info.syllabus.length)
+        ? info.syllabus.length + ' sections, topic by topic'
+        : 'Section-wise topics',
+      pattern: (p.totalQuestions != null && p.durationMin != null)
+        ? p.totalQuestions + ' questions · ' + p.durationMin + ' min · ' + (p.totalMarks != null ? p.totalMarks + ' marks' : 'MCQs')
+        : 'Sections, marks & timing',
+      eligibility: 'Who can apply',
+      apply: 'Portal, fees & steps',
+    };
+    const ICONS = {
+      dates: '📅',
+      syllabus: '📚',
+      pattern: '🧮',
+      eligibility: '✅',
+      apply: '📝',
+    };
+
+    grid.innerHTML = '';
+    drawer.tabs.forEach((t) => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'know-card';
+      const ico = document.createElement('span');
+      ico.className = 'know-card__ico';
+      ico.textContent = ICONS[t.key] || 'ℹ';
+      const title = document.createElement('span');
+      title.className = 'know-card__title';
+      title.textContent = t.label;
+      const teaser = document.createElement('span');
+      teaser.className = 'know-card__teaser';
+      teaser.textContent = TEASERS[t.key] || '';
+      const cta = document.createElement('span');
+      cta.className = 'know-card__cta';
+      cta.textContent = 'View →';
+      card.appendChild(ico);
+      card.appendChild(title);
+      card.appendChild(teaser);
+      card.appendChild(cta);
+      card.addEventListener('click', () => drawer.open(t.key));
+      grid.appendChild(card);
+    });
+    section.hidden = false;
   }
 
   function buildPatternPanel(info, entry) {
@@ -1129,6 +1202,93 @@
       }
       panel.appendChild(block);
     });
+    panel.appendChild(buildInfoNote());
+    return panel;
+  }
+
+  function buildDatesPanel(info) {
+    const d = info.dates || {};
+    const panel = document.createElement('div');
+    const rows = Array.isArray(d.rows) ? d.rows : [];
+    if (!rows.length) {
+      panel.appendChild(buildInfoEmpty('Important dates will be added soon.'));
+      return panel;
+    }
+    if (d.cycle) {
+      const badge = document.createElement('p');
+      badge.className = 'dates-cycle';
+      badge.textContent = d.cycle + ' admission cycle';
+      panel.appendChild(badge);
+    }
+    const ol = document.createElement('ol');
+    ol.className = 'dates-timeline';
+    rows.forEach((r) => {
+      const li = document.createElement('li');
+      li.className = 'dates-item' + (r.highlight ? ' dates-item--highlight' : '');
+      const lab = document.createElement('div');
+      lab.className = 'dates-item__label';
+      lab.textContent = r.label;
+      const val = document.createElement('div');
+      val.className = 'dates-item__value';
+      val.textContent = r.value;
+      li.appendChild(lab);
+      li.appendChild(val);
+      ol.appendChild(li);
+    });
+    panel.appendChild(ol);
+    const note = document.createElement('p');
+    note.className = 'info-note';
+    note.textContent = d.note || 'Always confirm exact dates with the latest official notification.';
+    panel.appendChild(note);
+    return panel;
+  }
+
+  function buildApplyPanel(info) {
+    const a = info.application || {};
+    const panel = document.createElement('div');
+
+    const dl = document.createElement('dl');
+    dl.className = 'info-spec';
+    const spec = [
+      ['Mode', a.mode],
+      ['Application fee', a.fee],
+    ].filter((r) => r[1]);
+    spec.forEach(([k, v]) => {
+      const dt = document.createElement('dt');
+      dt.textContent = k;
+      const dd = document.createElement('dd');
+      dd.textContent = v;
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    });
+    if (spec.length) panel.appendChild(dl);
+
+    if (Array.isArray(a.steps) && a.steps.length) {
+      const h = document.createElement('h3');
+      h.className = 'syllabus-block__title';
+      h.style.marginTop = spec.length ? '18px' : '0';
+      h.textContent = 'How to apply, step by step';
+      panel.appendChild(h);
+      const ol = document.createElement('ol');
+      ol.className = 'apply-steps';
+      a.steps.forEach((s) => {
+        const li = document.createElement('li');
+        li.textContent = s;
+        ol.appendChild(li);
+      });
+      panel.appendChild(ol);
+    }
+
+    if (a.portal) {
+      const link = document.createElement('a');
+      link.className = 'apply-portal-btn';
+      link.href = a.portal;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'Apply on ' + (a.portalLabel || a.portal.replace(/^https?:\/\//, '')) + ' ↗';
+      panel.appendChild(link);
+    }
+
     panel.appendChild(buildInfoNote());
     return panel;
   }
