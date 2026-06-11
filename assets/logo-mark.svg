@@ -1,17 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="JamiaPrep logo">
   <defs>
-    <linearGradient id="jamiaPrepGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1e3a8a"/>
-      <stop offset="1" stop-color="#0d9488"/>
+    <linearGradient id="jpBg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e5c46"/>
+      <stop offset="1" stop-color="#083b2c"/>
+    </linearGradient>
+    <linearGradient id="jpGold" x1="0" y1="0" x2="0" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e7c768"/>
+      <stop offset="1" stop-color="#c9a227"/>
     </linearGradient>
   </defs>
-  <rect width="48" height="48" rx="11" fill="url(#jamiaPrepGrad)"/>
-  <!-- open book -->
-  <path d="M24 15.5 C20.5 13.4 16.4 13.1 12.5 14.2 V32.6 C16.4 31.5 20.5 31.8 24 33.9 C27.5 31.8 31.6 31.5 35.5 32.6 V14.2 C31.6 13.1 27.5 13.4 24 15.5 Z"
-        fill="#ffffff"/>
-  <path d="M24 15.5 V33.9" stroke="#0d9488" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M15.5 19 C18 18.4 21 18.5 23 19.4 M15.5 23 C18 22.4 21 22.5 23 23.4 M15.5 27 C18 26.4 21 26.5 23 27.4"
-        stroke="#1e3a8a" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.55"/>
-  <path d="M25 19.4 C27 18.5 30 18.4 32.5 19 M25 23.4 C27 22.5 30 22.4 32.5 23 M25 27.4 C27 26.5 30 26.4 32.5 27"
-        stroke="#1e3a8a" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <rect width="48" height="48" rx="11" fill="url(#jpBg)"/>
+  <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="9.75" fill="none" stroke="url(#jpGold)" stroke-width="1" opacity=".55"/>
+  <!-- Mughal arch (Centenary Gate motif) -->
+  <path d="M11 36 V20.5 C11 13 16.5 8.5 24 8.5 C31.5 8.5 37 13 37 20.5 V36"
+        fill="none" stroke="url(#jpGold)" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- finial star -->
+  <path d="M24 3.6 L25 6.1 L27.5 6.5 L25.6 8.2 L26.1 10.7 L24 9.4 L21.9 10.7 L22.4 8.2 L20.5 6.5 L23 6.1 Z"
+        fill="url(#jpGold)"/>
+  <!-- open book inside the arch -->
+  <path d="M24 20.2 C21.4 18.6 18.4 18.3 15.6 19.1 V32.4 C18.4 31.6 21.4 31.9 24 33.4 C26.6 31.9 29.6 31.6 32.4 32.4 V19.1 C29.6 18.3 26.6 18.6 24 20.2 Z"
+        fill="#f7f3e8"/>
+  <path d="M24 20.2 V33.4" stroke="#0e5c46" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M17.8 22.6 C19.6 22.2 21.7 22.3 23 23 M17.8 25.8 C19.6 25.4 21.7 25.5 23 26.2 M17.8 29 C19.6 28.6 21.7 28.7 23 29.4"
+        stroke="#0e5c46" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".6"/>
+  <path d="M25 23 C26.3 22.3 28.4 22.2 30.2 22.6 M25 26.2 C26.3 25.5 28.4 25.4 30.2 25.8 M25 29.4 C26.3 28.7 28.4 28.6 30.2 29"
+        stroke="#0e5c46" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".6"/>
 </svg>

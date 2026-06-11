@@ -1,13 +1,13 @@
-{
-  "name": "JamiaPrep — JMI Entrance Mock Tests",
+﻿{
+  "name": "JamiaPrep â€” JMI Entrance Mock Tests",
   "short_name": "JamiaPrep",
   "description": "Computer-Based Test (CBT) style mock tests built from real Jamia Millia Islamia (JMI) entrance papers.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#eef1f5",
-  "theme_color": "#1e3a8a",
+  "background_color": "#f7f8f5",
+  "theme_color": "#0b4a38",
   "icons": [
     {
       "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><defs><linearGradient id='g' x1='0' y1='0' x2='48' y2='48' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%231e3a8a'/><stop offset='1' stop-color='%230d9488'/></linearGradient></defs><rect width='48' height='48' rx='11' fill='url(%23g)'/><path d='M24 15.5 C20.5 13.4 16.4 13.1 12.5 14.2 V32.6 C16.4 31.5 20.5 31.8 24 33.9 C27.5 31.8 31.6 31.5 35.5 32.6 V14.2 C31.6 13.1 27.5 13.4 24 15.5 Z' fill='%23ffffff'/><path d='M24 15.5 V33.9' stroke='%230d9488' stroke-width='1.6' stroke-linecap='round'/></svg>",

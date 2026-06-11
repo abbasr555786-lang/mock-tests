@@ -206,7 +206,9 @@
   // on focused flows (login / instructions / running test / admin) just like the
   // bottom nav. Navigation lives here now, so the per-view topbar links are hidden
   // whenever the sidebar is active (see .has-sidebar in CSS).
-  const SIDEBAR_HIDE_ON = ['login', 'instructions', 'test', 'admin'];
+  // '' = home: the landing page is a full-width marketing layout with its own
+  // header/footer, so the app sidebar (and hamburger) stay out of it.
+  const SIDEBAR_HIDE_ON = ['', 'login', 'instructions', 'test', 'admin'];
 
   function ensureSidebar() {
     if (document.getElementById('app-sidebar')) return;
@@ -455,6 +457,56 @@
 
     // Category + search controls drive the "Explore exams" grid.
     setupCatalogueExplorer(catalogue);
+
+    initLanding(catalogue);
+  }
+
+  // ---------- Landing page extras ----------
+  // Smooth in-page scrolling (without disturbing the hash router), live archive
+  // stats in the hero band, and a solid header once the hero is scrolled past.
+  function initLanding(catalogue) {
+    // In-page anchors: navigating to "#lp-papers" would be swallowed by the hash
+    // router and re-render the view, so intercept and scroll instead.
+    $$('[data-scroll]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = (a.getAttribute('href') || '').replace('#', '');
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Archive stats — counted live from the registered papers so they never lie.
+    try {
+      const ids = new Set(catalogue.map((c) => c.id));
+      let papers = 0;
+      catalogue.forEach((c) => { papers += window.repo.catalogueCounts(c.id).total; });
+      let questions = 0;
+      window.repo.listPublishedExams().forEach((t) => {
+        if (!ids.has(t.examCatalogueId)) return;
+        (t.sections || []).forEach((s) => { questions += (s.questions || []).length; });
+      });
+      const fmt = (n) => n.toLocaleString('en-IN');
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      set('lp-stat-papers', fmt(papers));
+      set('lp-stat-questions', fmt(questions) + '+');
+      set('lp-stat-programmes', fmt(catalogue.length));
+    } catch (e) { /* stats are decorative — never block the page */ }
+
+    const yr = document.getElementById('lp-year');
+    if (yr) yr.textContent = String(new Date().getFullYear());
+
+    // Header turns solid after the hero; bound once, no-ops off the landing page.
+    if (!window.__lpScrollBound) {
+      window.__lpScrollBound = true;
+      window.addEventListener('scroll', () => {
+        const head = document.getElementById('lp-header');
+        if (head) head.classList.toggle('is-scrolled', window.scrollY > 24);
+      }, { passive: true });
+    }
+    const head = document.getElementById('lp-header');
+    if (head) head.classList.toggle('is-scrolled', window.scrollY > 24);
   }
 
   // Exams given prime placement in the home-screen featured band, in order.

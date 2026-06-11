@@ -6,18 +6,18 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  /* Brand */
-  --brand-700: #1e3a8a;
-  --brand-600: #2547a8;
-  --brand-500: #3b5fd6;
-  --brand-100: #dbe3ff;
-  --brand-50:  #eef2ff;
+  /* Brand — Jamia green (deep institutional green of JMI) */
+  --brand-700: #0b4a38;
+  --brand-600: #0e5c46;
+  --brand-500: #167a5d;
+  --brand-100: #d8e9e1;
+  --brand-50:  #eef5f1;
 
-  /* Accent (replaces gold) */
-  --accent-700: #0f766e;
-  --accent-600: #0d9488;
-  --accent-100: #ccfbf1;
-  --accent-50:  #ecfdf5;
+  /* Accent — heritage gold */
+  --accent-700: #8a6914;
+  --accent-600: #b3892a;
+  --accent-100: #f1e6c3;
+  --accent-50:  #faf5e4;
 
   /* Neutrals */
   --ink-900: #0f172a;
@@ -30,7 +30,7 @@
   --ink-100: #eef2f6;
   --ink-50:  #f5f7fa;
   --surface: #ffffff;
-  --canvas:  #f7f9fc;
+  --canvas:  #f7f8f5;
 
   /* Semantic */
   --success-700: #15803d;
@@ -45,6 +45,7 @@
   --review-50:   #f5f3ff;
 
   /* Type */
+  --font-display: "Fraunces", "Georgia", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 
@@ -62,7 +63,7 @@
   --shadow-lg: 0 20px 40px rgba(15,23,42,.12), 0 8px 16px rgba(15,23,42,.06);
 
   /* Focus ring */
-  --focus: 0 0 0 3px rgba(59,95,214,.30);
+  --focus: 0 0 0 3px rgba(14,92,70,.32);
 
   /* Motion */
   --ease: cubic-bezier(.2,.7,.3,1);
@@ -2918,28 +2919,28 @@ body.sidebar-open .sidebar-backdrop { opacity: 1; pointer-events: auto; }
    nearly everything; the few hard-coded surfaces are spot-fixed below.
    ============================================================ */
 :root[data-theme="dark"] {
-  --brand-700: #7d97f5;
-  --brand-600: #4f74e8;
-  --brand-500: #6b8af0;
-  --brand-100: #28365c;
-  --brand-50:  #1b2542;
+  --brand-700: #8fd4b8;
+  --brand-600: #3aa583;
+  --brand-500: #4cbb96;
+  --brand-100: #16382c;
+  --brand-50:  #102a21;
 
-  --accent-700: #2dd4bf;
-  --accent-600: #14b8a6;
-  --accent-100: #0f3b38;
-  --accent-50:  #0d2c2a;
+  --accent-700: #e7c768;
+  --accent-600: #cfa53a;
+  --accent-100: #3a3014;
+  --accent-50:  #2a2410;
 
-  --ink-900: #f3f6fb;
-  --ink-800: #e6ecf3;
-  --ink-700: #c5d0de;
-  --ink-500: #9aa8bd;
-  --ink-400: #7e8da3;
-  --ink-300: #41506a;
-  --ink-200: #2c3a52;
-  --ink-100: #202c43;
-  --ink-50:  #1a2236;
-  --surface: #131c30;
-  --canvas:  #0b1322;
+  --ink-900: #f2f7f4;
+  --ink-800: #e4ede8;
+  --ink-700: #c2d2ca;
+  --ink-500: #97aaa1;
+  --ink-400: #7b8f86;
+  --ink-300: #3d5347;
+  --ink-200: #2a3d33;
+  --ink-100: #1f2f27;
+  --ink-50:  #182620;
+  --surface: #12211b;
+  --canvas:  #0a1611;
 
   --success-700: #4ade80; --success-600: #22c55e; --success-50: #0f2a1c;
   --danger-700:  #f87171; --danger-600:  #ef4444; --danger-50:  #2c1517;
