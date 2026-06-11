@@ -1431,6 +1431,7 @@
     {
       id: 'jmi-mba',
       name: 'JMI MBA CET',
+      slug: 'jmi-mba-entrance-exam', // static SEO guide page: /exams/<slug>/ (tools/build-exam-pages.js)
       tagline: 'Jamia Millia Islamia — MBA (Regular / IB / IE) Entrance',
       sections: ['Quantitative Aptitude', 'Data Interpretation', 'Logical Reasoning', 'English', 'General Awareness'],
       info: {
@@ -1469,6 +1470,7 @@
     {
       id: 'jmi-ballb',
       name: 'JMI BA LLB',
+      slug: 'jmi-ba-llb-entrance-exam',
       tagline: 'Jamia Millia Islamia — BA LLB (Hons.) 5-year Entrance',
       sections: ['Numerical Ability', 'General English', 'Legal Aptitude', 'General Awareness & Current Affairs', 'General Studies'],
       info: {
@@ -1508,6 +1510,7 @@
     {
       id: 'jmi-mca',
       name: 'JMI MCA',
+      slug: 'jmi-mca-entrance-exam',
       tagline: 'Jamia Millia Islamia — MCA Entrance (Paper Code M-54)',
       sections: ['Computer Concepts & Programming', 'Mathematics', 'Reasoning', 'English'],
       info: {
