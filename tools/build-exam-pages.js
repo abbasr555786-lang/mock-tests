@@ -223,8 +223,18 @@ function renderGuide(entry, allEntries) {
     ${papers.length ? papers.length + ' real previous-year paper' + (papers.length === 1 ? '' : 's') + ' you can sit free in an exact exam-day CBT simulator.' : 'real previous-year papers (being digitised).'}</p>
 
     <nav class="g-toc" aria-label="On this page">
-      <a href="#dates">Important Dates</a><a href="#pattern">Exam Pattern</a><a href="#syllabus">Syllabus</a><a href="#eligibility">Eligibility</a><a href="#apply">How to Apply</a><a href="#papers">Previous Year Papers</a><a href="#faq">FAQ</a>
+      <a href="#papers">Previous Year Papers</a><a href="#dates">Important Dates</a><a href="#pattern">Exam Pattern</a><a href="#syllabus">Syllabus</a><a href="#eligibility">Eligibility</a><a href="#apply">How to Apply</a><a href="#faq">FAQ</a>
     </nav>
+
+    <section id="papers">
+      <h2>${esc(entry.name)} Previous Year Question Papers — Attempt Free Online</h2>
+      <p>Real ${esc(entry.name)} entrance papers, digitised question by question with verified answers and
+      solutions, served in an exact replica of the exam-day interface. Free — sign in and practise.</p>
+      <ul class="g-papers">
+          ${paperCards}
+      </ul>
+      <p><a class="g-btn g-btn--gold" href="${esc(appUrl)}">Open the ${esc(entry.name)} practice track →</a></p>
+    </section>
 
     <section id="dates">
       <h2>${esc(entry.name)} Important Dates ${esc(cycle)}</h2>
@@ -270,16 +280,6 @@ function renderGuide(entry, allEntries) {
           ${applySteps}
       </ol>
       ${a.portal ? '<p><a class="g-btn" href="' + esc(a.portal) + '" target="_blank" rel="noopener">Apply on ' + esc(a.portalLabel || a.portal) + ' ↗</a></p>' : ''}
-    </section>
-
-    <section id="papers">
-      <h2>${esc(entry.name)} Previous Year Question Papers — Attempt Free Online</h2>
-      <p>Real ${esc(entry.name)} entrance papers, digitised question by question with verified answers and
-      solutions, served in an exact replica of the exam-day interface. Free — sign in and practise.</p>
-      <ul class="g-papers">
-          ${paperCards}
-      </ul>
-      <p><a class="g-btn g-btn--gold" href="${esc(appUrl)}">Open the ${esc(entry.name)} practice track →</a></p>
     </section>
 
     <section id="faq">

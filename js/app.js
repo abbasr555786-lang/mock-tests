@@ -855,9 +855,8 @@
       backLabel.textContent = 'All Exams';
     }
 
-    // Exam info drawer is available on the main exam page (selectors view).
-    const infoDrawer = setupInfoDrawer(entry, !def);
-    renderExamKnow(entry, infoDrawer);
+    // Exam tabs (papers + on-demand exam info) live on the main exam page only.
+    if (!def) renderExamTabs(entry);
 
     const counts = window.repo.catalogueCounts(catalogueId);
     const grid = $('#quadrant-grid');
@@ -907,27 +906,21 @@
     });
   }
 
-  // ---------- Exam info drawer (Syllabus / Pattern / Eligibility tabs) ----------
-  // Lives off-screen until the user clicks the side "Exam Info" tab.
-  function setupInfoDrawer(entry, available) {
-    const fab = $('#info-tab-btn');
-    const drawer = $('#info-drawer');
-    const backdrop = $('#info-drawer-backdrop');
-    const closeBtn = $('#info-drawer-close');
-    const titleEl = $('#info-drawer-title');
-    const tabsEl = $('#exam-info-tabs');
-    const panelsEl = $('#exam-info-panels');
-    if (!fab || !drawer || !tabsEl || !panelsEl) return null;
+  // ---------- Exam page tabs (Question Papers + on-demand exam info) ----------
+  // Papers are the default view; Important Dates / Syllabus / Exam Pattern /
+  // Eligibility / How to Apply render inline ONLY when the student taps that
+  // tab. Driven entirely by the catalogue entry's `info`, so any new exam gets
+  // these sections by filling in its data.
+  function renderExamTabs(entry) {
+    const bar = $('#exam-tabs');
+    const panelWrap = $('#exam-tab-panel');
+    const grid = $('#quadrant-grid');
+    if (!bar || !panelWrap || !grid) return;
 
     const info = entry.info;
-    if (!available || !info) { fab.hidden = true; drawer.hidden = true; return null; }
+    if (!info) return; // no info data — papers only, no tab bar needed
 
-    if (titleEl) titleEl.textContent = entry.name + ' — Exam Info';
-    fab.hidden = false;
-    tabsEl.innerHTML = '';
-    panelsEl.innerHTML = '';
-
-    const tabs = [];
+    const tabs = [{ key: 'papers', label: 'Question Papers', build: null }];
     if (info.dates) tabs.push({ key: 'dates', label: 'Important Dates', build: () => buildDatesPanel(info) });
     tabs.push(
       { key: 'syllabus',    label: 'Syllabus',     build: () => buildSyllabusPanel(info, entry) },
@@ -936,111 +929,35 @@
     );
     if (info.application) tabs.push({ key: 'apply', label: 'How to Apply', build: () => buildApplyPanel(info) });
 
-    const panelNodes = {};
+    bar.innerHTML = '';
+    const built = {}; // panels are built lazily, once, on first visit
     tabs.forEach((t, i) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'exam-info__tab' + (i === 0 ? ' is-active' : '');
+      btn.className = 'exam-tab' + (i === 0 ? ' is-active' : '');
       btn.textContent = t.label;
       btn.setAttribute('role', 'tab');
       btn.dataset.tab = t.key;
-      btn.addEventListener('click', () => activateInfoTab(t.key));
-      tabsEl.appendChild(btn);
-
-      const panel = t.build();
-      panel.classList.add('exam-info__panel');
-      panel.dataset.tab = t.key;
-      if (i !== 0) panel.hidden = true;
-      panelsEl.appendChild(panel);
-      panelNodes[t.key] = panel;
+      btn.addEventListener('click', () => activate(t));
+      bar.appendChild(btn);
     });
 
-    function activateInfoTab(key) {
-      $$('.exam-info__tab', tabsEl).forEach((b) => b.classList.toggle('is-active', b.dataset.tab === key));
-      Object.keys(panelNodes).forEach((k) => { panelNodes[k].hidden = k !== key; });
+    function activate(t) {
+      $$('.exam-tab', bar).forEach((b) => b.classList.toggle('is-active', b.dataset.tab === t.key));
+      if (t.key === 'papers') {
+        panelWrap.hidden = true;
+        grid.hidden = false;
+        return;
+      }
+      if (!built[t.key]) built[t.key] = t.build();
+      panelWrap.innerHTML = '';
+      panelWrap.appendChild(built[t.key]);
+      panelWrap.hidden = false;
+      grid.hidden = true;
     }
 
-    function openDrawer() { drawer.hidden = false; void drawer.offsetWidth; drawer.classList.add('is-open'); }
-    function closeDrawer() {
-      drawer.classList.remove('is-open');
-      setTimeout(() => { drawer.hidden = true; }, 220);
-    }
-
-    fab.addEventListener('click', openDrawer);
-    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    if (backdrop) backdrop.addEventListener('click', closeDrawer);
-    document.addEventListener('keydown', function onEsc(e) {
-      if (e.key === 'Escape' && !drawer.hidden) closeDrawer();
-    });
-
-    // Handle for the "Know this exam" cards: open the drawer on a given tab.
-    return {
-      tabs: tabs.map((t) => ({ key: t.key, label: t.label })),
-      open(key) {
-        if (key && panelNodes[key]) activateInfoTab(key);
-        openDrawer();
-      },
-    };
-  }
-
-  // ---------- "Know this exam" cards (dates / pattern / syllabus / ...) ----------
-  // Rendered on the exam dashboard's selectors view; each card opens the info
-  // drawer on its tab. Driven entirely by the catalogue entry's `info`, so any
-  // new exam gets these sections by filling in its data.
-  function renderExamKnow(entry, drawer) {
-    const section = $('#exam-know');
-    const grid = $('#exam-know-grid');
-    if (!section || !grid || !drawer || !drawer.tabs.length) return;
-
-    const info = entry.info || {};
-    const p = info.pattern || {};
-    const examDateRow = ((info.dates && info.dates.rows) || []).find((r) => r.highlight);
-    const TEASERS = {
-      dates: examDateRow
-        ? 'Exam: ' + examDateRow.value
-        : 'Forms, admit card, exam & results',
-      syllabus: (info.syllabus && info.syllabus.length)
-        ? info.syllabus.length + ' sections, topic by topic'
-        : 'Section-wise topics',
-      pattern: (p.totalQuestions != null && p.durationMin != null)
-        ? p.totalQuestions + ' questions · ' + p.durationMin + ' min · ' + (p.totalMarks != null ? p.totalMarks + ' marks' : 'MCQs')
-        : 'Sections, marks & timing',
-      eligibility: 'Who can apply',
-      apply: 'Portal, fees & steps',
-    };
-    const ICONS = {
-      dates: '📅',
-      syllabus: '📚',
-      pattern: '🧮',
-      eligibility: '✅',
-      apply: '📝',
-    };
-
-    grid.innerHTML = '';
-    drawer.tabs.forEach((t) => {
-      const card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'know-card';
-      const ico = document.createElement('span');
-      ico.className = 'know-card__ico';
-      ico.textContent = ICONS[t.key] || 'ℹ';
-      const title = document.createElement('span');
-      title.className = 'know-card__title';
-      title.textContent = t.label;
-      const teaser = document.createElement('span');
-      teaser.className = 'know-card__teaser';
-      teaser.textContent = TEASERS[t.key] || '';
-      const cta = document.createElement('span');
-      cta.className = 'know-card__cta';
-      cta.textContent = 'View →';
-      card.appendChild(ico);
-      card.appendChild(title);
-      card.appendChild(teaser);
-      card.appendChild(cta);
-      card.addEventListener('click', () => drawer.open(t.key));
-      grid.appendChild(card);
-    });
-    section.hidden = false;
+    bar.hidden = false;
+    panelWrap.hidden = true;
   }
 
   function buildPatternPanel(info, entry) {
