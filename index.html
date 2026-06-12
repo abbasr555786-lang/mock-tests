@@ -334,13 +334,11 @@
         <p class="exam-hero__tag" id="exam-hero-tag"></p>
       </div>
 
-      <!-- "Know this exam" — dates / pattern / syllabus / eligibility / apply,
-           rendered per-exam from the catalogue entry's `info`. Cards open the
-           info drawer on the matching tab. -->
-      <section class="exam-know" id="exam-know" hidden>
-        <h2 class="section-heading">Know this exam</h2>
-        <div class="exam-know__grid" id="exam-know-grid"></div>
-      </section>
+      <!-- Exam page tabs: Question Papers (default) + on-demand exam info
+           (dates / syllabus / pattern / eligibility / apply) from the
+           catalogue entry's `info`. Info renders inline only when tapped. -->
+      <div class="exam-tabs" id="exam-tabs" role="tablist" aria-label="Exam sections" hidden></div>
+      <div class="exam-tab-panel" id="exam-tab-panel" hidden></div>
 
       <div class="quadrant-grid" id="quadrant-grid"></div>
 
@@ -715,6 +713,7 @@
   <script src="js/data-jmi-2024-ballb.js"></script>
   <script src="js/data-jmi-2025-ballb.js"></script>
   <!-- JMI MCA full-length mocks (real entrance papers, Paper Code M-54) -->
+  <script src="js/data-jmi-2023-mca.js"></script>
   <script src="js/data-jmi-2024-mca.js"></script>
   <script src="js/data-jmi-2025-mca.js"></script>
   <script src="js/repo.js"></script>
