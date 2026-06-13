@@ -20,7 +20,7 @@
   // Bump this whenever the built-in exams in data*.js change so the new content
   // reaches users who already have a seeded DB. On a version bump, built-in exams
   // are refreshed in place; user-created exams, attempts and reviews are untouched.
-  const SEED_VERSION = 15; // JamiaPrep relaunch: re-seed so the 6 JMI MBA papers reach already-seeded browsers.
+  const SEED_VERSION = 16; // Add JMI 2021 MBA paper (M-55 Set B, 169 Q) to the JMI MBA CET track.
 
   function readDB() {
     try {
