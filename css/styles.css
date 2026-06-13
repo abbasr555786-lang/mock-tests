@@ -1719,6 +1719,19 @@ textarea:focus-visible,
 @media (min-width: 480px) { .palette__grid { grid-template-columns: repeat(6, 1fr); } }
 @media (min-width: 960px) { .palette__grid { grid-template-columns: repeat(5, 1fr); } }
 
+/* Desktop: palette is its own scroll region, pinned below the sticky exam
+   topbar (~84px). Without this the long palette scrolls the whole page along
+   with the question area. */
+@media (min-width: 960px) {
+  .palette {
+    position: sticky;
+    top: 84px;
+    align-self: start;
+    max-height: calc(100vh - 84px);
+    overflow-y: auto;
+  }
+}
+
 /* Palette chip — used both in palette grid and legend */
 .palette-chip {
   display: inline-flex;
