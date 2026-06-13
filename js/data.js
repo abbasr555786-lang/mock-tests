@@ -1544,13 +1544,52 @@
         ],
       },
     },
+    {
+      id: 'jmi-class9',
+      name: 'JMI Class 9',
+      slug: 'jmi-class-9-entrance-exam',
+      tagline: 'Jamia Millia Islamia — Class IX (9th) School Entrance (Paper Code S-09)',
+      sections: ['English', 'Mathematics', 'Science', 'Social Science'],
+      info: {
+        dates: jmiDates('Class IX entrance test — typically held in March/April 2026 (confirm the exact date sheet on the admission portal)'),
+        application: jmiApplication('Class IX (9th) admission'),
+        pattern: {
+          title: 'JMI Class IX (9th) Entrance Exam Pattern',
+          type: 'School-level admission test for Class IX — objective MCQs',
+          mode: 'Offline (OMR-based) / pen-and-paper',
+          languages: 'Bilingual — English & Urdu',
+          durationMin: 120,
+          totalQuestions: 100,
+          totalMarks: 100,
+          marking: '+1 for each correct answer. There is NO negative marking.',
+          footnote: 'All questions are one-mark MCQs. The subject-wise split can vary slightly year to year; the 2024 paper had English 25, Science 25, Mathematics 30 and Social Science 20. Always confirm the latest pattern in the JMI school admission prospectus.',
+          sections: [
+            { name: 'English', questions: 25, marks: 25 },
+            { name: 'Mathematics', questions: 30, marks: 30 },
+            { name: 'Science', questions: 25, marks: 25 },
+            { name: 'Social Science', questions: 20, marks: 20 },
+          ],
+        },
+        eligibility: [
+          'For admission to Class IX in the schools of Jamia Millia Islamia.',
+          'The candidate must have passed, or be appearing in, Class VIII from a recognised school and meet the age criteria specified in the JMI school admission prospectus.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact age limit and eligibility for Class IX admission.',
+        ],
+        syllabus: [
+          { section: 'English', topics: ['Reading comprehension', 'Tenses, voice & narration', 'Prepositions, conjunctions & articles', 'Adjectives, adverbs & pronouns', 'Synonyms & antonyms', 'Idioms & one-word substitution', 'Sentence correction'] },
+          { section: 'Mathematics', topics: ['Number system & rational numbers', 'Exponents & powers', 'Squares, cubes & roots', 'Algebra & factorisation', 'Linear equations', 'Ratio, proportion & percentage', 'Mensuration (area, surface area, volume)', 'Geometry (polygons, quadrilaterals, solids)', 'Data handling & statistics'] },
+          { section: 'Science', topics: ['Physics — force, friction, sound, light', 'Chemistry — materials, metals & non-metals, combustion & fuels, synthetic fibres', 'Biology — cell, reproduction, microorganisms, crop production', 'Conservation of plants and animals', 'Pollution & natural resources'] },
+          { section: 'Social Science', topics: ['History — the modern period & national movement', 'Geography — resources, agriculture, population', 'Civics — the Constitution, secularism, judiciary, marginalisation', 'Economics — sectors of the economy'] },
+        ],
+      },
+    },
   ];
 
   // JamiaPrep: JMI-only focus. The full multi-exam catalogue is defined above and
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca' || e.id === 'jmi-class9');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {

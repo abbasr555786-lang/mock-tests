@@ -126,6 +126,7 @@
     'jmi-mba': 'pg',
     'jmi-ballb': 'ug',
     'jmi-mca': 'pg',
+    'jmi-class9': 'school',
   };
   /* Previous (single-bucket) JMI categories:
   const CATEGORY_ORDER = [
@@ -230,6 +231,7 @@
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-mba" href="#/exam/jmi-mba"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MBA CET</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-ballb" href="#/exam/jmi-ballb"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI BA LLB</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-mca" href="#/exam/jmi-mca"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MCA</span></a>' +
+        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-class9" href="#/exam/jmi-class9"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI Class 9</span></a>' +
       '</nav>' +
       '<div class="sidebar__foot">' +
         '<button class="sidebar__link theme-toggle" type="button" id="sidebar-theme"><span class="sidebar__ico" aria-hidden="true">&#9728;</span><span>Theme</span></button>' +
@@ -510,8 +512,8 @@
   }
 
   // Exams given prime placement in the home-screen featured band, in order.
-  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-mca']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
-  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-mca': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
+  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-mca', 'jmi-class9']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
+  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-mca': 'JMI', 'jmi-class9': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
 
   function buildFeaturedCard(entry) {
     const counts = window.repo.catalogueCounts(entry.id);
@@ -1406,6 +1408,7 @@
     { id: 'jmi-mba',        label: 'JMI MBA CET' },
     { id: 'jmi-ballb',      label: 'JMI BA LLB' },
     { id: 'jmi-mca',        label: 'JMI MCA' },
+    { id: 'jmi-class9',     label: 'JMI Class 9' },
   ];
   /* Original (multi-exam) onboarding targets:
   const TARGET_EXAMS = [
