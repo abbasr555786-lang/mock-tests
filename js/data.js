@@ -1583,13 +1583,95 @@
         ],
       },
     },
+    {
+      id: 'jmi-class11-science',
+      name: 'JMI Class 11 Science',
+      slug: 'jmi-class-11-science-entrance-exam',
+      tagline: 'Jamia Millia Islamia — Class XI (11th) Science Stream School Entrance (Paper Code S-13)',
+      sections: ['General Awareness', 'English', 'Physics', 'Chemistry', 'Biology', 'Mathematics'],
+      info: {
+        dates: jmiDates('Class XI (11th) Science entrance test — typically held in March/April 2026 (confirm the exact date sheet on the admission portal)'),
+        application: jmiApplication('Class XI (11th) Science stream admission'),
+        pattern: {
+          title: 'JMI Class XI (11th) Science Entrance Exam Pattern',
+          type: 'School-level admission test for Class XI Science — objective MCQs',
+          mode: 'Offline (OMR-based) / pen-and-paper',
+          languages: 'Trilingual — English, Hindi & Urdu',
+          durationMin: 120,
+          totalQuestions: 100,
+          totalMarks: 100,
+          marking: '+1 for each correct answer. There is NO negative marking.',
+          footnote: 'All questions are one-mark MCQs. The paper covers Class-10 level content across general awareness, English and the science subjects. The subject-wise split can vary year to year; the 2024 paper had roughly General Awareness 10, English 25, Chemistry 15, Biology 15, Physics 15 and Mathematics 20. Always confirm the latest pattern in the JMI school admission prospectus.',
+          sections: [
+            { name: 'General Awareness & Current Affairs', questions: 10, marks: 10 },
+            { name: 'English', questions: 25, marks: 25 },
+            { name: 'Physics', questions: 15, marks: 15 },
+            { name: 'Chemistry', questions: 15, marks: 15 },
+            { name: 'Biology', questions: 15, marks: 15 },
+            { name: 'Mathematics', questions: 20, marks: 20 },
+          ],
+        },
+        eligibility: [
+          'For admission to Class XI in the Science stream in the schools of Jamia Millia Islamia.',
+          'The candidate must have passed, or be appearing in, Class X from a recognised board and meet the marks and age criteria specified in the JMI school admission prospectus.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact eligibility and stream-allocation criteria for Class XI admission.',
+        ],
+        syllabus: [
+          { section: 'General Awareness', topics: ['Current affairs & national/international events', 'Indian polity & the Constitution', 'Static GK — art, culture & geography', 'Important awards & organisations'] },
+          { section: 'English', topics: ['Tenses & sentence structure', 'Active & passive voice', 'Reported speech (narration)', 'Prepositions & collocations', 'Noun, adverb & adjective clauses'] },
+          { section: 'Physics', topics: ['Light — reflection, refraction & dispersion', 'The human eye & defects of vision', 'Electricity & electric power', 'Magnetic effects of current & induction', 'Sources of energy'] },
+          { section: 'Chemistry', topics: ['Chemical reactions & equations', 'Acids, bases & salts', 'Metals & non-metals', 'Carbon and its compounds', 'Chemical bonding & redox'] },
+          { section: 'Biology', topics: ['Life processes — nutrition, respiration, transport, excretion', 'Control & coordination (hormones, tropisms)', 'Reproduction & reproductive health', 'Heredity & evolution', 'Our environment & ecology'] },
+          { section: 'Mathematics', topics: ['Real numbers (HCF/LCM)', 'Polynomials & quadratic equations', 'Pair of linear equations', 'Arithmetic progressions', 'Coordinate geometry', 'Triangles & circles', 'Trigonometry & heights and distances', 'Mensuration', 'Statistics & probability'] },
+        ],
+      },
+    },
+    {
+      id: 'jmi-rca',
+      name: 'JMI RCA',
+      slug: 'jmi-rca-entrance-exam',
+      tagline: 'Jamia Millia Islamia — Residential Coaching Academy (Civil Services) Entrance',
+      sections: ['General Studies & Current Affairs', 'Reasoning & Aptitude', 'Reading Comprehension'],
+      info: {
+        dates: jmiDates('RCA entrance test — typically held mid-year (confirm the exact date on the RCA admission notification)'),
+        application: jmiApplication('RCA Civil Services (IAS/IPS) coaching'),
+        pattern: {
+          title: 'JMI RCA (Civil Services) Entrance Exam Pattern',
+          type: 'Screening test for the Residential Coaching Academy — Section A objective MCQs (general studies, current affairs, reasoning & comprehension) + Section B essay writing',
+          mode: 'Offline (OMR-based for Section A) / as per the RCA notification',
+          languages: 'Trilingual — English, Hindi & Urdu (the English version is authoritative in case of any difference)',
+          durationMin: 180,
+          totalQuestions: 100,
+          totalMarks: 160,
+          marking: '+1 for each correct MCQ in Section A; one-third (1/3) of a mark is deducted for each wrong answer. Section B (essay) is marked separately.',
+          footnote: 'Pattern is taken from the official instruction pages of the digitised papers. Section A is objective and Section B is essay writing (60 marks). The split varies by cycle: in 2023-24 and 2024-25, Section A had 100 MCQs in 2 hours (Section B essay in 1 hour, 160 marks total); in 2021-22 and 2022-23, Section A had 60 MCQs in 1 hour (two essays in 2 hours, 120 marks total). The JamiaPrep mock reproduces only the objective Section A. The RCA test is for free residential coaching for the UPSC Civil Services Examination, reserved for SC/ST, OBC (non-creamy), minority and women candidates — always confirm the current pattern with the official RCA / JMI notification.',
+          sections: [
+            { name: 'Section A — Objective MCQs (general studies, current affairs, polity, history, geography, economy, reasoning & comprehension)', questions: 100, marks: 100 },
+            { name: 'Section B — Essay Writing (marked separately; not part of the online mock)', questions: null, marks: 60 },
+          ],
+        },
+        eligibility: [
+          'Open to candidates from SC/ST, OBC (non-creamy layer), notified minority communities and women who aspire to the UPSC Civil Services Examination.',
+          'Must hold a graduation degree (or be appearing in the final year) and meet the age limit prescribed for the UPSC Civil Services Examination.',
+          'Refer to the official Jamia Millia Islamia Residential Coaching Academy notification for the exact category, age and income criteria for the given cycle.',
+        ],
+        syllabus: [
+          { section: 'General Studies & Current Affairs', topics: ['National & international current affairs', 'Government schemes & flagship programmes', 'Banking, economy & labour statistics', 'Science & technology, defence and space', 'Environment & ecology'] },
+          { section: 'Indian Polity', topics: ['Constitution, Fundamental Rights & Directive Principles', 'Union & State executive (President, Vice-President, Governor)', 'Emergency provisions', 'Panchayati Raj & State Finance Commission', 'Constitutional & statutory bodies'] },
+          { section: 'History & Culture', topics: ['Ancient India (Harappa, Vedic & Upanishadic thought, Buddhism & Jainism)', 'Medieval India (guilds, south Indian polity)', 'Modern India & the national movement (Khilafat, Congress ministries, Tipu Sultan)'] },
+          { section: 'Geography', topics: ['Physical features & mountain passes', 'Ocean currents & climate / jet streams', 'Census & population', 'Minerals, mines & ports'] },
+          { section: 'Reasoning & Quantitative Aptitude', topics: ['Coding-decoding & number transformation', 'Syllogisms', 'Clocks & calendars', 'Sets, pigeonhole & arithmetic puzzles'] },
+          { section: 'Reading Comprehension', topics: ['Inference & main-idea questions', "Author's tone & attitude", 'Literary/critical passages'] },
+        ],
+      },
+    },
   ];
 
   // JamiaPrep: JMI-only focus. The full multi-exam catalogue is defined above and
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca' || e.id === 'jmi-class9');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {

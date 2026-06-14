@@ -217,6 +217,11 @@
         if (f.year && t.year !== f.year) return false;
         if (f.sectionTag && t.sectionTag !== f.sectionTag) return false;
         return true;
+      }).sort((a, b) => {
+        // Newest paper first (2026, 2025, 2024, …); untagged years sink to the bottom.
+        const ya = a.year != null ? a.year : -Infinity;
+        const yb = b.year != null ? b.year : -Infinity;
+        return yb - ya;
       });
     },
     // Quadrant counts for the exam dashboard.
