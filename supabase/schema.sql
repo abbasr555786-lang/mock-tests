@@ -137,3 +137,33 @@ drop policy if exists "attempts: insert own if access" on public.attempts;
 create policy "attempts: insert own if access"
   on public.attempts for insert
   with check (auth.uid() = user_id and public.has_active_access(paper_id));
+
+-- 6. FEEDBACK / CONTACT (public contact form) -----------------
+-- Anyone (signed in or not) can submit a message; the public key can
+-- ONLY insert. There is no select policy, so messages are NOT readable
+-- with the publishable key — read them in the Supabase Table Editor /
+-- SQL Editor (service role bypasses RLS), or wire up a private admin view.
+create table if not exists public.feedback (
+  id         uuid primary key default gen_random_uuid(),
+  name       text,
+  email      text,
+  topic      text,
+  message    text not null,
+  page       text,
+  user_id    uuid references auth.users(id) on delete set null,
+  created_at timestamptz not null default now()
+);
+
+alter table public.feedback enable row level security;
+
+-- Public submit: allow inserts from anon + authenticated, with light
+-- guards so the column can't be abused as unbounded storage.
+drop policy if exists "feedback: public insert" on public.feedback;
+create policy "feedback: public insert"
+  on public.feedback for insert
+  to anon, authenticated
+  with check (
+    char_length(message) between 5 and 2000
+    and (email is null or char_length(email) <= 120)
+    and (name  is null or char_length(name)  <= 80)
+  );

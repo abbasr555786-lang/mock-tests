@@ -112,7 +112,7 @@ function renderGuide(entry, allEntries) {
     faqs.push({
       q: 'Where can I practise ' + title + ' previous year question papers?',
       a: 'JamiaPrep has ' + papers.length + ' real ' + entry.name + ' previous-year paper' + (papers.length === 1 ? '' : 's') +
-         ' (' + papers.map((x) => x.year).filter(Boolean).join(', ') + ') digitised question by question, attemptable free in an exact exam-day CBT simulator with solutions.',
+         ' (' + papers.map((x) => x.year).filter(Boolean).join(', ') + ') digitised question by question, free to practise online with a sectional timer, instant scoring and full solutions.',
     });
   }
 
@@ -195,7 +195,7 @@ function renderGuide(entry, allEntries) {
   <link rel="icon" type="image/svg+xml" href="/assets/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" />
   <link rel="stylesheet" href="/css/exam-guide.css" />
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>
@@ -220,7 +220,7 @@ function renderGuide(entry, allEntries) {
 
     <p class="g-intro">Everything you need for the ${esc(title)} in one place — the official ${esc(cycle)} dates,
     the exact exam pattern and marking scheme, the full section-wise syllabus, eligibility, how to apply, and
-    ${papers.length ? papers.length + ' real previous-year paper' + (papers.length === 1 ? '' : 's') + ' you can sit free in an exact exam-day CBT simulator.' : 'real previous-year papers (being digitised).'}</p>
+    ${papers.length ? papers.length + ' real previous-year paper' + (papers.length === 1 ? '' : 's') + ' you can practise free online with a sectional timer, instant scoring and full solutions.' : 'real previous-year papers (being digitised).'}</p>
 
     <nav class="g-toc" aria-label="On this page">
       <a href="#papers">Previous Year Papers</a><a href="#dates">Important Dates</a><a href="#pattern">Exam Pattern</a><a href="#syllabus">Syllabus</a><a href="#eligibility">Eligibility</a><a href="#apply">How to Apply</a><a href="#faq">FAQ</a>
@@ -229,7 +229,7 @@ function renderGuide(entry, allEntries) {
     <section id="papers">
       <h2>${esc(entry.name)} Previous Year Question Papers — Attempt Free Online</h2>
       <p>Real ${esc(entry.name)} entrance papers, digitised question by question with verified answers and
-      solutions, served in an exact replica of the exam-day interface. Free — sign in and practise.</p>
+      solutions, served in a timed online test player with instant scoring. Free — sign in and practise.</p>
       <ul class="g-papers">
           ${paperCards}
       </ul>
@@ -339,7 +339,7 @@ function renderHub(entries) {
   <link rel="icon" type="image/svg+xml" href="/assets/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" />
   <link rel="stylesheet" href="/css/exam-guide.css" />
 </head>
 <body>

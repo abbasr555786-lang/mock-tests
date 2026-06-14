@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JamiaPrep logo → PNG export</title>
+<style>
+  body { font-family: system-ui, "Segoe UI", Arial, sans-serif; background:#faf7f0; color:#0b4a38; margin:0; padding:40px; }
+  h1 { font-size:20px; }
+  p { max-width:640px; line-height:1.6; color:#33483f; }
+  .row { display:flex; gap:24px; flex-wrap:wrap; margin-top:24px; }
+  .card { background:#fff; border:1px solid #d9e6df; border-radius:14px; padding:20px; text-align:center; box-shadow:0 4px 14px rgba(11,74,56,.08); }
+  .card canvas { display:block; margin:0 auto 14px; border-radius:10px; background:#fff; }
+  button { font:inherit; font-weight:700; cursor:pointer; background:#0b4a38; color:#fff; border:none; border-radius:999px; padding:10px 20px; }
+  button:hover { background:#0e5c46; }
+  .hint { font-size:13px; color:#6b7d75; margin-top:8px; }
+  code { background:#eef3f0; padding:2px 6px; border-radius:5px; }
+</style>
+</head>
+<body>
+  <h1>JamiaPrep logo → PNG</h1>
+  <p>This renders <code>assets/logo-mark.svg</code> and lets you download it as PNG.
+     For the Google OAuth consent screen, use the <b>120 × 120</b> file. The 512 × 512 is handy for app stores / social.</p>
+
+  <div class="row" id="cards"></div>
+
+<script>
+const SVG = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="jpBg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e5c46"/><stop offset="1" stop-color="#083b2c"/>
+    </linearGradient>
+    <linearGradient id="jpGold" x1="0" y1="0" x2="0" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e7c768"/><stop offset="1" stop-color="#c9a227"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="11" fill="url(#jpBg)"/>
+  <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="9.75" fill="none" stroke="url(#jpGold)" stroke-width="1" opacity=".55"/>
+  <path d="M11 36 V20.5 C11 13 16.5 8.5 24 8.5 C31.5 8.5 37 13 37 20.5 V36" fill="none" stroke="url(#jpGold)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M24 3.6 L25 6.1 L27.5 6.5 L25.6 8.2 L26.1 10.7 L24 9.4 L21.9 10.7 L22.4 8.2 L20.5 6.5 L23 6.1 Z" fill="url(#jpGold)"/>
+  <path d="M24 20.2 C21.4 18.6 18.4 18.3 15.6 19.1 V32.4 C18.4 31.6 21.4 31.9 24 33.4 C26.6 31.9 29.6 31.6 32.4 32.4 V19.1 C29.6 18.3 26.6 18.6 24 20.2 Z" fill="#f7f3e8"/>
+  <path d="M24 20.2 V33.4" stroke="#0e5c46" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M17.8 22.6 C19.6 22.2 21.7 22.3 23 23 M17.8 25.8 C19.6 25.4 21.7 25.5 23 26.2 M17.8 29 C19.6 28.6 21.7 28.7 23 29.4" stroke="#0e5c46" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".6"/>
+  <path d="M25 23 C26.3 22.3 28.4 22.2 30.2 22.6 M25 26.2 C26.3 25.5 28.4 25.4 30.2 25.8 M25 29.4 C26.3 28.7 28.4 28.6 30.2 29" stroke="#0e5c46" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".6"/>
+</svg>`;
+
+const sizes = [120, 512];
+const cards = document.getElementById('cards');
+const blob = new Blob([SVG], {type:'image/svg+xml'});
+const url = URL.createObjectURL(blob);
+
+sizes.forEach(size => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  const canvas = document.createElement('canvas');
+  canvas.width = size; canvas.height = size;
+  const display = Math.min(size, 160);
+  canvas.style.width = display + 'px'; canvas.style.height = display + 'px';
+  const ctx = canvas.getContext('2d');
+  const img = new Image();
+  img.onload = () => ctx.drawImage(img, 0, 0, size, size);
+  img.src = url;
+
+  const btn = document.createElement('button');
+  btn.textContent = 'Download ' + size + '×' + size + ' PNG';
+  btn.onclick = () => {
+    const a = document.createElement('a');
+    a.download = 'jamiaprep-logo-' + size + '.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  };
+
+  const hint = document.createElement('div');
+  hint.className = 'hint';
+  hint.textContent = size === 120 ? 'Use this for Google OAuth consent screen' : 'For app stores / social';
+
+  card.appendChild(canvas);
+  card.appendChild(btn);
+  card.appendChild(hint);
+  cards.appendChild(card);
+});
+</script>
+</body>
+</html>

@@ -127,6 +127,7 @@
     'jmi-ballb': 'ug',
     'jmi-mca': 'pg',
     'jmi-class9': 'school',
+    'jmi-class11-science': 'school',
   };
   /* Previous (single-bucket) JMI categories:
   const CATEGORY_ORDER = [
@@ -232,6 +233,7 @@
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-ballb" href="#/exam/jmi-ballb"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI BA LLB</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-mca" href="#/exam/jmi-mca"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MCA</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-class9" href="#/exam/jmi-class9"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI Class 9</span></a>' +
+        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-class11-science" href="#/exam/jmi-class11-science"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI Class 11 Science</span></a>' +
       '</nav>' +
       '<div class="sidebar__foot">' +
         '<button class="sidebar__link theme-toggle" type="button" id="sidebar-theme"><span class="sidebar__ico" aria-hidden="true">&#9728;</span><span>Theme</span></button>' +
@@ -509,11 +511,143 @@
     }
     const head = document.getElementById('lp-header');
     if (head) head.classList.toggle('is-scrolled', window.scrollY > 24);
+
+    wireContactForm();
+  }
+
+  // ---------- Contact / feedback form ----------
+  // Where messages go. The form first tries to persist to the Supabase
+  // "feedback" table (run supabase/schema.sql so it exists + accepts public
+  // inserts); if that table/network is unavailable it falls back to saving the
+  // message locally AND opening the visitor's email client pre-filled, so a
+  // message is never silently lost. Change this address to your real inbox.
+  const CONTACT_EMAIL = 'Jamiaprep.contact@gmail.com';
+
+  function wireContactForm() {
+    const form = $('#contact-form');
+    if (!form || form.dataset.wired) return;
+    form.dataset.wired = '1';
+
+    // Keep the visible email + its mailto in sync with CONTACT_EMAIL.
+    const emailLink = $('#lp-contact-email');
+    if (emailLink) { emailLink.textContent = CONTACT_EMAIL; emailLink.href = 'mailto:' + CONTACT_EMAIL; }
+
+    const topicWrap = $('#cf-topic');
+    let topic = 'Feedback';
+    if (topicWrap) {
+      topicWrap.querySelectorAll('.lp-segment__opt').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          topic = btn.dataset.topic || 'Feedback';
+          topicWrap.querySelectorAll('.lp-segment__opt').forEach((b) => {
+            const on = b === btn;
+            b.classList.toggle('is-active', on);
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+        });
+      });
+    }
+
+    const message = $('#cf-message');
+    const count = $('#cf-count');
+    if (message && count) {
+      const sync = () => { count.textContent = String(message.value.length); };
+      message.addEventListener('input', sync);
+      sync();
+    }
+
+    const errBox = $('#cf-error');
+    const showError = (msg, field) => {
+      if (errBox) { errBox.textContent = msg; errBox.hidden = false; }
+      if (field) { field.classList.add('is-invalid'); field.focus(); }
+    };
+    const clearError = () => {
+      if (errBox) errBox.hidden = true;
+      ['#cf-name', '#cf-email', '#cf-message'].forEach((s) => { const el = $(s); if (el) el.classList.remove('is-invalid'); });
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearError();
+
+      const name = $('#cf-name').value.trim();
+      const email = $('#cf-email').value.trim();
+      const body = message.value.trim();
+
+      if (body.length < 5) return showError('Please write a short message so we know how to help.', message);
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return showError('That email doesn’t look right — please check it (or leave it blank).', $('#cf-email'));
+      }
+
+      const payload = {
+        name: name.slice(0, 80) || null,
+        email: email.slice(0, 120) || null,
+        topic: topic,
+        message: body.slice(0, 2000),
+        page: location.href.slice(0, 300),
+      };
+
+      const submitBtn = $('#cf-submit');
+      const original = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) { submitBtn.setAttribute('aria-busy', 'true'); submitBtn.textContent = 'Sending…'; }
+
+      let saved = false;
+      try {
+        if (window.sb && window.sb.from) {
+          const { error } = await window.sb.from('feedback').insert(payload);
+          if (!error) saved = true;
+          else console.warn('[contact] supabase insert failed, falling back:', error.message);
+        }
+      } catch (err) {
+        console.warn('[contact] supabase insert threw, falling back:', err);
+      }
+
+      // Always keep a local copy so nothing is lost even if the network/table is down.
+      try {
+        const key = 'jp_feedback_outbox';
+        const outbox = JSON.parse(localStorage.getItem(key) || '[]');
+        outbox.push(Object.assign({ ts: Date.now(), synced: saved }, payload));
+        localStorage.setItem(key, JSON.stringify(outbox.slice(-50)));
+      } catch (e) { /* storage full / disabled — non-fatal */ }
+
+      // If it didn't reach the server, open the visitor's mail client pre-filled.
+      if (!saved) {
+        const subject = encodeURIComponent('[JamiaPrep] ' + topic);
+        const lines = [
+          body, '', '— — —',
+          name ? 'From: ' + name : '',
+          email ? 'Reply to: ' + email : '',
+        ].filter(Boolean).join('\n');
+        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(lines);
+      }
+
+      if (submitBtn) { submitBtn.removeAttribute('aria-busy'); submitBtn.textContent = original; }
+
+      const doneMsg = $('#contact-done-msg');
+      if (doneMsg) {
+        doneMsg.textContent = saved
+          ? 'We’ve received it and will reply' + (email ? ' to ' + email : ' soon') + '. Thank you for helping make JamiaPrep better.'
+          : 'We’ve opened your email app with the message ready — just hit send and it’ll reach us.';
+      }
+      form.hidden = true;
+      const done = $('#contact-done');
+      if (done) done.hidden = false;
+    });
+
+    const again = $('#cf-again');
+    if (again) again.addEventListener('click', () => {
+      form.reset();
+      if (count) count.textContent = '0';
+      clearError();
+      const done = $('#contact-done');
+      if (done) done.hidden = true;
+      form.hidden = false;
+      $('#cf-name').focus();
+    });
   }
 
   // Exams given prime placement in the home-screen featured band, in order.
-  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-mca', 'jmi-class9']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
-  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-mca': 'JMI', 'jmi-class9': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
+  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-mca', 'jmi-class9', 'jmi-class11-science']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
+  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-mca': 'JMI', 'jmi-class9': 'JMI', 'jmi-class11-science': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
 
   function buildFeaturedCard(entry) {
     const counts = window.repo.catalogueCounts(entry.id);
@@ -1409,6 +1543,7 @@
     { id: 'jmi-ballb',      label: 'JMI BA LLB' },
     { id: 'jmi-mca',        label: 'JMI MCA' },
     { id: 'jmi-class9',     label: 'JMI Class 9' },
+    { id: 'jmi-class11-science', label: 'JMI Class 11 Science' },
   ];
   /* Original (multi-exam) onboarding targets:
   const TARGET_EXAMS = [
