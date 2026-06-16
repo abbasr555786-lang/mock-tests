@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/landing.css" />
   <link rel="stylesheet" href="css/daily.css" />
+  <link rel="stylesheet" href="css/reels.css" />
   <!-- Supabase JS client (auth + DB) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -98,6 +99,7 @@
       <section class="lp-section lp-daily" id="lp-daily" aria-label="Question of the day">
         <div class="lp-section__inner lp-daily__inner">
           <div id="daily-challenge-mount" hidden></div>
+          <p class="lp-daily__more"><a class="lp-btn lp-btn--gold" href="#/reels">Keep solving in Practice Reels &rarr;</a></p>
         </div>
       </section>
 
@@ -770,9 +772,21 @@
     </div>
   </template>
 
+  <template id="view-reels">
+    <div class="reels" id="reels-root">
+      <header class="reels-head">
+        <a class="reels-back" href="#/" aria-label="Back to home">&larr;</a>
+        <div class="reels-chips" id="reels-chips"></div>
+        <span class="reels-streak" id="reels-streak">&#128293; 0</span>
+      </header>
+      <div class="reels-feed" id="reels-feed"></div>
+    </div>
+  </template>
+
   <script src="js/daily-core.js"></script>
   <script src="js/data-puzzles.js"></script>
   <script src="js/daily-share.js"></script>
+  <script src="js/reels-core.js"></script>
   <script src="js/data.js"></script>
   <!--
     JamiaPrep focus: the site ships JMI entrance papers only. All non-JMI exam
@@ -853,6 +867,7 @@
   <script src="js/csv.js"></script>
   <script src="js/admin.js"></script>
   <script src="js/daily.js"></script>
+  <script src="js/reels.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
