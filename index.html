@@ -4,6 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b4a38" />
+  <!-- Vercel Web Analytics: page traffic (visitors/pageviews) + custom usage
+       events. The inline stub defines the window.va queue so events fired before
+       the real script loads aren't lost; window.track() is the app-wide helper. -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.track = function (name, data) {
+      try { window.va('event', { name: name, data: data || undefined }); } catch (e) {}
+    };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
   <title>JamiaPrep — JMI Entrance Mock Tests, Previous Year Papers & Exam Guides</title>
   <meta name="description" content="Free JMI entrance preparation: real Jamia Millia Islamia previous-year papers for MBA, MCA and BA LLB to practise online with a sectional timer, instant scoring and full solutions, plus exam dates, syllabus, pattern and application guides." />
   <link rel="canonical" href="https://jamia-prep.vercel.app/" />

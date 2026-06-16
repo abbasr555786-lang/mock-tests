@@ -97,6 +97,9 @@
       // (e.g. the paper they were about to attempt), else home.
       if (cameFromOAuth) {
         cameFromOAuth = false;
+        // Count a completed Google sign-in (fires once per OAuth round-trip, not
+        // on every page load that merely restores an existing session).
+        if (window.track) window.track("Google sign-in", { provider: "google" });
         window.location.hash = takeReturn();
       }
       rerender();

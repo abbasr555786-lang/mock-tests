@@ -2323,6 +2323,17 @@
       window.repo.saveResult(result);
     }
     try { sessionStorage.setItem('mockcbt:last-result', JSON.stringify(result)); } catch (e) {}
+    // Count a real paper submission — the truest "people are actually solving
+    // papers" signal (one event per finished attempt, auto-submit included).
+    if (window.track) {
+      window.track('Paper submitted', {
+        paper: result.examName,
+        examId: result.examId,
+        score: result.score,
+        maxScore: result.maxScore,
+        autoSubmitted: result.autoSubmitted,
+      });
+    }
     window.location.hash = '#/result';
   }
 
