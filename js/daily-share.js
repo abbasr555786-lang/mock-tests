@@ -111,7 +111,7 @@
   function shareDare(puzzle, stats) {
     var c = drawDare(puzzle, stats);
     deliver(c, 'jamiaprep-challenge.png',
-      'Only ' + stats.pctWrong + '% of aspirants solved today’s JMI challenge wrong — can you crack it?');
+      stats.pctWrong + '% of aspirants got today’s JMI challenge wrong — can you crack it?');
   }
 
   function offerFlex(streak, pctCorrect) {
