@@ -43,7 +43,8 @@
     ctx.fillStyle = GOLD; ctx.font = '700 34px system-ui, sans-serif'; ctx.textAlign = 'right';
     ctx.fillText('DAILY CHALLENGE', W - 70, 78); ctx.textAlign = 'left';
     ctx.fillStyle = GREEN; ctx.font = '800 34px system-ui, sans-serif';
-    ctx.fillText('JMI ' + puzzle.track.toUpperCase() + ' · ' + puzzle.subject.toUpperCase(), 70, 250);
+    var trackLabel = puzzle.track === 'general' ? 'JMI ENTRANCE' : 'JMI ' + puzzle.track.toUpperCase();
+    ctx.fillText(trackLabel + ' · ' + puzzle.subject.toUpperCase(), 70, 250);
     ctx.fillStyle = INK; ctx.font = '800 62px system-ui, sans-serif';
     var lines = wrap(ctx, puzzle.text, W - 140), y = 360;
     lines.slice(0, 5).forEach(function (ln) { ctx.fillText(ln, 70, y); y += 78; });

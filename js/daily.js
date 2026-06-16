@@ -71,10 +71,11 @@
     top.appendChild(el('span', { class: 'dc-streak' }, streakLabel));
     card.appendChild(top);
 
+    var trackLabel = puzzle.track === 'general' ? 'JMI Entrance' : 'JMI ' + puzzle.track.toUpperCase();
     card.appendChild(el('p', { class: 'dc-framing' },
-      'Modeled on JMI ' + puzzle.track.toUpperCase() + ' entrance pattern · the level Jamia actually asks'));
+      'Modeled on the ' + trackLabel + ' pattern · the level Jamia actually asks'));
     card.appendChild(el('span', { class: 'dc-tag' },
-      'JMI ' + puzzle.track.toUpperCase() + ' · ' + puzzle.subject));
+      trackLabel + ' · ' + puzzle.subject));
     card.appendChild(el('p', { class: 'dc-q' }, escapeHTML(puzzle.text)));
 
     var opts = el('div', { class: 'dc-opts' });
