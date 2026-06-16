@@ -20,7 +20,7 @@
   // Bump this whenever the built-in exams in data*.js change so the new content
   // reaches users who already have a seeded DB. On a version bump, built-in exams
   // are refreshed in place; user-created exams, attempts and reviews are untouched.
-  const SEED_VERSION = 17; // Add JMI 2016 MBA paper (AM57/1 Set A, 170 Q) to the JMI MBA CET track.
+  const SEED_VERSION = 18; // Add JMI PhD track + PhD Humanities & Languages 2021 paper (100 Q).
 
   function readDB() {
     try {

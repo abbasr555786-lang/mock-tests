@@ -1665,13 +1665,50 @@
         ],
       },
     },
+    {
+      id: 'jmi-phd',
+      name: 'JMI PhD',
+      slug: 'jmi-phd-entrance-exam',
+      tagline: 'Jamia Millia Islamia — Doctor of Philosophy (PhD) Entrance Test',
+      sections: ['General Knowledge & Current Affairs', 'Reasoning & Aptitude', 'Language & Literature', 'Research Awareness'],
+      info: {
+        dates: jmiDates('PhD entrance test — usually held once a year as part of the JMI PhD admission cycle (confirm the exact date on the official PhD admission notification)'),
+        application: jmiApplication('PhD (Doctor of Philosophy) research programmes'),
+        pattern: {
+          title: 'JMI PhD Entrance Exam Pattern',
+          type: 'Two-part written test — Paper-I is an objective MCQ paper of general aptitude, reasoning, current affairs and subject awareness; Paper-II / interview is research-method and discipline specific',
+          mode: 'Offline (OMR-based) / as per the PhD admission notification',
+          languages: 'English (the question paper for the Humanities & Languages faculty is set in English)',
+          durationMin: 120,
+          totalQuestions: 100,
+          totalMarks: 100,
+          marking: '+1 for each correct answer; there is NO negative marking in Paper-I (100 MCQs, 1 mark each).',
+          footnote: 'Pattern is taken from the official instruction page of the digitised paper (Paper Code H-01, Faculty of Humanities & Languages, PhD Entrance 2021-22). Paper-I carries 100 one-mark MCQs to be done in 2 hours with no negative marking; weightage between the written test and the interview varies by department as per UGC and JMI rules. The JamiaPrep mock reproduces the objective Paper-I. Always confirm the current pattern and the eligibility/weightage with the official JMI PhD admission notification for your chosen faculty.',
+          sections: [
+            { name: 'Paper-I — Objective MCQs (general knowledge, current affairs, reasoning, language & literature, research awareness)', questions: 100, marks: 100 },
+          ],
+        },
+        eligibility: [
+          'A Master\'s degree (or a recognised equivalent) in the relevant discipline, normally with at least 55% marks (relaxation for reserved categories as per JMI/UGC rules).',
+          'Candidates qualified in UGC-NET/JRF, GATE or an equivalent national fellowship may be eligible for exemption from the written test as per the notification.',
+          'Refer to the official Jamia Millia Islamia PhD admission notification for the exact qualifying-degree, percentage and category criteria for the given cycle.',
+        ],
+        syllabus: [
+          { section: 'General Knowledge & Current Affairs', topics: ['National & international current affairs', 'Government schemes & flagship programmes', 'Science, technology, space & defence', 'Awards, books & authors', 'Sports & important days'] },
+          { section: 'History, Polity & Society', topics: ['Modern Indian history & the national movement', 'Indian Constitution & polity', 'Social reform movements', 'Jamia Millia Islamia history', 'Sociology & psychology fundamentals'] },
+          { section: 'Language & Literature', topics: ['English grammar, idioms & comprehension', 'Indian English & Hindi literature', 'Urdu & Persian classics', 'Authors, works & literary awards'] },
+          { section: 'Reasoning & Quantitative Aptitude', topics: ['Coding-decoding & letter series', 'Alphabetical & dictionary ordering', 'Number series & arithmetic puzzles', 'Analogies & logical sequences'] },
+          { section: 'Research & General Science Awareness', topics: ['Basic physics, chemistry & biology', 'Geography & resources', 'History of science & mathematics', 'Ancient Indian knowledge texts'] },
+        ],
+      },
+    },
   ];
 
   // JamiaPrep: JMI-only focus. The full multi-exam catalogue is defined above and
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {
