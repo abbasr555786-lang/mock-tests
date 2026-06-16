@@ -212,7 +212,7 @@
   // whenever the sidebar is active (see .has-sidebar in CSS).
   // '' = home: the landing page is a full-width marketing layout with its own
   // header/footer, so the app sidebar (and hamburger) stay out of it.
-  const SIDEBAR_HIDE_ON = ['', 'login', 'instructions', 'test', 'admin'];
+  const SIDEBAR_HIDE_ON = ['', 'login', 'instructions', 'test', 'admin', 'reels'];
 
   function ensureSidebar() {
     if (document.getElementById('app-sidebar')) return;
