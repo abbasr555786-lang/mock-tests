@@ -167,12 +167,14 @@
     if (state.observer) state.observer.disconnect();
     var last = feed.lastElementChild;
     if (!last) return;
+    // Prefetch the next batch ~2 screens ahead so a full-height snap card never
+    // becomes a dead end before more cards exist.
     state.observer = new IntersectionObserver(function (entries) {
       if (entries.some(function (e) { return e.isIntersecting; })) {
         state.observer.disconnect();
         appendBatch();
       }
-    }, { root: feed, threshold: 0.25 });
+    }, { root: feed, threshold: 0, rootMargin: '200% 0px' });
     state.observer.observe(last);
   }
 
