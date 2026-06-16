@@ -186,7 +186,7 @@
     const nav = document.getElementById('bottom-nav');
     if (!nav) return;
     const top = parts[0] || '';
-    const hideOn = ['login', 'instructions', 'test', 'admin'];
+    const hideOn = ['login', 'instructions', 'test', 'admin', 'reels'];
     nav.hidden = hideOn.indexOf(top) !== -1;
 
     let active = 'home';

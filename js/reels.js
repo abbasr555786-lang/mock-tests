@@ -39,7 +39,7 @@
     return a;
   }
 
-  var state = { track: 'all', order: [], cursor: 0, observer: null };
+  var state = { track: 'all', order: [], cursor: 0 };
 
   function buildOrder(track) {
     return shuffle(reelsCore.filterByTrack(window.PUZZLES || [], track));
@@ -158,24 +158,17 @@
       var puzzle = state.order[state.cursor++];
       feed.appendChild(renderCard(puzzle));
     }
-    armSentinel();
   }
 
-  function armSentinel() {
+  // Scroll-driven prefetch: append the next batch once the user is within ~2
+  // screens of the bottom, so a full-height snap card never becomes a dead end.
+  // Plain scroll math (no IntersectionObserver / rAF) — fires reliably across
+  // renderers. The near-bottom check plus the growing scrollHeight after each
+  // append are self-limiting, so a direct call can't over-append.
+  function onScroll() {
     var feed = document.getElementById('reels-feed');
-    if (!feed) return;
-    if (state.observer) state.observer.disconnect();
-    var last = feed.lastElementChild;
-    if (!last) return;
-    // Prefetch the next batch ~2 screens ahead so a full-height snap card never
-    // becomes a dead end before more cards exist.
-    state.observer = new IntersectionObserver(function (entries) {
-      if (entries.some(function (e) { return e.isIntersecting; })) {
-        state.observer.disconnect();
-        appendBatch();
-      }
-    }, { root: feed, threshold: 0, rootMargin: '200% 0px' });
-    state.observer.observe(last);
+    if (!feed || !state.order.length) return;
+    if (feed.scrollTop + feed.clientHeight * 2 >= feed.scrollHeight) appendBatch();
   }
 
   function mount() {
@@ -191,7 +184,10 @@
     state.order = buildOrder(state.track);
     state.cursor = 0;
     var feed = document.getElementById('reels-feed');
-    if (feed) feed.innerHTML = '';
+    if (feed) {
+      feed.innerHTML = '';
+      feed.addEventListener('scroll', onScroll, { passive: true });
+    }
     appendBatch();
   }
 
