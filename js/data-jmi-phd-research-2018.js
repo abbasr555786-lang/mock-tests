@@ -114,7 +114,7 @@
 
   var mock = {
     id: 'jmi-2018-phd-research-full',
-    name: 'JMI 2018 PhD Entrance (Paper I)',
+    name: 'JMI 2018 PhD Social Sciences (Paper-I) Paper',
     template: 'ssc',
     examCatalogueId: 'jmi-phd',
     kind: 'pyq', scope: 'full', sectionTag: null, sourceSet: null, year: 2018,
@@ -123,7 +123,7 @@
     allowSectionSwitch: true, timerMode: 'full', calculator: false,
     questionTypes: ['mcq'], languages: ['en'],
     sections: [
-      { id: 'all', name: 'JMI PhD Entrance Paper I 2018 (100 Questions)', questions: questions }
+      { id: 'all', name: 'JMI PhD Social Sciences Paper-I 2018 (100 Questions)', questions: questions }
     ]
   };
 

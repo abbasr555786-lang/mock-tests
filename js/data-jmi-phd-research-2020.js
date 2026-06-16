@@ -114,7 +114,7 @@
 
   var mock = {
     id: 'jmi-2020-phd-research-full',
-    name: 'JMI 2020 PhD Entrance (Paper I)',
+    name: 'JMI 2020 PhD Social Sciences (Paper-I) Paper',
     template: 'ssc',
     examCatalogueId: 'jmi-phd',
     kind: 'pyq', scope: 'full', sectionTag: null, sourceSet: null, year: 2020,
@@ -123,7 +123,7 @@
     allowSectionSwitch: true, timerMode: 'full', calculator: false,
     questionTypes: ['mcq'], languages: ['en'],
     sections: [
-      { id: 'all', name: 'JMI PhD Entrance Paper I 2020 (100 Questions)', questions: questions }
+      { id: 'all', name: 'JMI PhD Social Sciences Paper-I 2020 (100 Questions)', questions: questions }
     ]
   };
 
