@@ -385,6 +385,7 @@
     if (parts[0] === 'instructions' && parts[1]) return renderInstructions(parts[1]);
     if (parts[0] === 'test' && parts[1]) return renderTest(parts[1]);
     if (parts[0] === 'result') return renderResult();
+    if (parts[0] === 'reels') return renderReels();
     if (parts[0] === 'admin') {
       if (!window.admin) return renderHome();
       if (parts.length === 1) return window.admin.renderAdminHome();
@@ -795,6 +796,13 @@
     }
 
     renderGroups();
+  }
+
+  // ---------- Practice Reels ----------
+  function renderReels() {
+    stopTimer();
+    mount('view-reels');
+    if (window.reels && window.reels.mount) window.reels.mount();
   }
 
   // ---------- My Tests (attempt history) ----------

@@ -39,3 +39,5 @@
 .dc-btn--share { background:#25D366; color:#fff; }
 .dc-btn--ghost { background:#eef3ef; color:#1b6e3c; display:flex; align-items:center; justify-content:center; cursor:default; }
 @media (max-width:520px){ .dc-cta{flex-direction:column;} .dc-proof{gap:12px;} }
+
+.lp-daily__more { text-align: center; margin: 16px 0 0; }
