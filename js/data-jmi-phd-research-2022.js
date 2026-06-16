@@ -116,7 +116,7 @@
     id: 'jmi-2022-phd-research-full',
     name: 'JMI 2022 PhD Entrance (Paper I)',
     template: 'ssc',
-    examCatalogueId: 'jmi-phd-research',
+    examCatalogueId: 'jmi-phd',
     kind: 'pyq', scope: 'full', sectionTag: null, sourceSet: null, year: 2022,
     durationMin: 120,
     marking: { correct: 1, wrong: 0, unattempted: 0 },
