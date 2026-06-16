@@ -40,3 +40,13 @@ test('availableTracks returns only all + tracks with >=1 puzzle, in TRACKS order
   assert.deepEqual(core.availableTracks(POOL).map((t) => t.id),
     ['all', 'mba', 'ballb', 'general']);
 });
+
+test('filterByTrack all returns a copy, not the same reference', () => {
+  assert.notEqual(core.filterByTrack(POOL, 'all'), POOL);
+});
+
+test('handles null/empty pool without throwing', () => {
+  assert.equal(core.trackCounts(null).all, 0);
+  assert.deepEqual(core.availableTracks(null).map((t) => t.id), ['all']);
+  assert.deepEqual(core.filterByTrack(null, 'mba'), []);
+});
