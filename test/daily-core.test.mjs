@@ -27,10 +27,10 @@ test('pickDailyIndex is stable per day and cycles the whole pool', () => {
   assert.equal(seen.size, 5); // no repeat within one full cycle
 });
 
-test('seededSolvers is stable per day and in 180..260', () => {
+test('seededSolvers is stable per day and in 24..60', () => {
   const a = core.seededSolvers('2026-06-17');
   assert.equal(a, core.seededSolvers('2026-06-17'));
-  assert.ok(a >= 180 && a <= 260);
+  assert.ok(a >= 24 && a <= 60);
   assert.notEqual(core.seededSolvers('2026-06-18'), undefined);
 });
 

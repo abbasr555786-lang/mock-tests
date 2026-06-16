@@ -37,9 +37,10 @@
     return order[n];
   }
 
-  // Believable daily baseline 180..260, stable for a given day.
+  // Believable daily baseline, stable for a given day. Kept small for a
+  // newly-launched site (24..60) so early counts read as real, not inflated.
   function seededSolvers(key) {
-    return 180 + (hashString(key + ':solvers') % 81);
+    return 24 + (hashString(key + ':solvers') % 37);
   }
 
   function yesterdayKey(key) {
