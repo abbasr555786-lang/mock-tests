@@ -379,7 +379,8 @@
     if (parts[0] === 'my-tests') return renderMyTests();
     if (parts[0] === 'exam' && parts[1]) {
       const quadrant = parts[2] || null; // 'pyq-full' | 'pyq-sectional' | 'mock-full' | 'mock-sectional' | null
-      return renderExamDashboard(parts[1], quadrant);
+      const group = parts[3] || null;    // optional discipline slug within a quadrant (e.g. PhD → 'social-sciences')
+      return renderExamDashboard(parts[1], quadrant, group);
     }
     if (parts[0] === 'instructions' && parts[1]) return renderInstructions(parts[1]);
     if (parts[0] === 'test' && parts[1]) return renderTest(parts[1]);
@@ -968,7 +969,12 @@
   // that content. To re-enable a section later, add its key back to this list.
   const VISIBLE_QUADRANT_KEYS = ['pyq-full'];
 
-  function renderExamDashboard(catalogueId, quadrantKey) {
+  // Slug a discipline name into a URL-safe key, e.g. "Humanities & Languages" → "humanities-languages".
+  function disciplineSlug(name) {
+    return String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  function renderExamDashboard(catalogueId, quadrantKey, groupKey) {
     stopTimer();
     const entry = window.repo && window.repo.getCatalogueEntry(catalogueId);
     if (!entry) { window.location.hash = '#/'; return; }
@@ -1002,12 +1008,61 @@
     const grid = $('#quadrant-grid');
 
     if (def) {
+      const allTests = window.repo.listTestsForCatalogue(catalogueId, { kind: def.kind, scope: def.scope });
+
+      // Some tracks (e.g. JMI PhD) bundle papers from several disciplines under a
+      // single quadrant. When any paper carries a `discipline`, insert a chooser
+      // layer: first pick a discipline, then see that discipline's papers by year.
+      const hasDisciplines = allTests.some((t) => t.discipline);
+
+      if (hasDisciplines && !groupKey) {
+        // ---- Discipline chooser (reuses the quadrant-card grid) ----
+        const groups = {};
+        allTests.forEach((t) => {
+          const d = t.discipline || 'Other';
+          (groups[d] = groups[d] || []).push(t);
+        });
+        const ordered = Object.keys(groups).sort(
+          (a, b) => groups[b].length - groups[a].length || a.localeCompare(b)
+        );
+
+        $('#paper-list-section').hidden = true;
+        grid.hidden = false;
+        ordered.forEach((d) => {
+          const n = groups[d].length;
+          const card = document.createElement('a');
+          card.className = 'quadrant-card';
+          card.style.borderTopColor = def.accent;
+          card.href = '#/exam/' + catalogueId + '/' + def.key + '/' + disciplineSlug(d);
+          card.innerHTML =
+            '<div class="quadrant-card__count"></div>' +
+            '<div class="quadrant-card__title"></div>' +
+            '<div class="quadrant-card__blurb"></div>';
+          card.querySelector('.quadrant-card__count').textContent = n;
+          card.querySelector('.quadrant-card__title').textContent = d;
+          card.querySelector('.quadrant-card__blurb').textContent =
+            n + ' paper' + (n === 1 ? '' : 's') + ' by year';
+          grid.appendChild(card);
+        });
+        return;
+      }
+
       // ---- Paper list as its own page (quadrant selectors hidden) ----
       grid.hidden = true;
-      const tests = window.repo.listTestsForCatalogue(catalogueId, { kind: def.kind, scope: def.scope });
+      let tests = allTests;
+      let groupName = null;
+      if (hasDisciplines && groupKey) {
+        // Filter to the chosen discipline; back goes to the discipline chooser.
+        const match = allTests.find((t) => disciplineSlug(t.discipline) === groupKey);
+        groupName = match ? match.discipline : null;
+        tests = allTests.filter((t) => disciplineSlug(t.discipline) === groupKey);
+        back.setAttribute('href', '#/exam/' + catalogueId + '/' + def.key);
+        backLabel.textContent = 'Back';
+      }
+
       const section = $('#paper-list-section');
       section.hidden = false;
-      $('#paper-list-title').textContent = def.title;
+      $('#paper-list-title').textContent = groupName ? (groupName + ' — ' + def.title) : def.title;
       $('#paper-list-meta').textContent = tests.length + ' paper' + (tests.length === 1 ? '' : 's');
 
       const list = $('#paper-list');

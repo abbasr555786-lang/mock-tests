@@ -20,7 +20,7 @@
   // Bump this whenever the built-in exams in data*.js change so the new content
   // reaches users who already have a seeded DB. On a version bump, built-in exams
   // are refreshed in place; user-created exams, attempts and reviews are untouched.
-  const SEED_VERSION = 23; // Add PhD Engineering (Paper-I) 2020 paper (96 Q) to JMI PhD track.
+  const SEED_VERSION = 24; // Tag PhD papers with `discipline` so the PhD track groups papers by discipline.
 
   function readDB() {
     try {
@@ -110,6 +110,7 @@
       year: Number.isInteger(exam.year) ? exam.year : null,
       sectionTag: exam.sectionTag || null,
       sourceSet: exam.sourceSet || null,
+      discipline: exam.discipline || null,
       durationMin: exam.durationMin || 30,
       marking: exam.marking || { correct: 2, wrong: -0.5, unattempted: 0 },
       allowSectionSwitch: exam.allowSectionSwitch !== false,
