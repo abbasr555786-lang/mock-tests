@@ -20,7 +20,7 @@
   // Bump this whenever the built-in exams in data*.js change so the new content
   // reaches users who already have a seeded DB. On a version bump, built-in exams
   // are refreshed in place; user-created exams, attempts and reviews are untouched.
-  const SEED_VERSION = 22; // Add PhD Natural Sciences (Paper-I) 2018 paper (85 Q) to JMI PhD track.
+  const SEED_VERSION = 23; // Add PhD Engineering (Paper-I) 2020 paper (96 Q) to JMI PhD track.
 
   function readDB() {
     try {
