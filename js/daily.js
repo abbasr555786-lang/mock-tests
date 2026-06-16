@@ -71,7 +71,8 @@
     top.appendChild(el('span', { class: 'dc-streak' }, streakLabel));
     card.appendChild(top);
 
-    var trackLabel = puzzle.track === 'general' ? 'JMI Entrance' : 'JMI ' + puzzle.track.toUpperCase();
+    var TRACK_LABEL = { general: 'JMI Entrance', mba: 'JMI MBA', ballb: 'JMI BA LLB', mca: 'JMI MCA', rca: 'JMI RCA' };
+    var trackLabel = TRACK_LABEL[puzzle.track] || ('JMI ' + puzzle.track.toUpperCase());
     card.appendChild(el('p', { class: 'dc-framing' },
       'Modeled on the ' + trackLabel + ' pattern · the level Jamia actually asks'));
     card.appendChild(el('span', { class: 'dc-tag' },
