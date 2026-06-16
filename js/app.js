@@ -442,6 +442,7 @@
     });
 
     addThemeToggle($('.topbar__nav'));
+    if (window.daily && window.daily.mount) window.daily.mount();
 
     // Pinned (target exams) keep their own section at the top.
     const catalogue = (window.repo && window.repo.listCatalogue()) || [];
