@@ -186,7 +186,7 @@
     const nav = document.getElementById('bottom-nav');
     if (!nav) return;
     const top = parts[0] || '';
-    const hideOn = ['login', 'instructions', 'test', 'admin', 'reels'];
+    const hideOn = ['login', 'instructions', 'test', 'admin', 'reels', 'saved'];
     nav.hidden = hideOn.indexOf(top) !== -1;
 
     let active = 'home';
@@ -212,7 +212,7 @@
   // whenever the sidebar is active (see .has-sidebar in CSS).
   // '' = home: the landing page is a full-width marketing layout with its own
   // header/footer, so the app sidebar (and hamburger) stay out of it.
-  const SIDEBAR_HIDE_ON = ['', 'login', 'instructions', 'test', 'admin', 'reels'];
+  const SIDEBAR_HIDE_ON = ['', 'login', 'instructions', 'test', 'admin', 'reels', 'saved'];
 
   function ensureSidebar() {
     if (document.getElementById('app-sidebar')) return;
@@ -386,6 +386,7 @@
     if (parts[0] === 'test' && parts[1]) return renderTest(parts[1]);
     if (parts[0] === 'result') return renderResult();
     if (parts[0] === 'reels') return renderReels();
+    if (parts[0] === 'saved') return renderSaved();
     if (parts[0] === 'admin') {
       if (!window.admin) return renderHome();
       if (parts.length === 1) return window.admin.renderAdminHome();
@@ -803,6 +804,13 @@
     stopTimer();
     mount('view-reels');
     if (window.reels && window.reels.mount) window.reels.mount();
+  }
+
+  // ---------- Saved questions shelf ----------
+  function renderSaved() {
+    stopTimer();
+    mount('view-saved');
+    if (window.reels && window.reels.mountSaved) window.reels.mountSaved();
   }
 
   // ---------- My Tests (attempt history) ----------

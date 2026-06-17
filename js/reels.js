@@ -39,7 +39,7 @@
     return a;
   }
 
-  var state = { track: 'all', order: [], cursor: 0 };
+  var state = { track: 'all', order: [], cursor: 0, session: 0 };
 
   function buildOrder(track) {
     return shuffle(reelsCore.filterByTrack(window.PUZZLES || [], track));
@@ -52,6 +52,25 @@
     var s = streakNow();
     var node = document.getElementById('reels-streak');
     if (node) node.textContent = s.streak > 0 ? '🔥 ' + s.streak : '🔥 0';
+  }
+
+  function updateSavedCount() {
+    var node = document.getElementById('reels-saved-count');
+    if (node) node.textContent = String(readJSON(SAVED_KEY, []).length);
+  }
+
+  function updateSessionCount() {
+    var node = document.getElementById('reels-session');
+    if (!node) return;
+    node.textContent = '✅ ' + state.session;
+    node.hidden = state.session === 0;
+  }
+
+  // Reflect saved state on a rail Save button (gold pin + caption).
+  function applySaveState(btn, isSaved) {
+    btn.className = isSaved ? 'is-saved' : '';
+    var cap = btn.querySelector('.reel-rail__cap');
+    if (cap) cap.textContent = isSaved ? 'Saved' : 'Save';
   }
 
   function renderChips() {
@@ -97,14 +116,16 @@
     card.appendChild(hint);
 
     var rail = el('div', { class: 'reel-rail' });
-    var saveBtn = el('button', { type: 'button', class: saved.indexOf(puzzle.id) !== -1 ? 'is-saved' : '' },
+    var saveBtn = el('button', { type: 'button' },
       '<span class="reel-rail__ico">🔖</span><span class="reel-rail__cap">Save</span>');
+    applySaveState(saveBtn, saved.indexOf(puzzle.id) !== -1);
     saveBtn.addEventListener('click', function () {
       var list = readJSON(SAVED_KEY, []);
       var at = list.indexOf(puzzle.id);
-      if (at === -1) { list.push(puzzle.id); saveBtn.className = 'is-saved'; }
-      else { list.splice(at, 1); saveBtn.className = ''; }
+      if (at === -1) { list.push(puzzle.id); applySaveState(saveBtn, true); }
+      else { list.splice(at, 1); applySaveState(saveBtn, false); }
       writeJSON(SAVED_KEY, list);
+      updateSavedCount();
     });
     var shareBtn = el('button', { type: 'button' }, '<span class="reel-rail__ico">↗</span><span class="reel-rail__cap">Share</span>');
     shareBtn.addEventListener('click', function () {
@@ -139,6 +160,8 @@
         var newStreak = core.updateStreakOnSolve(streakNow(), todayKey());
         writeJSON(STREAK_KEY, newStreak);
         updateStreakHeader();
+        state.session += 1;
+        updateSessionCount();
       });
     });
 
@@ -179,8 +202,11 @@
     try { saved = localStorage.getItem(TRACK_KEY) || 'all'; } catch (e) { /* ignore */ }
     var avail = reelsCore.availableTracks(window.PUZZLES).map(function (t) { return t.id; });
     state.track = avail.indexOf(saved) !== -1 ? saved : 'all';
+    state.session = 0;
     renderChips();
     updateStreakHeader();
+    updateSavedCount();
+    updateSessionCount();
     state.order = buildOrder(state.track);
     state.cursor = 0;
     var feed = document.getElementById('reels-feed');
@@ -191,5 +217,53 @@
     appendBatch();
   }
 
-  window.reels = { mount: mount };
+  // ---------- Saved shelf (#/saved) ----------
+  // A static review card: question with the correct answer revealed, the
+  // explanation, and an Unsave control. No scoring — this is a revision view.
+  function renderReviewCard(puzzle, onUnsave) {
+    var card = el('div', { class: 'saved-card' });
+    card.appendChild(el('span', { class: 'reel-tag' }, trackLabelFor(puzzle) + ' · ' + escapeHTML(puzzle.subject)));
+    card.appendChild(el('p', { class: 'saved-card__q' }, escapeHTML(puzzle.text)));
+    var opts = el('div', { class: 'saved-card__opts' });
+    puzzle.options.forEach(function (opt, i) {
+      opts.appendChild(el('div', { class: 'saved-opt' + (i === puzzle.correct ? ' is-correct' : '') },
+        '<span class="reel-opt__k">' + 'ABCD'[i] + '</span>' + escapeHTML(opt) + (i === puzzle.correct ? ' ✓' : '')));
+    });
+    card.appendChild(opts);
+    card.appendChild(el('div', { class: 'saved-card__expl' }, escapeHTML(puzzle.explanation)));
+    var unsave = el('button', { type: 'button', class: 'saved-card__unsave' }, '🔖 Remove from saved');
+    unsave.addEventListener('click', function () {
+      var list = readJSON(SAVED_KEY, []);
+      var at = list.indexOf(puzzle.id);
+      if (at !== -1) { list.splice(at, 1); writeJSON(SAVED_KEY, list); }
+      onUnsave();
+    });
+    card.appendChild(unsave);
+    return card;
+  }
+
+  function mountSaved() {
+    var listHost = document.getElementById('saved-list');
+    if (!listHost || !window.PUZZLES) return;
+    var byId = {};
+    (window.PUZZLES || []).forEach(function (p) { byId[p.id] = p; });
+    var ids = readJSON(SAVED_KEY, []).filter(function (id) { return byId[id]; });
+
+    var countNode = document.getElementById('saved-count');
+    if (countNode) countNode.textContent = ids.length ? ids.length + ' saved' : '';
+
+    listHost.innerHTML = '';
+    if (!ids.length) {
+      listHost.appendChild(el('div', { class: 'saved-empty' },
+        '<p class="saved-empty__big">No saved questions yet</p>' +
+        '<p class="saved-empty__sub">Tap <b>🔖 Save</b> on any question in Practice Reels to keep it here for revision.</p>' +
+        '<p><a class="lp-btn lp-btn--gold" href="#/reels">Go to Practice Reels →</a></p>'));
+      return;
+    }
+    ids.forEach(function (id) {
+      listHost.appendChild(renderReviewCard(byId[id], function () { mountSaved(); }));
+    });
+  }
+
+  window.reels = { mount: mount, mountSaved: mountSaved };
 })();

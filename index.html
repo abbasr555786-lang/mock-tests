@@ -775,11 +775,26 @@
   <template id="view-reels">
     <div class="reels" id="reels-root">
       <header class="reels-head">
-        <a class="reels-back" href="#/" aria-label="Back to home">&larr;</a>
+        <a class="reels-back" href="#/" aria-label="Exit Practice Reels" title="Exit">&larr;</a>
         <div class="reels-chips" id="reels-chips"></div>
-        <span class="reels-streak" id="reels-streak">&#128293; 0</span>
+        <div class="reels-meta">
+          <span class="reels-session" id="reels-session" hidden>&#9989; 0</span>
+          <a class="reels-saved" id="reels-saved" href="#/saved" aria-label="View saved questions" title="Saved">&#128278; <span id="reels-saved-count">0</span></a>
+          <span class="reels-streak" id="reels-streak">&#128293; 0</span>
+        </div>
       </header>
       <div class="reels-feed" id="reels-feed"></div>
+    </div>
+  </template>
+
+  <template id="view-saved">
+    <div class="saved" id="saved-root">
+      <header class="saved-head">
+        <a class="reels-back" href="#/reels" aria-label="Back to Practice Reels" title="Back">&larr;</a>
+        <span class="saved-title">Saved questions</span>
+        <span class="saved-head__count" id="saved-count"></span>
+      </header>
+      <div class="saved-list" id="saved-list"></div>
     </div>
   </template>
 
