@@ -1508,6 +1508,53 @@
       },
     },
     {
+      id: 'jmi-bcom-bba',
+      name: 'JMI B.Com/BBA',
+      slug: 'jmi-bcom-bba-entrance-exam',
+      tagline: 'Jamia Millia Islamia — B.Com (Hons.) / BBA Entrance (Paper Code B04)',
+      sections: ['Logical Reasoning & Aptitude', 'Accountancy', 'Business Management & Marketing', 'Business Finance', 'Computer & IT Awareness', 'General English', 'General Awareness', 'Economics & Statistics'],
+      info: {
+        dates: jmiDates('B.Com (Hons.)/BBA entrance test — typically held in May/June 2026 (confirm the exact slot on your admit card)'),
+        application: jmiApplication('B.Com (Hons.) / BBA'),
+        pattern: {
+          title: 'JMI B.Com/BBA Entrance Exam Pattern',
+          type: 'University-level undergraduate commerce/management admission test — single composite booklet of objective MCQs (the section split below is indicative, based on the 2025 paper)',
+          mode: 'Offline (OMR-based) / as per JMI notification',
+          languages: 'English',
+          durationMin: 90,
+          totalQuestions: 100,
+          totalMarks: 100,
+          marking: '+1 for each correct answer, −0.25 for each wrong answer (no marks for unattempted).',
+          sections: [
+            { name: 'Logical Reasoning & Quantitative Aptitude', questions: 12, marks: 12 },
+            { name: 'Accountancy & Financial Statements', questions: 13, marks: 13 },
+            { name: 'Business Management & Marketing', questions: 12, marks: 12 },
+            { name: 'Business Finance & Consumer Law', questions: 8, marks: 8 },
+            { name: 'Computer & IT Awareness', questions: 10, marks: 10 },
+            { name: 'General English', questions: 10, marks: 10 },
+            { name: 'General Awareness & Current Affairs', questions: 10, marks: 10 },
+            { name: 'Economics', questions: 15, marks: 15 },
+            { name: 'Statistics', questions: 10, marks: 10 },
+          ],
+        },
+        eligibility: [
+          'Passed the 10+2 (Senior Secondary) examination, or equivalent, with the minimum aggregate marks specified in the JMI prospectus (Commerce stream / with the required subjects for B.Com).',
+          'Candidates appearing in the qualifying examination may apply subject to meeting the eligibility before admission.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact eligibility and subject criteria for the B.Com (Hons.) and BBA programmes.',
+        ],
+        syllabus: [
+          { section: 'Logical Reasoning & Aptitude', topics: ['Number & letter series', 'Coding–decoding & analogy', 'Blood relations & direction sense', 'Ordering, ranking & calendars', 'Profit & loss, percentages'] },
+          { section: 'Accountancy', topics: ['Partnership accounts (admission, goodwill, profit-sharing)', 'Share capital & forfeiture', 'Financial statements & cash flow', 'Accounting ratios'] },
+          { section: 'Business Management & Marketing', topics: ['Nature & functions of management', 'Principles (Fayol & Taylor)', 'Staffing & communication', 'Marketing mix & sales promotion'] },
+          { section: 'Business Finance', topics: ['Money & capital markets', 'Working capital & financial planning', 'Consumer rights & redressal'] },
+          { section: 'Computer & IT Awareness', topics: ['Computer fundamentals & memory', 'System vs application software & firmware', 'Networking, OSI layers & topologies', 'Internet & DNS basics'] },
+          { section: 'General English', topics: ['Reading comprehension', 'Synonyms & vocabulary', 'Grammar, tense & prepositions', 'Subject–verb agreement & error spotting'] },
+          { section: 'General Awareness', topics: ['National & international current affairs', 'Government schemes & appointments', 'Sports, awards & defence exercises', 'Indian polity & geography'] },
+          { section: 'Economics & Statistics', topics: ['National income & GDP', 'Money, banking & government budget', 'Macroeconomics (inflation, unemployment)', 'Measures of central tendency & correlation', 'Data organization & visualization'] },
+        ],
+      },
+    },
+    {
       id: 'jmi-mca',
       name: 'JMI MCA',
       slug: 'jmi-mca-entrance-exam',
@@ -1708,7 +1755,7 @@
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {
