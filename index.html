@@ -475,53 +475,13 @@
           <div class="auth-hero__tag">Crack the Jamia entrance.</div>
         </div>
 
+        <h2 class="auth-title">Sign in to continue</h2>
+        <p class="auth-sub">Continue with Google &mdash; quick and secure. No passwords, no OTP.</p>
+
         <button class="btn btn--google auth-cta" id="google-signin-btn" type="button">
           <svg class="g-ico" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.02-3.7H.96v2.34A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.98 10.72a5.4 5.4 0 0 1 0-3.44V4.94H.96a9 9 0 0 0 0 8.12l3.02-2.34z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58A9 9 0 0 0 .96 4.94l3.02 2.34C4.68 5.16 6.66 3.58 9 3.58z"/></svg>
           <span>Continue with Google</span>
         </button>
-
-        <div class="auth-divider" id="login-demo-divider"><span>or use demo login</span></div>
-
-        <ol class="stepper" aria-label="Onboarding steps">
-          <li class="stepper__item is-active" data-step="1"><span class="stepper__dot">1</span><span class="stepper__label">Verify</span></li>
-          <li class="stepper__line"></li>
-          <li class="stepper__item" data-step="2"><span class="stepper__dot">2</span><span class="stepper__label">Your details</span></li>
-        </ol>
-
-        <section id="login-step-phone">
-          <h2 class="auth-title">Sign in with your mobile</h2>
-          <p class="auth-sub">We&rsquo;ll send a one-time password to verify it&rsquo;s you.</p>
-
-          <label class="auth-field">
-            <span class="auth-label">Mobile number</span>
-            <div class="auth-phone">
-              <span class="auth-phone__prefix">+91</span>
-              <input id="phone-input" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national" placeholder="10-digit mobile number" />
-            </div>
-            <span class="auth-error" id="phone-error" hidden></span>
-          </label>
-
-          <button class="btn btn--primary auth-cta" id="send-otp-btn">Send OTP</button>
-        </section>
-
-        <section id="login-step-otp" hidden>
-          <h2 class="auth-title">Enter the OTP</h2>
-          <p class="auth-sub">Sent to <strong id="otp-phone-echo"></strong>. <a href="#" id="change-phone-link">Change</a></p>
-
-          <div class="otp-row" id="otp-row">
-            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="0" aria-label="OTP digit 1" />
-            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="1" aria-label="OTP digit 2" />
-            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="2" aria-label="OTP digit 3" />
-            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="3" aria-label="OTP digit 4" />
-            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="4" aria-label="OTP digit 5" />
-            <input class="otp-box" type="text" inputmode="numeric" maxlength="1" data-otp="5" aria-label="OTP digit 6" />
-          </div>
-          <span class="auth-error" id="otp-error" hidden></span>
-
-          <div class="auth-helper">For this demo, use OTP <strong>123456</strong>. <a href="#" id="resend-otp-link">Resend</a></div>
-
-          <button class="btn btn--primary auth-cta" id="verify-otp-btn">Verify &amp; Continue</button>
-        </section>
 
         <div class="auth-foot">
           <a href="#" id="skip-login-link">Skip for now &rarr;</a>
@@ -567,11 +527,6 @@
               <option value="">Select state</option>
             </select>
           </label>
-        </div>
-
-        <div class="auth-field">
-          <span class="auth-label">Current background</span>
-          <div class="chip-row" id="pf-education"></div>
         </div>
 
         <div class="auth-field">

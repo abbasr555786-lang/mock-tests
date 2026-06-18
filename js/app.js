@@ -1642,7 +1642,6 @@
     { id: 'cuet-ug',        label: 'CUET UG' },
   ];
   */
-  const EDUCATION_OPTIONS = ['Class 11', 'Class 12', 'Dropper', 'Undergraduate', 'Graduate', 'Working Professional'];
   const INDIAN_STATES = [
     'Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat',
     'Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh',
@@ -1656,22 +1655,11 @@
     return found ? found.label : id;
   }
 
-  // ---------- Login (mobile + OTP) ----------
+  // ---------- Login (Google only) ----------
   function renderLogin() {
     stopTimer();
     mount('view-login');
 
-    const phoneInput = $('#phone-input');
-    const sendBtn = $('#send-otp-btn');
-    const phoneErr = $('#phone-error');
-    const stepPhone = $('#login-step-phone');
-    const stepOtp = $('#login-step-otp');
-    const otpBoxes = $$('.otp-box');
-    const otpErr = $('#otp-error');
-    const verifyBtn = $('#verify-otp-btn');
-    const echo = $('#otp-phone-echo');
-    const changeLink = $('#change-phone-link');
-    const resendLink = $('#resend-otp-link');
     const skipLink = $('#skip-login-link');
     const googleBtn = $('#google-signin-btn');
 
@@ -1684,97 +1672,13 @@
       });
     }
 
-    function showError(node, msg) {
-      node.textContent = msg;
-      node.hidden = false;
-    }
-    function clearError(node) { node.hidden = true; node.textContent = ''; }
-
-    function validPhone(v) { return /^[6-9]\d{9}$/.test(v); }
-
-    phoneInput.addEventListener('input', () => {
-      phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
-      clearError(phoneErr);
-    });
-    phoneInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') { e.preventDefault(); sendBtn.click(); }
-    });
-
-    sendBtn.addEventListener('click', () => {
-      const v = phoneInput.value.trim();
-      if (!validPhone(v)) {
-        showError(phoneErr, 'Enter a valid 10-digit Indian mobile number.');
-        phoneInput.focus();
-        return;
-      }
-      echo.textContent = '+91 ' + v;
-      stepPhone.hidden = true;
-      stepOtp.hidden = false;
-      otpBoxes[0].focus();
-    });
-
-    otpBoxes.forEach((box, i) => {
-      box.addEventListener('input', () => {
-        box.value = box.value.replace(/\D/g, '').slice(0, 1);
-        clearError(otpErr);
-        if (box.value && i < otpBoxes.length - 1) otpBoxes[i + 1].focus();
-      });
-      box.addEventListener('keydown', (e) => {
-        if (e.key === 'Backspace' && !box.value && i > 0) {
-          otpBoxes[i - 1].focus();
-        } else if (e.key === 'Enter') {
-          e.preventDefault(); verifyBtn.click();
-        }
-      });
-      box.addEventListener('paste', (e) => {
-        const txt = (e.clipboardData || window.clipboardData).getData('text');
-        const digits = (txt || '').replace(/\D/g, '').slice(0, 6);
-        if (!digits) return;
+    if (skipLink) {
+      skipLink.addEventListener('click', (e) => {
         e.preventDefault();
-        for (let j = 0; j < otpBoxes.length; j++) otpBoxes[j].value = digits[j] || '';
-        const next = Math.min(digits.length, otpBoxes.length - 1);
-        otpBoxes[next].focus();
+        window.repo.saveUser({ skipped: true, verifiedAt: Date.now() });
+        window.location.hash = '#/';
       });
-    });
-
-    verifyBtn.addEventListener('click', () => {
-      const code = otpBoxes.map((b) => b.value).join('');
-      if (code.length !== 6) {
-        showError(otpErr, 'Enter all 6 digits of the OTP.');
-        return;
-      }
-      if (code !== '123456') {
-        showError(otpErr, 'Incorrect OTP. For this demo, use 123456.');
-        return;
-      }
-      const phone = phoneInput.value.trim();
-      window.repo.saveUser({ phone: phone, verifiedAt: Date.now(), skipped: false });
-      window.location.hash = '#/profile';
-    });
-
-    changeLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      otpBoxes.forEach((b) => (b.value = ''));
-      clearError(otpErr);
-      stepOtp.hidden = true;
-      stepPhone.hidden = false;
-      phoneInput.focus();
-    });
-
-    resendLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      otpBoxes.forEach((b) => (b.value = ''));
-      clearError(otpErr);
-      otpBoxes[0].focus();
-    });
-
-    skipLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.repo.saveUser({ skipped: true, verifiedAt: Date.now() });
-      window.location.hash = '#/';
-    });
-
-    phoneInput.focus();
+    }
   }
 
   // ---------- Profile (basic details + target exams) ----------
@@ -1791,7 +1695,6 @@
     const nameInput = $('#pf-name');
     const cityInput = $('#pf-city');
     const stateSel = $('#pf-state');
-    const eduWrap = $('#pf-education');
     const examsWrap = $('#pf-exams');
     const examsErr = $('#exams-error');
     const profileErr = $('#profile-error');
@@ -1803,20 +1706,6 @@
       const opt = document.createElement('option');
       opt.value = s; opt.textContent = s;
       stateSel.appendChild(opt);
-    });
-
-    // Education chips (single-select)
-    let selectedEducation = existing.education || '';
-    EDUCATION_OPTIONS.forEach((label) => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'chip' + (label === selectedEducation ? ' is-selected' : '');
-      chip.textContent = label;
-      chip.addEventListener('click', () => {
-        selectedEducation = label;
-        $$('.chip', eduWrap).forEach((c) => c.classList.toggle('is-selected', c.textContent === label));
-      });
-      eduWrap.appendChild(chip);
     });
 
     // Target exams chips (multi-select)
@@ -1859,14 +1748,21 @@
         examsErr.hidden = false;
         return;
       }
-      window.repo.saveUser({
+      const profile = {
         name: name,
         city: cityInput.value.trim(),
         state: stateSel.value,
-        education: selectedEducation,
         targetExams: Array.from(selectedExams),
         skipped: false,
-      });
+        profileComplete: true,
+      };
+      window.repo.saveUser(profile);
+      // Persist centrally so we can see/aggregate user data as we scale. Fire-and-
+      // forget: SPA hash navigation does not cancel the request, so the student
+      // isn't blocked waiting on the network.
+      if (window.auth && window.auth.saveProfile) {
+        window.auth.saveProfile(profile).catch(function () {});
+      }
       window.location.hash = '#/';
     });
 

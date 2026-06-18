@@ -87,20 +87,73 @@
         return r && r.data ? r.data.session : null;
       });
     },
+
+    // Persist the student's profile (name / city / state / target exams) to the
+    // central `profiles` table, keyed to their auth user id. RLS lets each user
+    // write only their own row; the business reads all rows from the dashboard.
+    saveProfile: function (profile) {
+      return sb.auth.getUser().then(function (r) {
+        var u = r && r.data ? r.data.user : null;
+        if (!u) return { error: { message: "Not signed in" } };
+        return sb.from("profiles").upsert({
+          id: u.id,
+          email: u.email || "",
+          name: profile.name || "",
+          city: profile.city || "",
+          state: profile.state || "",
+          target_exams: profile.targetExams || [],
+          updated_at: new Date().toISOString(),
+        }, { onConflict: "id" });
+      });
+    },
+
+    // Fetch the signed-in user's stored profile (null if none yet).
+    loadProfile: function () {
+      return sb.auth.getUser().then(function (r) {
+        var u = r && r.data ? r.data.user : null;
+        if (!u) return null;
+        return sb.from("profiles").select("*").eq("id", u.id).maybeSingle()
+          .then(function (res) { return res && res.data ? res.data : null; });
+      });
+    },
   };
+
+  // Decide where to send the user after a fresh Google sign-in: if they already
+  // have a saved profile (e.g. returning on a new device), mirror it locally and
+  // drop them back where they left off; otherwise send them to fill it in once.
+  function routeAfterLogin() {
+    window.auth.loadProfile().then(function (p) {
+      var hasProfile = !!(p && p.target_exams && p.target_exams.length);
+      if (p && window.repo) {
+        window.repo.saveUser({
+          name: p.name || undefined,
+          city: p.city || "",
+          state: p.state || "",
+          targetExams: p.target_exams || [],
+          profileComplete: hasProfile,
+        });
+      }
+      window.location.hash = hasProfile ? takeReturn() : "#/profile";
+      rerender();
+    }).catch(function () {
+      // If the lookup fails, fall back to the profile step so we still capture data.
+      window.location.hash = "#/profile";
+      rerender();
+    });
+  }
 
   // React to every auth state change: initial load, OAuth return, sign-out.
   sb.auth.onAuthStateChange(function (event, session) {
     if (session && session.user) {
       syncUserFromSession(session);
-      // Just returned from Google -> bring the user back to where they left off
-      // (e.g. the paper they were about to attempt), else home.
+      // Just returned from Google -> route based on whether we already have their
+      // details. (Fires once per OAuth round-trip, not on plain session restores.)
       if (cameFromOAuth) {
         cameFromOAuth = false;
-        // Count a completed Google sign-in (fires once per OAuth round-trip, not
-        // on every page load that merely restores an existing session).
+        // Count a completed Google sign-in.
         if (window.track) window.track("Google sign-in", { provider: "google" });
-        window.location.hash = takeReturn();
+        routeAfterLogin();
+        return;
       }
       rerender();
     } else if (event === "SIGNED_OUT") {
