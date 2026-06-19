@@ -622,16 +622,6 @@
         </div>
         <div class="question-text" id="q-text"></div>
         <ol class="options" id="q-options"></ol>
-
-        <div class="action-bar">
-          <button class="btn btn--success" id="btn-save-next">Save &amp; Next</button>
-          <button class="btn btn--warn" id="btn-mark">Mark for Review &amp; Next</button>
-          <button class="btn btn--ghost" id="btn-clear">Clear Response</button>
-          <div class="spacer"></div>
-          <button class="btn btn--ghost" id="btn-prev">&laquo; Previous</button>
-          <button class="btn btn--ghost" id="btn-next">Next &raquo;</button>
-          <button class="btn btn--primary" id="btn-submit">Submit</button>
-        </div>
       </section>
 
       <aside class="palette" id="palette">
@@ -645,7 +635,35 @@
         </div>
         <div class="palette__section-title" id="palette-section-title"></div>
         <div class="palette__grid" id="palette-grid"></div>
+        <div class="palette__foot">
+          <button class="btn btn--ghost" id="btn-clear-palette" type="button">Clear Response</button>
+          <button class="btn btn--primary" id="btn-submit" type="button">Submit Test</button>
+        </div>
       </aside>
+    </div>
+
+    <!-- Sticky action dock — kept minimal so only the question + options compete
+         for screen space on mobile. Prev/Next are arrows; the centre chip opens
+         the palette; Submit lives inside the palette. -->
+    <div class="action-bar" id="action-bar">
+      <div class="action-bar__nav">
+        <button class="navbtn" id="btn-prev" aria-label="Previous question">&#8249;</button>
+        <button class="qjump" id="q-jump" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="qjump__q">Question</span>
+          <strong id="q-counter">1 / 1</strong>
+          <span class="qjump__caret" aria-hidden="true">&#9650;</span>
+        </button>
+        <button class="navbtn" id="btn-next" aria-label="Next question">&#8250;</button>
+      </div>
+      <div class="action-bar__main">
+        <button class="btn btn--success" id="btn-save-next">Save &amp; Next</button>
+        <button class="btn btn--warn" id="btn-mark">
+          <span class="lbl-full">Mark for Review &amp; Next</span>
+          <span class="lbl-short">&#9873; Mark</span>
+        </button>
+        <button class="btn btn--ghost" id="btn-clear">Clear</button>
+        <button class="btn btn--primary dock-submit" id="btn-submit-dock" type="button">Submit Test</button>
+      </div>
     </div>
 
     <!-- Submit modal -->

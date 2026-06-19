@@ -1460,6 +1460,13 @@ textarea:focus-visible,
 .exam-topbar__name { font-weight: 700; font-size: 15px; letter-spacing: -0.005em; }
 .exam-topbar__sub { font-size: 12px; opacity: 0.78; margin-top: 2px; }
 @media (max-width: 640px) { .exam-topbar__sub { display: none; } }
+/* Mobile: keep the topbar tight — smaller padding + a compact timer chip. */
+@media (max-width: 760px) {
+  .exam-topbar { padding: 8px 12px; }
+  .exam-topbar__name { font-size: 14px; }
+  .exam-topbar__timer { padding: 5px 12px; min-width: 0; }
+  .exam-topbar .timer-value { font-size: 18px; }
+}
 .exam-topbar__timer {
   background: #fff;
   color: var(--ink-900);
@@ -1505,6 +1512,21 @@ textarea:focus-visible,
   flex-wrap: wrap;
   align-items: center;
   font-size: 13px;
+}
+/* Mobile: candidate identity is dead weight mid-test — collapse the strip to a
+   thin utility row and only surface it if Restart/Calculator are actually on. */
+@media (max-width: 760px) {
+  .candidate-strip {
+    gap: 8px;
+    padding: 0 12px;
+    min-height: 0;
+    border-bottom: 0;
+    background: transparent;
+  }
+  .candidate-strip .cand { display: none; }
+  .candidate-strip .palette-toggle { display: none; }
+  .candidate-strip > .strip-btn:not([hidden]),
+  .candidate-strip > .restart-btn:not([hidden]) { margin: 8px 0; }
 }
 .cand { color: var(--ink-700); }
 .cand strong {
@@ -1596,10 +1618,15 @@ textarea:focus-visible,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--ink-100);
   font-size: 13px;
   color: var(--ink-500);
+}
+@media (max-width: 760px) {
+  .question-meta { font-size: 12px; padding-bottom: 8px; }
+  .question-text { margin: 12px 0 16px; font-size: 15.5px; }
+  .question-area { padding: 14px 16px 18px; }
 }
 .question-meta strong { color: var(--ink-900); font-weight: 700; }
 .marks { font-weight: 600; }
@@ -1646,25 +1673,107 @@ textarea:focus-visible,
   min-width: 20px;
 }
 
+/* Sticky bottom dock: a compact nav strip + three primary actions. Kept short
+   so the question + options own the screen. */
 .action-bar {
   position: sticky;
   bottom: 0;
-  z-index: 5;
-  margin-top: 28px;
-  padding: 14px 0;
+  z-index: 20;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--ink-100);
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 -10px 24px -16px rgba(0, 0, 0, .35);
   display: flex;
+  flex-direction: column;
   gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
-  box-shadow: 0 -8px 16px -12px rgba(0, 0, 0, .25);
 }
-.action-bar .spacer { flex: 1; }
-@media (max-width: 640px) {
-  .action-bar { gap: 6px; padding: 12px 0; }
-  .action-bar .btn { flex: 1 1 calc(50% - 6px); }
-  .action-bar .spacer { display: none; }
+
+/* Navigation row: ‹ prev | Question N / M (opens palette) | next › */
+.action-bar__nav {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.navbtn {
+  flex: 0 0 auto;
+  width: 46px;
+  border: 1px solid var(--ink-200);
+  background: var(--surface);
+  color: var(--ink-700);
+  font-size: 22px;
+  line-height: 1;
+  border-radius: var(--radius);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .12s var(--ease), border-color .12s var(--ease), color .12s var(--ease);
+}
+.navbtn:hover:not(:disabled) { background: var(--brand-50); border-color: var(--brand-200); color: var(--brand-700); }
+.navbtn:disabled { opacity: .35; cursor: not-allowed; }
+.qjump {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--ink-200);
+  background: var(--ink-50);
+  color: var(--ink-800);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 12px;
+  transition: background .12s var(--ease), border-color .12s var(--ease);
+}
+.qjump:hover { background: var(--brand-50); border-color: var(--brand-200); }
+.qjump__q { color: var(--ink-500); font-weight: 600; }
+.qjump strong { font-variant-numeric: tabular-nums; font-weight: 800; color: var(--ink-900); letter-spacing: -0.01em; }
+.qjump__caret { color: var(--ink-400); font-size: 10px; transition: transform .2s var(--ease); }
+.palette.open ~ .action-bar .qjump__caret,
+.action-bar .qjump[aria-expanded="true"] .qjump__caret { transform: rotate(180deg); }
+
+/* Primary actions: Save & Next is the hero; Mark + Clear support it. */
+.action-bar__main {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.action-bar__main .btn {
+  padding: 13px 10px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.action-bar__main #btn-save-next { flex: 2 1 0; }
+.action-bar__main #btn-mark { flex: 1.5 1 0; }
+.action-bar__main #btn-clear { flex: 1 1 0; }
+.lbl-short { display: none; }
+@media (max-width: 520px) {
+  .lbl-full { display: none; }
+  .lbl-short { display: inline; }
+}
+
+/* Submit lives in the palette on mobile; on desktop it joins the dock so it is
+   always visible without opening the palette. */
+.dock-submit { display: none; }
+@media (min-width: 760px) {
+  .dock-submit { display: inline-flex; align-items: center; justify-content: center; }
+  .palette__foot { display: none; }
+}
+
+/* Desktop: collapse the dock onto one row and tighten widths. */
+@media (min-width: 760px) {
+  .action-bar {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+  }
+  .action-bar__nav { flex: 0 0 auto; }
+  .qjump { min-width: 150px; flex: 0 0 auto; }
+  .action-bar__main { flex: 1 1 auto; justify-content: flex-end; }
+  .action-bar__main .btn { flex: 0 0 auto; }
 }
 
 /* ============================================================
@@ -1720,6 +1829,21 @@ textarea:focus-visible,
 }
 @media (min-width: 480px) { .palette__grid { grid-template-columns: repeat(6, 1fr); } }
 @media (min-width: 960px) { .palette__grid { grid-template-columns: repeat(5, 1fr); } }
+
+/* Palette footer — Submit lives here (real-CBT style) plus a Clear shortcut.
+   Pinned to the bottom of the (scrollable) palette so it stays reachable even
+   with 150+ question chips above it. */
+.palette__foot {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  margin: 18px -20px 0;
+  padding: 14px 20px calc(14px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--ink-200);
+  background: var(--surface);
+}
+.palette__foot .btn { flex: 1 1 0; padding: 12px 10px; }
 
 /* Desktop: palette is its own scroll region, pinned below the sticky exam
    topbar (~84px). Without this the long palette scrolls the whole page along

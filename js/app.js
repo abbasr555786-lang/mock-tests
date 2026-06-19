@@ -2019,14 +2019,23 @@
     $('#btn-save-next').addEventListener('click', onSaveNext);
     $('#btn-mark').addEventListener('click', onMarkNext);
     $('#btn-clear').addEventListener('click', onClear);
+    const clearPal = $('#btn-clear-palette');
+    if (clearPal) clearPal.addEventListener('click', onClear);
     $('#btn-prev').addEventListener('click', onPrev);
     $('#btn-next').addEventListener('click', onNext);
     $('#btn-submit').addEventListener('click', openSubmitModal);
+    const dockSubmit = $('#btn-submit-dock');
+    if (dockSubmit) dockSubmit.addEventListener('click', openSubmitModal);
     $('#cancel-submit').addEventListener('click', closeSubmitModal);
     $('#confirm-submit').addEventListener('click', () => finalizeSubmit(false));
-    $('#palette-toggle').addEventListener('click', () => {
-      $('#palette').classList.toggle('open');
-    });
+    function togglePalette() {
+      const open = $('#palette').classList.toggle('open');
+      const jump = $('#q-jump');
+      if (jump) jump.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    $('#palette-toggle').addEventListener('click', togglePalette);
+    const qjump = $('#q-jump');
+    if (qjump) qjump.addEventListener('click', togglePalette);
     const restartBtn = $('#test-restart-btn');
     if (restartBtn) restartBtn.addEventListener('click', () => {
       confirmDialog({
@@ -2093,6 +2102,8 @@
       chip.addEventListener('click', () => {
         goToQuestion(idx);
         $('#palette').classList.remove('open'); // close drawer on mobile
+        const jump = $('#q-jump');
+        if (jump) jump.setAttribute('aria-expanded', 'false');
       });
       grid.appendChild(chip);
     });
@@ -2136,7 +2147,9 @@
     const f = state.flat[state.currentIdx];
     const qs = state.qs[state.currentIdx];
     const q = f.q;
-    $('#q-no').textContent = String(f.inSectionIdx + 1) + ' (Section: ' + f.sectionName + ')';
+    $('#q-no').textContent = String(f.inSectionIdx + 1);
+    const counter = $('#q-counter');
+    if (counter) counter.textContent = (state.currentIdx + 1) + ' / ' + state.flat.length;
 
     const qText = $('#q-text');
     if (q.format === 'html') qText.innerHTML = q.text;
