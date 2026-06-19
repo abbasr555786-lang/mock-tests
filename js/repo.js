@@ -12,84 +12,104 @@
   const USER_KEY = 'mockcbt:user';
   const REVIEW_KEY = 'mockcbt:reviews';
   const DEVICE_KEY = 'mockcbt:deviceId';
-  const SEED_VERSION_KEY = 'mockcbt:seedVersion';
   const ATTEMPT_KEY = 'mockcbt:attempts';      // in-progress attempts, keyed by examId
   const RESULTS_KEY = 'mockcbt:results';        // completed result history (newest first)
   const LAST_RESULT_KEY = 'mockcbt:last-result-store'; // durable copy of the most recent result
 
-  // Bump this whenever the built-in exams in data*.js change so the new content
-  // reaches users who already have a seeded DB. On a version bump, built-in exams
-  // are refreshed in place; user-created exams, attempts and reviews are untouched.
-  const SEED_VERSION = 31; // Add JMI BA LLB 2021 paper (track now 2021-2025 complete).
+  // Built-in exams ship in the JS bundle (window.EXAMS) and are reloaded on every
+  // visit, so they are NEVER written to localStorage. Persisting them used to
+  // serialize the entire ~4 MB question corpus into one key, which blew past iPad
+  // Safari's ~5 MB per-origin quota: setItem threw QuotaExceededError and every
+  // repo call failed, breaking the whole app on iPad (stats, exam cards, launch).
+  // localStorage now holds only the small "overlay" — admin-created exams and
+  // per-exam publish toggles. The working set lives in memory for the session.
 
-  function readDB() {
+  let cache = null; // { exams: [...] } — built once per page load.
+
+  function builtinExams() {
+    return (window.EXAMS || []).map(normalizeExam).map((e) => ({ ...e, published: true }));
+  }
+
+  function readOverlay() {
     try {
       const raw = localStorage.getItem(KEY);
-      if (!raw) return null;
-      return JSON.parse(raw);
+      return raw ? JSON.parse(raw) : null;
     } catch (e) {
-      console.warn('repo: failed to parse DB, resetting', e);
+      console.warn('repo: failed to parse overlay, ignoring', e);
       return null;
     }
   }
 
-  function writeDB(db) {
+  // Build the in-memory working set: built-ins from window.EXAMS, then merge the
+  // persisted overlay on top. Understands both the current overlay format
+  // ({ userExams, overrides }) and the legacy whole-DB blob ({ exams }), so a user
+  // carrying the old 4 MB localStorage value upgrades transparently and sheds it
+  // on the next write.
+  function buildCache() {
+    const byId = new Map(builtinExams().map((e) => [e.id, e]));
+    const builtinIds = new Set(byId.keys());
+    const overlay = readOverlay();
+    const isLegacy = !!(overlay && Array.isArray(overlay.exams));
+    if (overlay) {
+      if (Array.isArray(overlay.userExams)) {
+        overlay.userExams.forEach((raw) => {
+          const e = normalizeExam(raw);
+          byId.set(e.id, { ...e, published: raw.published !== false });
+        });
+      }
+      if (overlay.overrides) {
+        Object.keys(overlay.overrides).forEach((id) => {
+          const ex = byId.get(id);
+          if (ex) ex.published = overlay.overrides[id] !== false;
+        });
+      }
+      // Legacy { exams: [...] } blob: keep user-created exams, fold built-in
+      // publish flags into overrides, and drop the rest (re-derived from EXAMS).
+      if (Array.isArray(overlay.exams)) {
+        overlay.exams.forEach((raw) => {
+          const e = normalizeExam(raw);
+          if (builtinIds.has(e.id)) {
+            const ex = byId.get(e.id);
+            if (ex) ex.published = raw.published !== false;
+          } else {
+            byId.set(e.id, { ...e, published: raw.published !== false });
+          }
+        });
+      }
+    }
+    cache = { exams: Array.from(byId.values()) };
+    // Reclaim the old multi-MB { exams:[...] } blob immediately so existing users
+    // (especially on iPad, where it caused QuotaExceededError) shed it on first
+    // load rather than waiting for an admin write that never comes.
+    if (isLegacy) persist();
+    return cache;
+  }
+
+  function getDB() {
+    return cache || buildCache();
+  }
+
+  // Persist only the overlay (user exams + publish overrides). It's tiny, so it
+  // fits any browser's quota. Failure is non-fatal: built-in content still works
+  // this session from window.EXAMS.
+  function persist() {
     try {
-      localStorage.setItem(KEY, JSON.stringify(db));
+      const builtinIds = new Set((window.EXAMS || []).map((e) => e.id));
+      const userExams = [];
+      const overrides = {};
+      getDB().exams.forEach((e) => {
+        if (builtinIds.has(e.id)) {
+          if (e.published === false) overrides[e.id] = false;
+        } else {
+          userExams.push(e);
+        }
+      });
+      localStorage.setItem(KEY, JSON.stringify({ v: 2, userExams, overrides }));
       return true;
     } catch (e) {
-      // QuotaExceededError likely.
-      console.error('repo: write failed (probably storage quota)', e);
-      throw new Error('Local storage is full. Export your data to JSON, then clear some images or older drafts.');
+      console.warn('repo: could not persist overlay (storage full or blocked)', e);
+      return false;
     }
-  }
-
-  function seedIfEmpty() {
-    const existing = readDB();
-    if (existing && Array.isArray(existing.exams)) return syncSeeds(existing);
-    const seed = { exams: (window.EXAMS || []).map(normalizeExam).map((e) => ({ ...e, published: true })) };
-    writeDB(seed);
-    setStoredSeedVersion(SEED_VERSION);
-    return seed;
-  }
-
-  function getStoredSeedVersion() {
-    return Number(localStorage.getItem(SEED_VERSION_KEY) || 0);
-  }
-  function setStoredSeedVersion(v) {
-    try { localStorage.setItem(SEED_VERSION_KEY, String(v)); } catch (e) { /* ignore */ }
-  }
-
-  function addNewSeeds(db) {
-    const have = new Set(db.exams.map((e) => e.id));
-    const additions = (window.EXAMS || [])
-      .filter((e) => !have.has(e.id))
-      .map(normalizeExam)
-      .map((e) => ({ ...e, published: true }));
-    if (additions.length) db.exams = db.exams.concat(additions);
-    return additions.length;
-  }
-
-  // Keep the seeded DB in step with the built-in exams shipped in data*.js.
-  // On a SEED_VERSION bump, refresh every built-in exam in place (preserving its
-  // published flag) and add any brand-new ones. User-created exams (ids not in
-  // window.EXAMS) are left alone; attempts and reviews live under other keys and
-  // are never touched. Same version => only additively seed new ids.
-  function syncSeeds(db) {
-    if (getStoredSeedVersion() < SEED_VERSION) {
-      const builtinById = new Map((window.EXAMS || []).map((e) => [e.id, e]));
-      db.exams = db.exams.map((e) =>
-        builtinById.has(e.id)
-          ? { ...normalizeExam(builtinById.get(e.id)), published: e.published !== false }
-          : e
-      );
-      addNewSeeds(db);
-      writeDB(db);
-      setStoredSeedVersion(SEED_VERSION);
-      return db;
-    }
-    if (addNewSeeds(db)) writeDB(db);
-    return db;
   }
 
   // Normalize legacy seed data into the canonical shape used going forward.
@@ -192,7 +212,7 @@
 
   const repo = {
     // Initialization
-    init() { return seedIfEmpty(); },
+    init() { return getDB(); },
 
     // Role (admin gate). Phase 4 replaces with real auth.
     getRole() { return localStorage.getItem(ROLE_KEY) || 'student'; },
@@ -240,7 +260,7 @@
 
     // Exams
     listExams() {
-      const db = readDB() || seedIfEmpty();
+      const db = getDB();
       return db.exams.map(normalizeExam);
     },
 
@@ -249,7 +269,7 @@
     },
 
     getExam(id) {
-      const db = readDB() || seedIfEmpty();
+      const db = getDB();
       const found = db.exams.find((e) => e.id === id);
       return found ? normalizeExam(found) : null;
     },
@@ -315,18 +335,18 @@
     },
 
     saveExam(exam) {
-      const db = readDB() || seedIfEmpty();
+      const db = getDB();
       const norm = normalizeExam(exam);
       const idx = db.exams.findIndex((e) => e.id === norm.id);
       if (idx >= 0) db.exams[idx] = norm; else db.exams.push(norm);
-      writeDB(db);
+      persist();
       return norm;
     },
 
     deleteExam(id) {
-      const db = readDB() || seedIfEmpty();
+      const db = getDB();
       db.exams = db.exams.filter((e) => e.id !== id);
-      writeDB(db);
+      persist();
     },
 
     publishExam(id, published) {
@@ -382,7 +402,7 @@
 
     // Import / export
     exportExams() {
-      const db = readDB() || seedIfEmpty();
+      const db = getDB();
       return JSON.stringify({ version: 1, exportedAt: new Date().toISOString(), exams: db.exams }, null, 2);
     },
 
@@ -392,14 +412,20 @@
       const incoming = Array.isArray(parsed) ? parsed : parsed.exams;
       if (!Array.isArray(incoming)) throw new Error('JSON must be an array of exams or `{ exams: [...] }`.');
 
-      const db = merge ? (readDB() || { exams: [] }) : { exams: [] };
+      let db;
+      if (merge) {
+        db = getDB();
+      } else {
+        cache = { exams: builtinExams() };
+        db = cache;
+      }
       let added = 0, updated = 0;
       incoming.forEach((raw) => {
         const e = normalizeExam(raw);
         const idx = db.exams.findIndex((x) => x.id === e.id);
         if (idx >= 0) { db.exams[idx] = e; updated++; } else { db.exams.push(e); added++; }
       });
-      writeDB(db);
+      persist();
       return { added, updated, total: incoming.length };
     },
 
@@ -441,8 +467,9 @@
 
     // Reset everything (admin nuke).
     resetAll() {
-      localStorage.removeItem(KEY);
-      seedIfEmpty();
+      try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
+      cache = null;
+      buildCache();
     },
 
     // ---- User profile (Phase 4 will swap for real auth) ----
@@ -593,8 +620,8 @@
     return tmp.textContent || '';
   }
 
-  // Auto-seed on load.
-  seedIfEmpty();
+  // Warm the in-memory working set on load.
+  buildCache();
 
   window.repo = repo;
 })();
