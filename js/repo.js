@@ -20,7 +20,7 @@
   // Bump this whenever the built-in exams in data*.js change so the new content
   // reaches users who already have a seeded DB. On a version bump, built-in exams
   // are refreshed in place; user-created exams, attempts and reviews are untouched.
-  const SEED_VERSION = 29; // Add JMI B.Com/BBA 2021 paper (track now 2021-2025 complete).
+  const SEED_VERSION = 30; // Add JMI BA LLB 2022 paper (track now 2022-2025 live).
 
   function readDB() {
     try {
