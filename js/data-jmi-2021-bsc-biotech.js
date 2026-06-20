@@ -114,7 +114,7 @@
     template: 'ssc',
     examCatalogueId: 'jmi-bsc-biotech',
     kind: 'pyq', scope: 'full', sectionTag: null, sourceSet: null, year: 2021,
-    durationMin: 90,
+    durationMin: 105,
     marking: {"correct":1,"wrong":-0.25,"unattempted":0},
     allowSectionSwitch: true, timerMode: 'full', calculator: false,
     questionTypes: ['mcq'], languages: ['en'],
