@@ -1555,6 +1555,50 @@
       },
     },
     {
+      id: 'jmi-bsc-biotech',
+      name: 'JMI BSc Biotech',
+      slug: 'jmi-bsc-biotechnology-entrance-exam',
+      tagline: 'Jamia Millia Islamia — B.Sc. Biosciences / Biotechnology Entrance (Paper Code B07)',
+      sections: ['Cell Biology', 'Biochemistry', 'Genetics & Molecular Biology', 'Organic Chemistry', 'Botany & Plant Physiology', 'Zoology & Developmental Biology', 'Biotechnology'],
+      info: {
+        dates: jmiDates('B.Sc. Biosciences/Biotechnology entrance test — typically held in May/June 2026 (confirm the exact slot on your admit card)'),
+        application: jmiApplication('B.Sc. Biosciences / Biotechnology'),
+        pattern: {
+          title: 'JMI B.Sc. Biotechnology Entrance Exam Pattern',
+          type: 'University-level undergraduate science admission test — single composite booklet of objective MCQs (the section split below is indicative, based on the 2025 paper)',
+          mode: 'Offline (OMR-based) / as per JMI notification',
+          languages: 'English',
+          durationMin: 90,
+          totalQuestions: 100,
+          totalMarks: 100,
+          marking: '+1 for each correct answer, −0.25 for each wrong answer (no marks for unattempted).',
+          sections: [
+            { name: 'Cell Biology', questions: 12, marks: 12 },
+            { name: 'Biochemistry', questions: 14, marks: 14 },
+            { name: 'Genetics & Molecular Biology', questions: 12, marks: 12 },
+            { name: 'Organic Chemistry', questions: 16, marks: 16 },
+            { name: 'Botany & Plant Physiology', questions: 18, marks: 18 },
+            { name: 'Zoology & Developmental Biology', questions: 18, marks: 18 },
+            { name: 'Biotechnology & General Science', questions: 10, marks: 10 },
+          ],
+        },
+        eligibility: [
+          'Passed the 10+2 (Senior Secondary) examination, or equivalent, with Physics, Chemistry and Biology and the minimum aggregate marks specified in the JMI prospectus.',
+          'Candidates appearing in the qualifying examination may apply subject to meeting the eligibility before admission.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact eligibility and subject criteria for the B.Sc. Biosciences / Biotechnology programme.',
+        ],
+        syllabus: [
+          { section: 'Cell Biology', topics: ['Cell organelles & their functions', 'Cell membrane & transport', 'Cell cycle & division', 'Cytoskeleton'] },
+          { section: 'Biochemistry', topics: ['Carbohydrates, lipids & proteins', 'Enzymes & cofactors', 'Nucleic acids & phosphodiester bonds', 'Glycolysis, ETC & ATP synthesis'] },
+          { section: 'Genetics & Molecular Biology', topics: ['DNA structure & replication', 'Transcription & translation', 'Chromosomes & telomeres', 'Mendelian genetics'] },
+          { section: 'Organic Chemistry', topics: ['Alcohols, ethers & phenols', 'Amines & nitrogen compounds', 'Aromaticity & Huckel rule', 'Reaction mechanisms (SN1/SN2, Friedel-Crafts, Rosenmund)'] },
+          { section: 'Botany & Plant Physiology', topics: ['Plant tissues & meristems', 'Photosynthesis (light & Calvin cycle)', 'Plant hormones (auxin, cytokinin, ABA)', 'Stomata, transpiration & nutrition'] },
+          { section: 'Zoology & Developmental Biology', topics: ['Animal kingdom & classification', 'Gastrulation & germ layers', 'Neural induction & embryology', 'Tissue & organ systems'] },
+          { section: 'Biotechnology', topics: ['Recombinant DNA basics', 'Bt crops & applications', 'Organ-on-a-chip & emerging tools', 'General science awareness'] },
+        ],
+      },
+    },
+    {
       id: 'jmi-mca',
       name: 'JMI MCA',
       slug: 'jmi-mca-entrance-exam',
@@ -1755,7 +1799,7 @@
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-bsc-biotech' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {
