@@ -191,7 +191,11 @@ function renderGuide(entry, allEntries) {
   <meta property="og:title" content="${esc(pageTitle)}" />
   <meta property="og:description" content="${esc(metaDesc)}" />
   <meta property="og:url" content="${esc(url)}" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://jamia-prep.vercel.app/assets/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://jamia-prep.vercel.app/assets/og-card.jpg" />
   <link rel="icon" type="image/svg+xml" href="/assets/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -336,6 +340,11 @@ function renderHub(entries) {
   <meta property="og:title" content="JMI Entrance Exam Guides — JamiaPrep" />
   <meta property="og:description" content="Dates, syllabus, pattern, eligibility and free previous-year papers for JMI entrance exams." />
   <meta property="og:url" content="${esc(url)}" />
+  <meta property="og:image" content="https://jamia-prep.vercel.app/assets/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://jamia-prep.vercel.app/assets/og-card.jpg" />
   <link rel="icon" type="image/svg+xml" href="/assets/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
