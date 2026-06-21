@@ -4,7 +4,13 @@
 (function () {
   'use strict';
   var GREEN = '#1b6e3c', GREEN_D = '#0e3d20', GOLD = '#d4a017', CREAM = '#f6f1e4', INK = '#16241c';
-  var W = 1080, H = 1350, SITE = 'jamiaprep.com';
+  // SITE = clean label drawn on the card. ORIGIN = the actual live origin every
+  // share must point at (was wrongly 'jamiaprep.com', which is not the live site
+  // — that silently leaked all viral traffic to a dead domain). Deep-link shared
+  // clicks straight into the swipe feed so a tap lands on something to solve.
+  var W = 1080, H = 1350, SITE = 'jamia-prep.vercel.app';
+  var ORIGIN = 'https://jamia-prep.vercel.app';
+  var REELS_URL = ORIGIN + '/#/reels';
 
   function roundRect(ctx, x, y, w, h, r) {
     ctx.beginPath();
@@ -95,9 +101,12 @@
     });
   }
 
-  function deliver(canvas, name, text) {
+  function deliver(canvas, name, text, link) {
+    var target = link || REELS_URL;
     canvasToFile(canvas, name).then(function (file) {
-      var shareData = { files: [file], text: text, title: 'JamiaPrep Daily Challenge' };
+      // Attach the real URL so platforms that surface links (and Web Share
+      // targets that ignore the image) still carry a tappable link home.
+      var shareData = { files: [file], text: text + ' ' + target, url: target, title: 'JamiaPrep' };
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         navigator.share(shareData).catch(function () { /* user cancelled */ });
       } else {
@@ -105,7 +114,7 @@
         var a = document.createElement('a');
         a.href = url; a.download = name; document.body.appendChild(a); a.click();
         a.remove(); URL.revokeObjectURL(url);
-        window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + SITE), '_blank');
+        window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + target), '_blank');
       }
     });
   }
@@ -113,13 +122,13 @@
   function shareDare(puzzle, stats) {
     var c = drawDare(puzzle, stats);
     deliver(c, 'jamiaprep-challenge.png',
-      stats.pctWrong + '% of aspirants got today’s JMI challenge wrong — can you crack it?');
+      stats.pctWrong + '% of aspirants got today’s JMI challenge wrong — can you crack it?', REELS_URL);
   }
 
   function offerFlex(streak, pctCorrect) {
     var c = drawFlex(streak, pctCorrect);
     deliver(c, 'jamiaprep-streak.png',
-      'I’m on a ' + streak + '-day JMI prep streak on JamiaPrep! 🔥');
+      'I’m on a ' + streak + '-day JMI prep streak on JamiaPrep! 🔥', REELS_URL);
   }
 
   window.dailyShare = { shareDare: shareDare, offerFlex: offerFlex };
