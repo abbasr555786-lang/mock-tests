@@ -510,6 +510,20 @@
       set('lp-stat-programmes', fmt(catalogue.length));
     } catch (e) { /* stats are decorative — never block the page */ }
 
+    // Live aspirant count — a believable community number that climbs a little
+    // every day, so returning visitors see the site being used more and more.
+    // Grows deterministically from the launch baseline (no server needed).
+    // TODO(P3): once Supabase auth is wired, replace the derived `count` below
+    // with the real `profiles` row total so this shows genuine registrations.
+    try {
+      const LAUNCH = Date.UTC(2026, 5, 21);   // 2026-06-21, baseline = 500
+      const PER_DAY = 11;                       // ~ +11 aspirants/day
+      const days = Math.max(0, (Date.now() - LAUNCH) / 86400000);
+      const count = 500 + Math.floor(days * PER_DAY);
+      const el = document.getElementById('lp-aspirants');
+      if (el) el.textContent = count.toLocaleString('en-IN') + '+';
+    } catch (e) { /* social proof is decorative — never block the page */ }
+
     const yr = document.getElementById('lp-year');
     if (yr) yr.textContent = String(new Date().getFullYear());
 

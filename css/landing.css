@@ -167,6 +167,41 @@
   background: var(--lp-gold-400); color: var(--lp-green-900);
 }
 
+/* Social-proof badge — live, growing aspirant count near the hero */
+.lp-hero__proof {
+  display: inline-flex; align-items: center; gap: 11px;
+  margin: 26px 0 0; padding: 8px 16px 8px 12px;
+  background: rgba(6, 40, 30, .46);
+  border: 1px solid rgba(231, 199, 104, .34);
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, .92); font-size: 13.5px; line-height: 1.3;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .22);
+}
+.lp-hero__proof-dot {
+  flex: none; width: 9px; height: 9px; border-radius: 50%; background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, .55); animation: lp-pulse 2.4s infinite;
+}
+.lp-hero__proof-avatars { display: inline-flex; }
+.lp-hero__proof-avatars i {
+  width: 25px; height: 25px; border-radius: 50%; display: inline-block;
+  margin-left: -9px; border: 2px solid var(--lp-green-800);
+  background: linear-gradient(135deg, var(--lp-gold-300), var(--lp-gold-600));
+}
+.lp-hero__proof-avatars i:first-child { margin-left: 0; }
+.lp-hero__proof-avatars i:nth-child(2) { background: linear-gradient(135deg, #7fd1ae, #0b4a38); }
+.lp-hero__proof-avatars i:nth-child(3) { background: linear-gradient(135deg, #e7c768, #b3892a); }
+.lp-hero__proof-avatars i:nth-child(4) { background: linear-gradient(135deg, #9ec5ff, #3b5bdb); }
+.lp-hero__proof-text b { color: var(--lp-gold-300); font-weight: 800; }
+@keyframes lp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, .55); }
+  70%  { box-shadow: 0 0 0 9px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-hero__proof-dot { animation: none; }
+}
+
 /* Stats band — bridges hero and first section */
 .lp-stats {
   max-width: 1100px; margin: 26px auto 0; padding: 0 20px;
