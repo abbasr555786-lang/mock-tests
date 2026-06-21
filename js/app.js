@@ -132,6 +132,7 @@
     'jmi-class11-science': 'school',
     'jmi-rca': 'rca',
     'jmi-phd': 'phd',
+    'jmi-massmedia-hindi': 'pg',
   };
   /* Previous (single-bucket) JMI categories:
   const CATEGORY_ORDER = [
@@ -242,6 +243,7 @@
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-class11-science" href="#/exam/jmi-class11-science"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI Class 11 Science</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-rca" href="#/exam/jmi-rca"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI RCA</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-phd" href="#/exam/jmi-phd"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI PhD</span></a>' +
+        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-massmedia-hindi" href="#/exam/jmi-massmedia-hindi"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MA Mass Media (Hindi)</span></a>' +
       '</nav>' +
       '<div class="sidebar__foot">' +
         '<button class="sidebar__link theme-toggle" type="button" id="sidebar-theme"><span class="sidebar__ico" aria-hidden="true">&#9728;</span><span>Theme</span></button>' +
@@ -672,8 +674,8 @@
   }
 
   // Exams given prime placement in the home-screen featured band, in order.
-  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-bcom-bba', 'jmi-bsc', 'jmi-mca', 'jmi-class9', 'jmi-class11-science', 'jmi-rca', 'jmi-phd']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
-  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-bcom-bba': 'JMI', 'jmi-bsc': 'JMI', 'jmi-mca': 'JMI', 'jmi-class9': 'JMI', 'jmi-class11-science': 'JMI', 'jmi-rca': 'JMI', 'jmi-phd': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
+  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-bcom-bba', 'jmi-bsc', 'jmi-mca', 'jmi-class9', 'jmi-class11-science', 'jmi-rca', 'jmi-phd', 'jmi-massmedia-hindi']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
+  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-bcom-bba': 'JMI', 'jmi-bsc': 'JMI', 'jmi-mca': 'JMI', 'jmi-class9': 'JMI', 'jmi-class11-science': 'JMI', 'jmi-rca': 'JMI', 'jmi-phd': 'JMI', 'jmi-massmedia-hindi': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
 
   function buildFeaturedCard(entry) {
     const counts = window.repo.catalogueCounts(entry.id);
@@ -1642,6 +1644,7 @@
     { id: 'jmi-class11-science', label: 'JMI Class 11 Science' },
     { id: 'jmi-rca',        label: 'JMI RCA' },
     { id: 'jmi-phd',        label: 'JMI PhD' },
+    { id: 'jmi-massmedia-hindi', label: 'JMI MA Mass Media (Hindi)' },
   ];
   /* Original (multi-exam) onboarding targets:
   const TARGET_EXAMS = [

@@ -1784,13 +1784,51 @@
         ],
       },
     },
+    {
+      id: 'jmi-massmedia-hindi',
+      name: 'JMI MA Mass Media (Hindi)',
+      slug: 'jmi-ma-mass-media-hindi-entrance-exam',
+      tagline: 'Jamia Millia Islamia — MA Mass Media (Hindi), AJK MCRC (Paper Code M-85)',
+      sections: ['Media & Journalism GK', 'Current Affairs', 'Indian Polity & History', 'Hindi Language & Literature', 'General Knowledge'],
+      info: {
+        dates: jmiDates('MA Mass Media (Hindi) entrance test — typically held in May/June 2026 (confirm the exact slot on your admit card)'),
+        application: jmiApplication('MA Mass Media (Hindi)'),
+        pattern: {
+          title: 'JMI MA Mass Media (Hindi) Entrance Exam Pattern',
+          type: 'Postgraduate admission test for the AJK Mass Communication Research Centre (MCRC) — Part A is an objective MCQ paper; Part B is descriptive writing',
+          mode: 'Offline (OMR-based for Part A) / as per JMI notification',
+          languages: 'Hindi',
+          durationMin: 90,
+          totalQuestions: 40,
+          totalMarks: 100,
+          marking: '+1 for each correct MCQ in Part A (40 marks); −0.25 for each wrong answer. Part B (descriptive, 60 marks) is marked separately.',
+          footnote: 'Pattern is taken from the official instruction page of the digitised papers (Paper Code M-85). Part A carries 40 one-mark MCQs with −0.25 negative marking; Part B is descriptive writing worth 60 marks. The JamiaPrep mock reproduces only the objective Part A. A few source items with no determinable correct answer have been omitted. Always confirm the current pattern with the official JMI / AJK MCRC admission notification.',
+          sections: [
+            { name: 'Part A — Objective MCQs (media GK, current affairs, polity, history, Hindi language & literature, general knowledge)', questions: 40, marks: 40 },
+            { name: 'Part B — Descriptive Writing (marked separately; not part of the online mock)', questions: null, marks: 60 },
+          ],
+        },
+        eligibility: [
+          'A Bachelor\'s degree (in any discipline) from a recognised university with the minimum aggregate marks specified in the JMI prospectus.',
+          'Candidates appearing in the final year of the qualifying degree may apply subject to meeting the eligibility before admission.',
+          'Refer to the official Jamia Millia Islamia / AJK MCRC admission notification for the exact eligibility for the MA Mass Media (Hindi) programme.',
+        ],
+        syllabus: [
+          { section: 'Media & Journalism', topics: ['History of Indian press & journalism', 'Newspapers, magazines & their editors', 'Radio, television & OTT/digital media', 'Communication models & media theory', 'News agencies & press laws'] },
+          { section: 'Current Affairs', topics: ['National & international current affairs', 'Awards, honours & appointments', 'Sports & important events', 'Government schemes & days'] },
+          { section: 'Indian Polity & History', topics: ['Indian Constitution & polity', 'Modern Indian history & the national movement', 'Art, culture & geography'] },
+          { section: 'Hindi Language & Literature', topics: ['Hindi authors, poets & their works', 'Hindi grammar (vyakaran)', 'Literary magazines & movements', 'Idioms & vocabulary'] },
+          { section: 'General Knowledge', topics: ['Static GK', 'Science & technology awareness', 'Economy & banking basics', 'Books & authors'] },
+        ],
+      },
+    },
   ];
 
   // JamiaPrep: JMI-only focus. The full multi-exam catalogue is defined above and
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-bsc' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-bsc' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd' || e.id === 'jmi-massmedia-hindi');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {
