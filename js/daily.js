@@ -115,6 +115,9 @@
       card.insertBefore(expl, proof);
 
       var cta = el('div', { class: 'dc-cta' });
+      // Primary continuation: drop the just-engaged solver straight into the
+      // Reels feed instead of a dead end — keeps the session going (lower bounce).
+      cta.appendChild(el('a', { class: 'dc-btn dc-btn--go', href: '#/reels' }, 'Keep solving in Reels →'));
       var share = el('button', { class: 'dc-btn dc-btn--share', type: 'button' }, 'Share challenge ↗');
       share.addEventListener('click', function () {
         if (window.dailyShare && window.dailyShare.shareDare) {
@@ -122,7 +125,14 @@
         }
       });
       cta.appendChild(share);
-      cta.appendChild(el('span', { class: 'dc-btn dc-btn--ghost' }, 'Come back tomorrow'));
+      // Return hook: give guests a concrete reason to sign in (save the streak),
+      // and confirm the loop for signed-in users.
+      var signedIn = window.repo && window.repo.getUser();
+      if (signedIn) {
+        cta.appendChild(el('span', { class: 'dc-btn dc-btn--ghost' }, 'Streak saved · come back tomorrow'));
+      } else {
+        cta.appendChild(el('a', { class: 'dc-btn dc-btn--ghost', href: '#/login' }, 'Save your streak — sign in'));
+      }
       card.appendChild(cta);
 
       renderProof(true);

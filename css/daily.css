@@ -35,9 +35,13 @@
 @keyframes dcPulse { 0%{box-shadow:0 0 0 0 rgba(62,196,109,.6)} 70%{box-shadow:0 0 0 8px rgba(62,196,109,0)} 100%{box-shadow:0 0 0 0 rgba(62,196,109,0)} }
 .dc-cta { display:flex; gap:10px; margin-top:16px; }
 .dc-btn { flex:1; text-align:center; padding:13px; border-radius:11px; font-weight:800; font-size:15px;
-  border:none; cursor:pointer; font-family:inherit; }
+  border:none; cursor:pointer; font-family:inherit; text-decoration:none; line-height:1.2; }
+.dc-btn--go { background:#1b6e3c; color:#fff; box-shadow:0 6px 16px rgba(27,110,60,.28); }
+.dc-btn--go:hover { background:#15592f; }
 .dc-btn--share { background:#25D366; color:#fff; }
 .dc-btn--ghost { background:#eef3ef; color:#1b6e3c; display:flex; align-items:center; justify-content:center; cursor:default; }
+a.dc-btn--ghost { cursor:pointer; }
+a.dc-btn--ghost:hover { background:#e2ebe4; }
 @media (max-width:520px){ .dc-cta{flex-direction:column;} .dc-proof{gap:12px;} }
 
 .lp-daily__more { text-align: center; margin: 16px 0 0; }
