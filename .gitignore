@@ -30,3 +30,6 @@ source-papers/
 pdfs/
 
 .superpowers/
+
+# Transient output of the JMI results watcher (regenerated on every run)
+tools/jmi-results-watch-last.json

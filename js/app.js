@@ -215,7 +215,7 @@
   // whenever the sidebar is active (see .has-sidebar in CSS).
   // '' = home: the landing page is a full-width marketing layout with its own
   // header/footer, so the app sidebar (and hamburger) stay out of it.
-  const SIDEBAR_HIDE_ON = ['', 'login', 'instructions', 'test', 'admin', 'reels', 'saved'];
+  const SIDEBAR_HIDE_ON = ['', 'login', 'instructions', 'test', 'admin', 'reels', 'saved', 'results'];
 
   function ensureSidebar() {
     if (document.getElementById('app-sidebar')) return;
@@ -229,6 +229,7 @@
       '<nav class="sidebar__nav" aria-label="Primary">' +
         '<a class="sidebar__link" data-nav="home" href="#/"><span class="sidebar__ico" aria-hidden="true">&#8962;</span><span>Home</span></a>' +
         '<a class="sidebar__link" data-nav="mytests" href="#/my-tests"><span class="sidebar__ico" aria-hidden="true">&#9776;</span><span>My Tests</span></a>' +
+        '<a class="sidebar__link" data-nav="results" href="#/results"><span class="sidebar__ico" aria-hidden="true">&#9733;</span><span>Results &amp; Cut-offs</span></a>' +
         '<a class="sidebar__link user-only" data-nav="profile" href="#/profile"><span class="sidebar__ico" aria-hidden="true">&#9737;</span><span>Profile</span></a>' +
         '<a class="sidebar__link admin-only" data-nav="admin" href="#/admin"><span class="sidebar__ico" aria-hidden="true">&#9881;</span><span>Admin</span></a>' +
       '</nav>' +
@@ -322,6 +323,7 @@
 
     let active = top === '' ? 'home' : '';
     if (top === 'my-tests') active = 'mytests';
+    else if (top === 'results') active = 'results';
     else if (top === 'profile') active = 'profile';
     else if (top === 'exam' && parts[1]) active = 'exam:' + parts[1];
     aside.querySelectorAll('[data-nav]').forEach((a) => {
@@ -393,6 +395,7 @@
     if (parts[0] === 'result') return renderResult();
     if (parts[0] === 'reels') return renderReels();
     if (parts[0] === 'saved') return renderSaved();
+    if (parts[0] === 'results') return renderResults();
     if (parts[0] === 'admin') {
       if (!window.admin) return renderHome();
       if (parts.length === 1) return window.admin.renderAdminHome();
@@ -831,6 +834,110 @@
     stopTimer();
     mount('view-saved');
     if (window.reels && window.reels.mountSaved) window.reels.mountSaved();
+  }
+
+  // ---------- Results & Cut-offs (official JMI declared outcomes) ----------
+  function renderResults() {
+    stopTimer();
+    mount('view-results');
+    const R = window.JMI_RESULTS;
+    document.title = 'JMI Entrance Results & Cut-offs ' + (R ? R.session : '') + ' — JamiaPrep';
+    if (!R) return;
+
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const num = (v) => (typeof v === 'number' ? v.toLocaleString('en-IN') : String(v));
+
+    let progs = 0, totalSelected = 0, totalInterview = 0;
+    R.groups.forEach((g) => g.items.forEach((it) => {
+      progs++;
+      (it.stats || []).forEach((s) => {
+        if (typeof s.v !== 'number') return;
+        if (/select/i.test(s.k)) totalSelected += s.v;
+        else if (/interview/i.test(s.k)) totalInterview += s.v;
+      });
+    }));
+
+    const sub = $('#rz-hero-sub');
+    if (sub) sub.textContent = 'Every cut-off and selection count below is transcribed from Jamia Millia Islamia’s official declared results for session ' + R.session + ' — real figures, no estimates.';
+
+    const meta = $('#rz-hero-meta');
+    if (meta) meta.innerHTML =
+      '<span class="rz-hero__badge">Session ' + esc(R.session) + '</span>' +
+      '<span>Updated ' + esc(R.updated) + '</span>' +
+      '<span><a style="color:#fff;text-decoration:underline" href="' + esc(R.portalUrl) + '" target="_blank" rel="noopener">Official source &#8599;</a></span>';
+
+    const noteBody = $('#rz-note-body');
+    if (noteBody) noteBody.innerHTML = '<strong>How to read this.</strong> JMI publishes selection lists by application number, not per-student marks. Where JMI printed a category-wise <em>cut-off</em> (the aggregate of the last selected candidate), we show it. Counts are the total candidates named in each declared list. A blank means JMI did not publish that figure — we never estimate.';
+
+    const summ = $('#rz-summary');
+    if (summ) {
+      const cells = [
+        { n: progs, l: 'Programmes declared' },
+        { n: num(totalSelected), l: 'Provisionally selected' },
+        { n: num(totalInterview), l: 'Called for interview' },
+        { n: R.session, l: 'Admission session' }
+      ];
+      summ.innerHTML = cells.map((c) =>
+        '<div class="rz-summary__cell"><div class="rz-summary__num">' + esc(c.n) + '</div><div class="rz-summary__lab">' + esc(c.l) + '</div></div>'
+      ).join('');
+    }
+
+    const groupsEl = $('#rz-groups');
+    if (groupsEl) groupsEl.innerHTML = R.groups.map((g) => renderResultGroup(g, R, esc, num)).join('');
+
+    const junior = $('#rz-junior');
+    if (junior && R.juniorNote) { junior.hidden = false; junior.innerHTML = '<strong>Junior classes.</strong> ' + esc(R.juniorNote); }
+
+    const foot = $('#rz-foot');
+    if (foot) foot.innerHTML = 'Source: Jamia Millia Islamia admission portal — <a href="' + esc(R.indexUrl) + '" target="_blank" rel="noopener">declared-results index</a> and <a href="' + esc(R.portalUrl) + '" target="_blank" rel="noopener">Entrance Results</a>. JamiaPrep reproduces these official figures for aspirants’ convenience; always confirm against the JMI portal before acting on them.';
+
+    addThemeToggle($('.rz-top nav'));
+  }
+
+  function renderResultGroup(g, R, esc, num) {
+    const cards = g.items.map((it) => renderResultCard(it, R, esc, num)).join('');
+    return '<section class="rz-group">' +
+      '<div class="rz-group__head"><h2 class="rz-group__title">' + esc(g.title) + '</h2>' +
+      (g.blurb ? '<p class="rz-group__blurb">' + esc(g.blurb) + '</p>' : '') + '</div>' +
+      cards + '</section>';
+  }
+
+  function renderResultCard(it, R, esc, num) {
+    const primary = (it.lists && it.lists[0]) ? it.lists[0].url : null;
+    const pills = (it.stats || []).map((s) => {
+      const cls = /select/i.test(s.k) ? 'rz-pill--sel' : (/wait/i.test(s.k) ? 'rz-pill--wl' : 'rz-pill--int');
+      return '<span class="rz-pill ' + cls + '"><b>' + esc(num(s.v)) + '</b><span>' + esc(s.k) + '</span></span>';
+    }).join('');
+    const cut = (it.cutoffs && it.cutoffs.length) ? renderCutoffTable(it, R, esc) : '';
+    const links = (it.lists || []).map((l) =>
+      '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label) + ' &#8599;</a>'
+    ).join('');
+    return '<article class="rz-card">' +
+      '<div class="rz-card__head">' +
+        '<h3 class="rz-card__name">' + esc(it.name) + '<span class="rz-card__code">' + esc(it.code) + '</span></h3>' +
+        (primary ? '<a class="rz-card__src" href="' + esc(primary) + '" target="_blank" rel="noopener">Official PDF &#8599;</a>' : '') +
+      '</div>' +
+      (pills ? '<div class="rz-pills">' + pills + '</div>' : '') +
+      (it.cutoffNote ? '<p class="rz-card__note">' + esc(it.cutoffNote) + '</p>' : '') +
+      cut +
+      (it.note ? '<p class="rz-card__note">' + esc(it.note) + '</p>' : '') +
+      (links ? '<div class="rz-morelinks">' + links + '</div>' : '') +
+    '</article>';
+  }
+
+  function renderCutoffTable(it, R, esc) {
+    const groups = it.cutoffs;
+    const present = R.catOrder.filter((cat) => groups.some((gr) => gr.marks[cat] != null));
+    if (!present.length) return '';
+    const head = '<tr><th>Category</th>' + groups.map((gr) => '<th>' + esc(gr.group) + '</th>').join('') + '</tr>';
+    const rows = present.map((cat) => {
+      const cells = groups.map((gr) => '<td class="rz-mark">' + (gr.marks[cat] != null ? esc(gr.marks[cat]) : '&ndash;') + '</td>').join('');
+      return '<tr><td class="rz-cat">' + esc(R.catLabel[cat] || cat) + '</td>' + cells + '</tr>';
+    }).join('');
+    return '<div class="rz-cut">' +
+      '<p class="rz-cut__cap">Cut-off marks — last selected candidate, by category</p>' +
+      '<div class="rz-tablewrap"><table class="rz-table"><thead>' + head + '</thead><tbody>' + rows + '</tbody></table></div>' +
+    '</div>';
   }
 
   // ---------- My Tests (attempt history) ----------
