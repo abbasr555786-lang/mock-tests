@@ -1,7 +1,7 @@
 /* JamiaPrep — Daily Challenge widget. Brand green/gold, matches lp-* system. */
-/* Top padding clears the hero stats bar, which overhangs via translateY(56px)
-   — mirrors the clearance #lp-programmes uses when it follows the hero. */
-.lp-daily { padding: 124px 20px 8px; }
+/* The launch-video section above now clears the hero stats-bar overhang,
+   so no extra top padding is needed here. */
+.lp-daily { padding: 0 20px 8px; }
 .lp-daily__inner { max-width: 720px; margin: 0 auto; }
 .dc-card { background:#fff; border:1px solid #e2ebe4; border-radius:16px;
   padding:22px 24px; box-shadow:0 8px 28px rgba(18,80,43,.10); }

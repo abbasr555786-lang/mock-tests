@@ -89,6 +89,11 @@
 }
 @media (max-width: 560px) {
   .lp-brand__word small { display: none; }
+  /* The shared .topbar__nav allows wrapping; inside the fixed-height header
+     that stacks links on top of each other — never wrap here. */
+  .lp-nav { flex-wrap: nowrap; }
+  /* Long text links can't fit next to the brand; both live in the footer too. */
+  .lp-nav__link[href="#/results"], .lp-nav__link[href="#/my-tests"] { display: none; }
   .lp-nav__link:not(.lp-nav__cta) { font-size: 13px; padding: 7px 9px; }
 }
 /* Very small phones (≤360px): keep the header row and hero title on-screen */
@@ -252,7 +257,9 @@
 /* ============================================================
    LAUNCH VIDEO — cinematic frame between hero and daily challenge
    ============================================================ */
-.lp-video { padding: 72px 0 0; }
+/* Top padding = 56px hero-stats overhang + 48px visual gap, so the visible
+   space above the video equals the 48px below it. */
+.lp-video { padding: 104px 0 48px; }
 .lp-video__frame {
   max-width: 900px; margin: 0 auto;
   border-radius: 18px; overflow: hidden;
