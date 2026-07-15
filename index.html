@@ -150,18 +150,32 @@
       <!-- ============ LAUNCH VIDEO ============ -->
       <section class="lp-section lp-video" id="lp-video" aria-label="JamiaPrep launch video">
         <div class="lp-section__inner">
-          <p class="lp-eyebrow">Watch</p>
-          <h2 class="lp-h2">JamiaPrep in <em>28 seconds</em></h2>
-          <p class="lp-lead">Every real JMI paper, timed like the real exam, scored the moment you finish — here's the whole story.</p>
           <div class="lp-video__frame">
-            <video class="lp-video__player" controls playsinline preload="metadata"
+            <video class="lp-video__player" autoplay muted loop playsinline preload="auto"
                    poster="assets/video/jamiaprep-launch-poster.jpg">
               <source src="assets/video/jamiaprep-launch.mp4" type="video/mp4" />
-              Your browser doesn't support embedded video.
-              <a href="assets/video/jamiaprep-launch.mp4">Download the video</a> instead.
             </video>
           </div>
         </div>
+        <script>
+          /* Ambient video: some browsers (low-power / data-saver) block or drop
+             muted autoplay — nudge playback whenever the video is in view. */
+          (function () {
+            var v = document.querySelector('#lp-video video');
+            if (!v) return;
+            v.muted = true; /* belt & braces for autoplay policies */
+            function nudge() { if (v.paused) v.play().catch(function () {}); }
+            if ('IntersectionObserver' in window) {
+              new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) { if (e.isIntersecting) nudge(); });
+              }, { threshold: 0.25 }).observe(v);
+            }
+            document.addEventListener('visibilitychange', function () {
+              if (!document.hidden) nudge();
+            });
+            nudge();
+          })();
+        </script>
       </section>
 
       <!-- ============ DAILY CHALLENGE ============ -->

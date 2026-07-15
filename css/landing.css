@@ -252,9 +252,9 @@
 /* ============================================================
    LAUNCH VIDEO — cinematic frame between hero and daily challenge
    ============================================================ */
-.lp-video { padding-bottom: 0; }
+.lp-video { padding: 72px 0 0; }
 .lp-video__frame {
-  max-width: 900px;
+  max-width: 900px; margin: 0 auto;
   border-radius: 18px; overflow: hidden;
   background: linear-gradient(160deg, var(--brand-700), #083b2c);
   border: 1px solid var(--accent-100);
