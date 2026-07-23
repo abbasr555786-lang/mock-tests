@@ -1508,6 +1508,42 @@
       },
     },
     {
+      id: 'jmi-ba-english',
+      name: 'JMI BA English',
+      slug: 'jmi-ba-english-entrance-exam',
+      tagline: 'Jamia Millia Islamia — BA (Hons.) English Entrance (Paper Code B02)',
+      sections: ['Literary History & Authors', 'Literary Terms & Devices', 'Comprehension', 'Grammar & Usage', 'General Awareness'],
+      info: {
+        dates: jmiDates('BA (Hons.) English entrance test — typically held in May/June 2026 (confirm the exact slot on your admit card)'),
+        application: jmiApplication('BA (Hons.) English'),
+        pattern: {
+          title: 'JMI BA (Hons.) English Entrance Exam Pattern',
+          type: 'University-level admission test — Part A objective MCQs + Part B descriptive (essay/short answers). JamiaPrep mocks cover the MCQ part.',
+          mode: 'Pen-and-paper / as notified',
+          languages: 'English',
+          durationMin: 90,
+          totalQuestions: 40,
+          totalMarks: 100,
+          marking: 'Part A: +1 per correct MCQ, −0.25 per wrong answer. Part B (60 marks) is descriptive and evaluated manually.',
+          sections: [
+            { name: 'Part A — Objective MCQs (literature, language & GK)', questions: 40, marks: 40 },
+            { name: 'Part B — Descriptive (not in online mocks)', questions: null, marks: 60 },
+          ],
+        },
+        eligibility: [
+          'Passed the 10+2 (Senior Secondary) examination, or equivalent, with the minimum aggregate marks specified in the JMI prospectus.',
+          'Candidates appearing in the qualifying examination may apply subject to meeting the eligibility before admission.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact eligibility criteria for BA (Hons.) English.',
+        ],
+        syllabus: [
+          { section: 'Literary History & Authors', topics: ['Major British & American authors and works', 'Indian writing in English', 'Literary movements & periods', 'Nobel/Booker and major literary awards'] },
+          { section: 'Literary Terms & Devices', topics: ['Figures of speech', 'Narrative techniques & forms', 'Poetic forms & metre', 'Drama & fiction terminology'] },
+          { section: 'Comprehension & Language', topics: ['Unseen passage comprehension', 'Vocabulary in context', 'Synonyms & antonyms'] },
+          { section: 'Grammar & Usage', topics: ['Tenses & verb forms', 'Prepositions & articles', 'Sentence correction', 'Idioms & phrases'] },
+        ],
+      },
+    },
+    {
       id: 'jmi-bcom-bba',
       name: 'JMI B.Com/BBA',
       slug: 'jmi-bcom-bba-entrance-exam',
@@ -1828,7 +1864,7 @@
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-bsc' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd' || e.id === 'jmi-massmedia-hindi');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-bsc' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd' || e.id === 'jmi-massmedia-hindi' || e.id === 'jmi-ba-english');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {

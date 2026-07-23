@@ -133,6 +133,7 @@
     'jmi-rca': 'rca',
     'jmi-phd': 'phd',
     'jmi-massmedia-hindi': 'pg',
+    'jmi-ba-english': 'ug',
   };
   /* Previous (single-bucket) JMI categories:
   const CATEGORY_ORDER = [
@@ -238,6 +239,7 @@
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-mba" href="#/exam/jmi-mba"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MBA CET</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-ballb" href="#/exam/jmi-ballb"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI BA LLB</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-bcom-bba" href="#/exam/jmi-bcom-bba"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI B.Com/BBA</span></a>' +
+        '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-ba-english" href="#/exam/jmi-ba-english"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI BA English</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-bsc" href="#/exam/jmi-bsc"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI BSc</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-mca" href="#/exam/jmi-mca"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI MCA</span></a>' +
         '<a class="sidebar__link sidebar__link--exam" data-nav="exam:jmi-class9" href="#/exam/jmi-class9"><span class="sidebar__tag sidebar__tag--ssc" aria-hidden="true">JMI</span><span>JMI Class 9</span></a>' +
@@ -677,8 +679,8 @@
   }
 
   // Exams given prime placement in the home-screen featured band, in order.
-  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-bcom-bba', 'jmi-bsc', 'jmi-mca', 'jmi-class9', 'jmi-class11-science', 'jmi-rca', 'jmi-phd', 'jmi-massmedia-hindi']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
-  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-bcom-bba': 'JMI', 'jmi-bsc': 'JMI', 'jmi-mca': 'JMI', 'jmi-class9': 'JMI', 'jmi-class11-science': 'JMI', 'jmi-rca': 'JMI', 'jmi-phd': 'JMI', 'jmi-massmedia-hindi': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
+  const FEATURED_EXAM_IDS = ['jmi-mba', 'jmi-ballb', 'jmi-bcom-bba', 'jmi-ba-english', 'jmi-bsc', 'jmi-mca', 'jmi-class9', 'jmi-class11-science', 'jmi-rca', 'jmi-phd', 'jmi-massmedia-hindi']; // JamiaPrep: JMI-only. Was ['jmi-mba','ssc-cgl','neet-ug'].
+  const FEATURED_BADGE = { 'jmi-mba': 'JMI', 'jmi-ballb': 'JMI', 'jmi-ba-english': 'JMI', 'jmi-bcom-bba': 'JMI', 'jmi-bsc': 'JMI', 'jmi-mca': 'JMI', 'jmi-class9': 'JMI', 'jmi-class11-science': 'JMI', 'jmi-rca': 'JMI', 'jmi-phd': 'JMI', 'jmi-massmedia-hindi': 'JMI', 'ssc-cgl': 'SSC', 'neet-ug': 'NEET' };
 
   function buildFeaturedCard(entry) {
     const counts = window.repo.catalogueCounts(entry.id);
@@ -1745,6 +1747,7 @@
     { id: 'jmi-mba',        label: 'JMI MBA CET' },
     { id: 'jmi-ballb',      label: 'JMI BA LLB' },
     { id: 'jmi-bcom-bba',   label: 'JMI B.Com/BBA' },
+    { id: 'jmi-ba-english', label: 'JMI BA English' },
     { id: 'jmi-bsc', label: 'JMI BSc' },
     { id: 'jmi-mca',        label: 'JMI MCA' },
     { id: 'jmi-class9',     label: 'JMI Class 9' },
