@@ -1544,6 +1544,44 @@
       },
     },
     {
+      id: 'jmi-ba-polsci',
+      name: 'JMI BA Political Science',
+      slug: 'jmi-ba-political-science-entrance-exam',
+      tagline: 'Jamia Millia Islamia — BA (Hons.) Political Science / BA Programme Entrance (Paper Code B05)',
+      sections: ['Indian Polity', 'History', 'Geography', 'Current Affairs', 'General Awareness'],
+      info: {
+        dates: jmiDates('BA (Hons.) Political Science / BA Programme entrance test — typically held in May/June 2026 (confirm the exact slot on your admit card)'),
+        application: jmiApplication('BA (Hons.) Political Science / BA Programme'),
+        pattern: {
+          title: 'JMI BA Political Science / BA Programme Entrance Exam Pattern',
+          type: 'University-level admission test — objective MCQs on polity, history, geography and general awareness',
+          mode: 'Pen-and-paper / as notified',
+          languages: 'English',
+          durationMin: 90,
+          totalQuestions: 100,
+          totalMarks: 100,
+          marking: '+1 for each correct answer, −0.25 for each wrong answer (no marks for unattempted).',
+          sections: [
+            { name: 'Indian Polity & Constitution', questions: null, marks: null },
+            { name: 'History & National Movement', questions: null, marks: null },
+            { name: 'Geography & Economy', questions: null, marks: null },
+            { name: 'Current Affairs & General Awareness', questions: null, marks: null },
+          ],
+        },
+        eligibility: [
+          'Passed the 10+2 (Senior Secondary) examination, or equivalent, with the minimum aggregate marks specified in the JMI prospectus.',
+          'Candidates appearing in the qualifying examination may apply subject to meeting the eligibility before admission.',
+          'Refer to the official Jamia Millia Islamia admission notification for the exact eligibility criteria.',
+        ],
+        syllabus: [
+          { section: 'Indian Polity', topics: ['Constitution & fundamental rights', 'Parliament & executive', 'Judiciary', 'Local government & federalism'] },
+          { section: 'History', topics: ['Indian national movement', 'Modern Indian history', 'World history basics'] },
+          { section: 'Geography & Economy', topics: ['Indian physical & political geography', 'Basic economic concepts', 'Government schemes'] },
+          { section: 'Current Affairs & GK', topics: ['National & international current affairs', 'Awards, books & authors', 'Sports', 'Static GK'] },
+        ],
+      },
+    },
+    {
       id: 'jmi-bcom-bba',
       name: 'JMI B.Com/BBA',
       slug: 'jmi-bcom-bba-entrance-exam',
@@ -1864,7 +1902,7 @@
   // kept intact; here we narrow the *live* catalogue to JMI entrance papers only.
   // To re-enable the other exams, remove this single filter line (and uncomment the
   // data-*.js <script> tags in index.html).
-  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-bsc' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd' || e.id === 'jmi-massmedia-hindi' || e.id === 'jmi-ba-english');
+  window.EXAM_CATALOGUE = window.EXAM_CATALOGUE.filter((e) => e.id === 'jmi-mba' || e.id === 'jmi-ballb' || e.id === 'jmi-bcom-bba' || e.id === 'jmi-bsc' || e.id === 'jmi-mca' || e.id === 'jmi-class9' || e.id === 'jmi-class11-science' || e.id === 'jmi-rca' || e.id === 'jmi-phd' || e.id === 'jmi-massmedia-hindi' || e.id === 'jmi-ba-english' || e.id === 'jmi-ba-polsci');
 
   // Map legacy `template` field → catalogue id when a test is missing examCatalogueId.
   window.TEMPLATE_TO_CATALOGUE = {
